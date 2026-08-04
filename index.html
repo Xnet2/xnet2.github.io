@@ -28,6 +28,8 @@
     --green-soft:#e3f6ea;
     --blue:#1666c2;
     --blue-soft:#e5f0fc;
+    --red:#d92d3f;
+    --red-soft:#fce7e9;
     --radius-lg:26px;
     --radius-md:16px;
   }
@@ -183,10 +185,12 @@
   /* row 3: wide + small */
   .card-a      { grid-column:1 / 5; grid-row:3; }
   .card-e      { grid-column:5 / 7; grid-row:3; }
+  /* row 4: channel banner, full width */
+  .card-f      { grid-column:1 / 7; grid-row:4; }
 
   @media (max-width:560px){
     .bento{grid-template-columns:1fr;}
-    .card-feature, .card-a, .card-b, .card-c, .card-d, .card-e{grid-column:1; grid-row:auto;}
+    .card-feature, .card-a, .card-b, .card-c, .card-d, .card-e, .card-f{grid-column:1; grid-row:auto;}
   }
 
   .tag{
@@ -201,6 +205,54 @@
   .tag-pink{color:var(--pink); background:var(--pink-soft);}
   .tag-green{color:var(--green); background:var(--green-soft);}
   .tag-blue{color:var(--blue); background:var(--blue-soft);}
+  .tag-red{color:var(--red); background:var(--red-soft);}
+
+  /* ---------- CHANNEL CARD (live updates) ---------- */
+  .card-channel{
+    flex-direction:row;
+    align-items:center;
+    gap:clamp(16px,3vw,32px);
+    background:linear-gradient(135deg, #17181d 0%, #1f2027 100%);
+    border-color:#17181d;
+    position:relative;
+    overflow:hidden;
+  }
+  .card-channel::before{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(600px 200px at 15% 0%, rgba(217,45,63,.25), transparent 60%);
+    pointer-events:none;
+  }
+  .card-channel .logo-plate{
+    background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.1);
+    min-height:64px; min-width:64px; flex:0 0 auto; margin-bottom:0;
+  }
+  .card-channel .logo-plate svg{width:30px; height:30px;}
+  .card-channel .channel-body{flex:1; min-width:220px;}
+  .card-channel h3{color:#fff;}
+  .card-channel p{color:#b7b9c4; margin-bottom:16px;}
+  .card-channel .card-link{color:#fff; border-bottom-color:#fff;}
+  .live-dot{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:.74rem; font-weight:700; letter-spacing:.04em;
+    color:#ff8b95; background:rgba(217,45,63,.16);
+    padding:5px 12px; border-radius:100px; margin-bottom:14px;
+    align-self:flex-start;
+  }
+  .live-dot::before{
+    content:''; width:7px; height:7px; border-radius:50%;
+    background:#ff4d5e;
+    box-shadow:0 0 0 0 rgba(255,77,94,.6);
+    animation:live-pulse 1.8s infinite;
+  }
+  @keyframes live-pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,77,94,.55);}
+    70%{box-shadow:0 0 0 9px rgba(255,77,94,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,77,94,0);}
+  }
+  @media (max-width:640px){
+    .card-channel{flex-direction:column; align-items:flex-start; text-align:right;}
+  }
 
   .logo-plate{
     background:#fafafc; border:1px solid var(--line); border-radius:var(--radius-md);
@@ -263,6 +315,7 @@
       <li><a href="#story">סטורי במייל</a></li>
       <li><a href="#derech-haaretz">דרך הארץ</a></li>
       <li><a href="#watsapp-phone">וואטסאפ פון</a></li>
+      <li><a href="#channel">ערוץ עדכונים</a></li>
     </ul>
   </nav>
 </header>
@@ -306,12 +359,16 @@
       <span class="tip">וואטסאפ פון</span>
       <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="וואטסאפ פון">
     </a>
+    <a href="#channel" class="dock-item" style="--ring:#d92d3f;">
+      <span class="tip">ערוץ עדכונים</span>
+      <img src="https://cdn-icons-png.flaticon.com/128/1827/1827392.png" alt="ערוץ עדכונים">
+    </a>
   </div>
 </div>
 
 <div class="section-head" id="grid">
   <h2>הפרויקטים</h2>
-  <span class="count">06 כלים פעילים</span>
+  <span class="count">07 כלים פעילים</span>
 </div>
 
 <section class="bento">
@@ -392,6 +449,24 @@
       לפתיחת המערכת
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+  </article>
+
+  <article class="card card-f card-channel" id="channel">
+    <div class="logo-plate">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#ff8b95" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8a6 6 0 0 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/>
+        <path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/>
+      </svg>
+    </div>
+    <div class="channel-body">
+      <span class="live-dot">עדכונים בזמן אמת</span>
+      <h3>הערוץ האישי שלי</h3>
+      <p>עדכונים שוטפים, הכרזות ומאחורי הקלעים על כל האתרים שאני בונה — ישר ממני, בלי סינון.</p>
+      <a href="https://xnet2.github.io/status" target="_blank" rel="noopener" class="card-link">
+        למעקב אחרי הערוץ
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </article>
 
 </section>

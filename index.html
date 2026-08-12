@@ -47,6 +47,21 @@
   ::selection{background:var(--indigo-soft);}
 
   /* ---------- NAV ---------- */
+  .announce-bar{
+    background:var(--ink); color:#e7e7ee;
+    text-align:center;
+    padding:10px 20px;
+    font-size:.82rem; font-weight:500; letter-spacing:.01em;
+  }
+  .announce-bar strong{font-weight:700; color:#fff;}
+  .announce-bar a{
+    font-weight:700; color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    padding-bottom:1px; margin-right:6px;
+    transition:border-color .2s ease;
+  }
+  .announce-bar a:hover{border-color:#fff;}
+
   header{
     position:sticky; top:0; z-index:60;
     display:flex; align-items:center; justify-content:space-between;
@@ -280,6 +295,65 @@
   .card-link:hover{gap:11px;}
   .card-link svg{transition:transform .2s ease;}
 
+  /* ---------- CONTACT MODAL ---------- */
+  .contact-overlay{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(19,20,23,.45);
+    backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+    opacity:0; pointer-events:none;
+    transition:opacity .22s ease;
+  }
+  .contact-overlay.open{opacity:1; pointer-events:auto;}
+  .contact-modal{
+    width:100%; max-width:440px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:clamp(24px,4vw,34px);
+    box-shadow:0 40px 80px -30px rgba(19,20,23,.35);
+    transform:translateY(16px) scale(.98);
+    transition:transform .22s ease;
+    max-height:90vh; overflow-y:auto;
+  }
+  .contact-overlay.open .contact-modal{transform:translateY(0) scale(1);}
+  .contact-modal-head{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:16px; margin-bottom:6px;
+  }
+  .contact-modal-head h3{font-size:1.35rem; font-weight:800; letter-spacing:-.01em;}
+  .contact-close{
+    width:32px; height:32px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--muted); background:#fafafc; border:1px solid var(--line);
+    cursor:pointer; flex:0 0 auto; transition:color .2s ease, border-color .2s ease;
+  }
+  .contact-close:hover{color:var(--ink); border-color:var(--muted-2);}
+  .contact-modal p.contact-sub{color:var(--muted); font-size:.9rem; margin-bottom:22px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block; font-size:.82rem; font-weight:700; color:var(--muted); margin-bottom:6px;}
+  .field input, .field textarea{
+    width:100%; font-family:inherit; font-size:.95rem; color:var(--ink);
+    background:#fafafc; border:1.5px solid var(--line); border-radius:var(--radius-md);
+    padding:11px 14px; transition:border-color .2s ease, background .2s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none; border-color:var(--indigo); background:var(--surface);
+  }
+  .field textarea{resize:vertical; min-height:90px; line-height:1.4;}
+  .contact-submit{
+    width:100%; justify-content:center; margin-top:6px;
+    background:var(--ink); color:#fff; border:none; cursor:pointer;
+  }
+  .contact-submit[disabled]{opacity:.6; cursor:default;}
+  .contact-status{
+    margin-top:12px; font-size:.85rem; font-weight:600; text-align:center;
+    min-height:1.2em;
+  }
+  .contact-status.ok{color:var(--green);}
+  .contact-status.err{color:var(--red);}
+
   /* ---------- FOOTER ---------- */
   footer{
     max-width:1180px; margin:0 auto; padding:36px clamp(20px,6vw,64px) 56px;
@@ -302,6 +376,11 @@
 </head>
 <body>
 
+<div class="announce-bar">
+  <strong>Xnet — פיתוח אתרים, כלים ותוספים בהתאמה אישית.</strong>
+  <a href="#" id="contact-topbar-link">לתיאום שיחה</a>
+</div>
+
 <header>
   <div class="brand">
     <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
@@ -316,6 +395,7 @@
       <li><a href="#derech-haaretz">דרך הארץ</a></li>
       <li><a href="#watsapp-phone">וואטסאפ פון</a></li>
       <li><a href="#channel">ערוץ עדכונים</a></li>
+      <li><a href="#" id="contact-nav-link">יצירת קשר</a></li>
     </ul>
   </nav>
 </header>
@@ -471,6 +551,38 @@
 
 </section>
 
+<div class="contact-overlay" id="contact-overlay">
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <div class="contact-modal-head">
+      <h3 id="contact-title">יצירת קשר</h3>
+      <div class="contact-close" id="contact-close" role="button" aria-label="סגירה">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <p class="contact-sub">לבירור פרטים על פיתוח אתר, כלי או תוסף בהתאמה אישית, מלאו את הפרטים הבאים ואחזור אליכם בהקדם.</p>
+    <form id="contact-form">
+      <div class="field">
+        <label for="cf-name">שם</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="cf-phone">טלפון</label>
+        <input type="tel" id="cf-phone" name="phone" required>
+      </div>
+      <div class="field">
+        <label for="cf-email">מייל</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="cf-message">הודעה</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn contact-submit" id="contact-submit">שליחת פנייה</button>
+      <div class="contact-status" id="contact-status"></div>
+    </form>
+  </div>
+</div>
+
 <footer id="footer-info">
   <div class="brand">
     <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
@@ -515,6 +627,64 @@
   }
   dock.addEventListener('mousemove', e => applyScale(e.clientX));
   dock.addEventListener('mouseleave', () => items.forEach(i => { i.style.transform='scale(1)'; i.style.boxShadow=''; }));
+
+  // ---------- contact modal ----------
+  // כתובת ה-Web App שמקבלים אחרי פריסת סקריפט Google Apps Script (ראו Code.gs)
+  const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycby2pvGgVqkQgGMwYGcZcMB4PM2eZcDfw-uEXNecsejIaRhACZAH6P2KnGmOVpqvAB1z/exec';
+
+  const overlay    = document.getElementById('contact-overlay');
+  const openLinks  = [document.getElementById('contact-nav-link'), document.getElementById('contact-topbar-link')];
+  const closeBtn   = document.getElementById('contact-close');
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit');
+  const statusEl  = document.getElementById('contact-status');
+
+  function openContact(ev){
+    if(ev) ev.preventDefault();
+    overlay.classList.add('open');
+  }
+  function closeContact(){
+    overlay.classList.remove('open');
+    statusEl.textContent = '';
+    statusEl.className = 'contact-status';
+  }
+
+  openLinks.forEach(el => el && el.addEventListener('click', openContact));
+  closeBtn.addEventListener('click', closeContact);
+  overlay.addEventListener('click', e => { if(e.target === overlay) closeContact(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeContact(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    statusEl.className = 'contact-status';
+    statusEl.textContent = 'שולח את הפנייה...';
+
+    const payload = {
+      name: document.getElementById('cf-name').value.trim(),
+      phone: document.getElementById('cf-phone').value.trim(),
+      email: document.getElementById('cf-email').value.trim(),
+      message: document.getElementById('cf-message').value.trim()
+    };
+
+    // no-cors: לא ניתן לקרוא את התשובה בפועל, לכן מניחים הצלחה
+    // אם הבקשה עצמה לא נזרקה לשגיאת רשת
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    }).then(() => {
+      statusEl.textContent = 'הפנייה נשלחה בהצלחה.';
+      statusEl.classList.add('ok');
+      form.reset();
+      setTimeout(closeContact, 1800);
+    }).catch(() => {
+      statusEl.textContent = 'אירעה שגיאה בשליחה. נא לנסות שוב.';
+      statusEl.classList.add('err');
+    }).finally(() => {
+      submitBtn.disabled = false;
+    });
+  });
 </script>
 
 </body>

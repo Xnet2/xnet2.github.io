@@ -73,10 +73,33 @@
   .brand{display:flex; align-items:center; gap:12px;}
   .brand img{height:38px; width:auto;}
   .brand span{font-weight:800; font-size:1.2rem; letter-spacing:-.01em;}
-  nav ul{display:flex; gap:clamp(14px,2.4vw,28px); list-style:none; flex-wrap:wrap;}
+  nav ul{display:flex; align-items:center; gap:clamp(14px,2.4vw,28px); list-style:none; flex-wrap:wrap;}
   nav a{font-size:.9rem; color:var(--muted); font-weight:600; transition:color .2s;}
   nav a:hover{color:var(--ink);}
   @media (max-width:640px){ nav ul{gap:12px;} nav a{font-size:.78rem;} }
+
+  /* ---------- NAV DROPDOWN ---------- */
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-trigger{display:inline-flex; align-items:center; gap:5px; cursor:pointer;}
+  .nav-dropdown-trigger svg{transition:transform .2s ease;}
+  .nav-dropdown.open .nav-dropdown-trigger svg{transform:rotate(180deg);}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink);}
+  .nav-dropdown-menu{
+    position:absolute; top:calc(100% + 16px); right:0; min-width:190px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+    box-shadow:0 24px 50px -18px rgba(19,20,23,.28);
+    padding:8px; display:flex; flex-direction:column; gap:2px;
+    opacity:0; pointer-events:none; transform:translateY(6px);
+    transition:opacity .18s ease, transform .18s ease;
+    z-index:70;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{opacity:1; pointer-events:auto; transform:translateY(0);}
+  .nav-dropdown-menu a{
+    display:block; padding:9px 12px; border-radius:9px;
+    font-size:.85rem; font-weight:600; color:var(--muted);
+    transition:background .15s ease, color .15s ease;
+  }
+  .nav-dropdown-menu a:hover{background:var(--indigo-soft); color:var(--indigo);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -197,15 +220,12 @@
   /* row 2: two medium */
   .card-d      { grid-column:1 / 4; grid-row:2; }
   .card-c      { grid-column:4 / 7; grid-row:2; }
-  /* row 3: wide + small */
-  .card-a      { grid-column:1 / 5; grid-row:3; }
-  .card-e      { grid-column:5 / 7; grid-row:3; }
-  /* row 4: channel banner, full width */
-  .card-f      { grid-column:1 / 7; grid-row:4; }
+  /* row 3: channel banner, full width */
+  .card-f      { grid-column:1 / 7; grid-row:3; }
 
   @media (max-width:560px){
     .bento{grid-template-columns:1fr;}
-    .card-feature, .card-a, .card-b, .card-c, .card-d, .card-e, .card-f{grid-column:1; grid-row:auto;}
+    .card-feature, .card-b, .card-c, .card-d, .card-f{grid-column:1; grid-row:auto;}
   }
 
   .tag{
@@ -354,6 +374,73 @@
   .contact-status.ok{color:var(--green);}
   .contact-status.err{color:var(--red);}
 
+  /* ---------- SERVICES ---------- */
+  .services{
+    max-width:1180px; margin:0 auto;
+    padding:0 clamp(20px,6vw,64px) clamp(60px,8vw,100px);
+  }
+  .services-wrap{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:clamp(26px,4vw,44px);
+    display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(24px,4vw,50px);
+    box-shadow:0 24px 60px -28px rgba(19,20,23,.16);
+  }
+  .services-intro h3{
+    font-size:clamp(1.3rem,2.3vw,1.7rem); font-weight:800;
+    letter-spacing:-.01em; margin-bottom:12px; line-height:1.2;
+  }
+  .services-intro p{color:var(--muted); font-size:.95rem; line-height:1.6; margin-bottom:22px;}
+  .services-intro .btn{width:fit-content;}
+  .services-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .service-item{
+    background:#fafafc; border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:18px; transition:border-color .2s ease, transform .2s ease;
+  }
+  .service-item:hover{border-color:var(--muted-2); transform:translateY(-2px);}
+  .service-icon{
+    width:38px; height:38px; border-radius:11px;
+    background:var(--indigo-soft); color:var(--indigo);
+    display:flex; align-items:center; justify-content:center; margin-bottom:12px;
+  }
+  .service-item h4{font-size:.96rem; font-weight:700; margin-bottom:6px;}
+  .service-item p{color:var(--muted); font-size:.82rem; line-height:1.45;}
+  @media (max-width:760px){
+    .services-wrap{grid-template-columns:1fr;}
+  }
+  @media (max-width:480px){
+    .services-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- PAYMENT ---------- */
+  .payment{
+    max-width:760px; margin:0 auto;
+    padding:0 clamp(20px,6vw,64px) clamp(60px,8vw,100px);
+  }
+  .payment-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:clamp(24px,4vw,36px);
+    box-shadow:0 24px 60px -28px rgba(19,20,23,.16);
+  }
+  .payment-sub{color:var(--muted); font-size:.92rem; line-height:1.6; margin-bottom:22px;}
+  .field-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .field-row .field{flex:1 1 160px;}
+  .field select{
+    width:100%; font-family:inherit; font-size:.95rem; color:var(--ink);
+    background:#fafafc; border:1.5px solid var(--line); border-radius:var(--radius-md);
+    padding:11px 14px; transition:border-color .2s ease, background .2s ease;
+  }
+  .field select:focus{outline:none; border-color:var(--indigo); background:var(--surface);}
+  .nedarim-frame-wrap{
+    margin:16px 0 18px;
+    border:1.5px solid var(--line); border-radius:var(--radius-md);
+    overflow:hidden; background:#fafafc;
+  }
+  .nedarim-frame-wrap iframe{width:100%; height:300px; border:0; display:block;}
+  .payment-secure-note{
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    margin-top:14px; font-size:.78rem; color:var(--muted-2); font-weight:600;
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     max-width:1180px; margin:0 auto; padding:36px clamp(20px,6vw,64px) 56px;
@@ -388,13 +475,21 @@
   </div>
   <nav>
     <ul>
-      <li><a href="#mairiv">מעייריב</a></li>
-      <li><a href="#netlink">נטלינק</a></li>
-      <li><a href="#netkash">נטקאש</a></li>
-      <li><a href="#story">סטורי במייל</a></li>
-      <li><a href="#derech-haaretz">דרך הארץ</a></li>
-      <li><a href="#watsapp-phone">וואטסאפ פון</a></li>
-      <li><a href="#channel">ערוץ עדכונים</a></li>
+      <li class="nav-dropdown" id="projects-dropdown">
+        <a href="#grid" class="nav-dropdown-trigger" id="projects-trigger">
+          פרויקטים
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" id="projects-menu">
+          <a href="#netlink">נטלינק</a>
+          <a href="#story">סטורי במייל</a>
+          <a href="#derech-haaretz">דרך הארץ</a>
+          <a href="#watsapp-phone">וואטסאפ פון</a>
+          <a href="#channel">ערוץ עדכונים</a>
+        </div>
+      </li>
+      <li><a href="#services">שירותי אתרים</a></li>
+      <li><a href="#payment">תשלום</a></li>
       <li><a href="#" id="contact-nav-link">יצירת קשר</a></li>
     </ul>
   </nav>
@@ -415,17 +510,9 @@
 
 <div class="dock-wrap">
   <div class="dock" id="dock">
-    <a href="#mairiv" class="dock-item" style="--ring:#4338ca;">
-      <span class="tip">מעייריב</span>
-      <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%9E%D7%A2%D7%99%D7%99%D7%A8%D7%99%D7%91.png" alt="מעייריב">
-    </a>
     <a href="#netlink" class="dock-item" style="--ring:#0d8f80;">
       <span class="tip">נטלינק</span>
       <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק">
-    </a>
-    <a href="#netkash" class="dock-item" style="--ring:#c9790e;">
-      <span class="tip">נטקאש</span>
-      <img src="https://raw.githubusercontent.com/Xnet2/netkash/main/logo.png" alt="נטקאש">
     </a>
     <a href="#story" class="dock-item" style="--ring:#c2266f;">
       <span class="tip">סטורי במייל</span>
@@ -448,25 +535,12 @@
 
 <div class="section-head" id="grid">
   <h2>הפרויקטים</h2>
-  <span class="count">07 כלים פעילים</span>
+  <span class="count">05 כלים פעילים</span>
 </div>
 
 <section class="bento">
 
-  <article class="card card-feature" id="mairiv">
-    <span class="tag tag-indigo">וידאו יומי אוטומטי</span>
-    <div class="logo-plate">
-      <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%9E%D7%A2%D7%99%D7%99%D7%A8%D7%99%D7%91.png" alt="מעייריב">
-    </div>
-    <h3>מעייריב</h3>
-    <p>כל ערב, אוטומטית, עולה מהדורת מעייריב האחרונה — עם נגן וידאו מקצועי ונוח בהשראת יוטיוב, והיסטוריה מלאה של מהדורות קודמות. לא צריך לגלול ברשת כדי למצוא את המהדורה של היום.</p>
-    <a href="https://xnet2.github.io/mairiv/" target="_blank" rel="noopener" class="card-link">
-      לצפייה במהדורות
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </article>
-
-  <article class="card card-d" id="derech-haaretz">
+  <article class="card card-feature" id="derech-haaretz">
     <span class="tag tag-green">מסלולים וטבע</span>
     <div class="logo-plate">
       <img src="https://res.cloudinary.com/dpsgd6esr/image/upload/v1785752770/ghcmqbdryluaunig43co.jpg" alt="דרך הארץ">
@@ -479,20 +553,7 @@
     </a>
   </article>
 
-  <article class="card card-b" id="netkash">
-    <span class="tag tag-amber">ניהול כספים</span>
-    <div class="logo-plate">
-      <img src="https://raw.githubusercontent.com/Xnet2/netkash/main/logo.png" alt="נטקאש">
-    </div>
-    <h3>נטקאש</h3>
-    <p>הוצאות, הכנסות ומזומן במקום אחד — כולל חישוב מעשרות ומעקב חובות.</p>
-    <a href="https://xnet2.github.io/netkash/" target="_blank" rel="noopener" class="card-link">
-      לניהול הכסף
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </article>
-
-  <article class="card card-c" id="story">
+  <article class="card card-b" id="story">
     <span class="tag tag-pink">תוסף לדפדפן</span>
     <div class="logo-plate">
       <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A1%D7%98%D7%95%D7%A8%D7%99.png" alt="סטורי במייל">
@@ -505,7 +566,7 @@
     </a>
   </article>
 
-  <article class="card card-a" id="netlink">
+  <article class="card card-d" id="netlink">
     <span class="tag tag-teal">לוח שיתופי</span>
     <div class="logo-plate">
       <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק">
@@ -518,7 +579,7 @@
     </a>
   </article>
 
-  <article class="card card-e" id="watsapp-phone">
+  <article class="card card-c" id="watsapp-phone">
     <span class="tag tag-blue">גישה קולית מהמחשב</span>
     <div class="logo-plate">
       <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="וואטסאפ פון">
@@ -549,6 +610,108 @@
     </div>
   </article>
 
+</section>
+
+<div class="section-head" id="services">
+  <h2>שירותי בניית אתרים</h2>
+  <span class="count">בהתאמה אישית</span>
+</div>
+
+<section class="services">
+  <div class="services-wrap">
+    <div class="services-intro">
+      <h3>אתר שנראה מקצועי, נבנה מהר, ועובד</h3>
+      <p>מעבר לפרויקטים העצמאיים שלמעלה, אני גם בונה אתרים בהזמנה אישית — מדף נחיתה פשוט ועד מערכת שלמה עם טפסים, תוכן דינמי וסליקת תשלומים. בלי תבניות מוכנות, עיצוב נקי ומודרני, וקוד שנבנה בדיוק לפי הצורך של הלקוח.</p>
+      <a href="#" class="btn btn-primary" id="services-contact-link">
+        לתיאום שיחת ייעוץ
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <h4>עיצוב מותאם אישית</h4>
+        <p>לא תבנית — עיצוב שנבנה סביב המותג, התוכן והקהל שלכם.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>אתר מהיר וקליל</h4>
+        <p>קוד נקי בלי עומס מיותר — טעינה מהירה גם במובייל וגם בגלישה איטית.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>טופס יצירת קשר ותשלומים</h4>
+        <p>טפסים חכמים, אינטגרציות וסליקת אשראי מוטמעת ישירות באתר — הכול במקום אחד.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>תמיכה וליווי</h4>
+        <p>גם אחרי שהאתר עולה לאוויר — עדכונים, תוספות ותיקונים בזמינות גבוהה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-head" id="payment">
+  <h2>תשלום וגבייה מאובטחים</h2>
+  <span class="count">סליקת אשראי · נדרים פלוס</span>
+</div>
+
+<section class="payment">
+  <div class="payment-card">
+    <p class="payment-sub">תשלום מאובטח בכרטיס אשראי, מוטמע ישירות באתר. פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס ולא עוברים ולא נשמרים בשרת של Xnet.</p>
+    <form id="payment-form">
+      <div class="field">
+        <label for="pf-name">שם מלא</label>
+        <input type="text" id="pf-name" name="pf-name" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-phone">טלפון</label>
+          <input type="tel" id="pf-phone" name="pf-phone" required>
+        </div>
+        <div class="field">
+          <label for="pf-mail">אימייל</label>
+          <input type="email" id="pf-mail" name="pf-mail">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-amount">סכום לתשלום (₪)</label>
+          <input type="number" id="pf-amount" name="pf-amount" min="1" step="1" required>
+        </div>
+        <div class="field">
+          <label for="pf-installments">מספר תשלומים</label>
+          <select id="pf-installments" name="pf-installments">
+            <option value="1">תשלום אחד</option>
+            <option value="2">2 תשלומים</option>
+            <option value="3">3 תשלומים</option>
+            <option value="6">6 תשלומים</option>
+            <option value="12">12 תשלומים</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="nedarim-frame-wrap">
+        <iframe id="NedarimFrame" title="פרטי כרטיס אשראי מאובטח — נדרים פלוס"></iframe>
+      </div>
+
+      <button type="submit" class="btn contact-submit" id="payment-submit">אישור וחיוב</button>
+      <div class="contact-status" id="payment-status"></div>
+      <div class="payment-secure-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        חיבור מוצפן, סליקה מאובטחת דרך נדרים פלוס
+      </div>
+    </form>
+  </div>
 </section>
 
 <div class="contact-overlay" id="contact-overlay">
@@ -633,7 +796,7 @@
   const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycby2pvGgVqkQgGMwYGcZcMB4PM2eZcDfw-uEXNecsejIaRhACZAH6P2KnGmOVpqvAB1z/exec';
 
   const overlay    = document.getElementById('contact-overlay');
-  const openLinks  = [document.getElementById('contact-nav-link'), document.getElementById('contact-topbar-link')];
+  const openLinks  = [document.getElementById('contact-nav-link'), document.getElementById('contact-topbar-link'), document.getElementById('services-contact-link')];
   const closeBtn   = document.getElementById('contact-close');
   const form      = document.getElementById('contact-form');
   const submitBtn = document.getElementById('contact-submit');
@@ -684,6 +847,91 @@
     }).finally(() => {
       submitBtn.disabled = false;
     });
+  });
+
+  // ---------- nav "פרויקטים" dropdown ----------
+  const projectsDropdown = document.getElementById('projects-dropdown');
+  const projectsTrigger  = document.getElementById('projects-trigger');
+
+  projectsTrigger.addEventListener('click', function(e){
+    e.preventDefault();
+    projectsDropdown.classList.toggle('open');
+  });
+  projectsDropdown.querySelectorAll('.nav-dropdown-menu a').forEach(a => {
+    a.addEventListener('click', () => projectsDropdown.classList.remove('open'));
+  });
+  document.addEventListener('click', function(e){
+    if(!projectsDropdown.contains(e.target)) projectsDropdown.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') projectsDropdown.classList.remove('open');
+  });
+
+  // ---------- nedarim plus — סליקת אשראי מוטמעת ----------
+  // מזהי המוסד/API של נדרים פלוס (Mosad / ApiValid) — לא סודיים, נדרשים ע"י שכבת ה-iframe עצמה
+  const NEDARIM_MOSAD    = '7011337';
+  const NEDARIM_API      = '2LR6bWRiJ+';
+  const NEDARIM_IFRAME_URL = 'https://www.matara.pro/nedarimplus/iframe/?language=he';
+
+  const nedarimFrame  = document.getElementById('NedarimFrame');
+  const paymentForm   = document.getElementById('payment-form');
+  const paymentSubmit = document.getElementById('payment-submit');
+  const paymentStatus = document.getElementById('payment-status');
+
+  // טוענים את ה-iframe המאובטח רק אחרי שהאזנה ל-postMessage כבר רשומה
+  setTimeout(() => { nedarimFrame.src = NEDARIM_IFRAME_URL; }, 300);
+
+  window.addEventListener('message', function(event){
+    const data = event.data;
+    if(!data || typeof data !== 'object' || !data.Name) return;
+
+    // ה-iframe מדווח על הגובה שלו כדי שנתאים את הגודל בעמוד
+    if(data.Name === 'Height' && data.Value){
+      nedarimFrame.style.height = data.Value + 'px';
+    }
+
+    // תגובת העסקה בסיום החיוב
+    if(data.Name === 'TransactionResponse'){
+      const res = data.Value || {};
+      paymentSubmit.disabled = false;
+      const success = res.Status === 'Success' || res.Status === 'OK' || res.Status === '1';
+      if(success){
+        paymentStatus.textContent = 'התשלום בוצע בהצלחה, תודה!';
+        paymentStatus.className = 'contact-status ok';
+        paymentForm.reset();
+      } else {
+        paymentStatus.textContent = res.Message || res.Hesbeer || 'העסקה לא הושלמה. נא לבדוק את הפרטים ולנסות שוב.';
+        paymentStatus.className = 'contact-status err';
+      }
+    }
+  });
+
+  paymentForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    paymentSubmit.disabled = true;
+    paymentStatus.className = 'contact-status';
+    paymentStatus.textContent = 'שולח לחיוב מאובטח...';
+
+    const chargeData = {
+      Mosad: NEDARIM_MOSAD,
+      ApiValid: NEDARIM_API,
+      PaymentType: 'Ragil',
+      Currency: '1',
+      Zeout: '',
+      FirstName: document.getElementById('pf-name').value.trim(),
+      LastName: '',
+      Street: '',
+      City: '',
+      Phone: document.getElementById('pf-phone').value.trim(),
+      Mail: document.getElementById('pf-mail').value.trim(),
+      Amount: document.getElementById('pf-amount').value.trim(),
+      Tashlumim: document.getElementById('pf-installments').value,
+      Groupe: '',
+      Comment: 'תשלום דרך אתר Xnet',
+      CallBack: ''
+    };
+
+    nedarimFrame.contentWindow.postMessage(chargeData, '*');
   });
 </script>
 

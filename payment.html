@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xnet תשלום</title>
+<title>Xnet תשלום ותרומה</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,14 +41,14 @@
   </nav>
 </header>
 
-<div class="section-head" style="margin-top:36px;">
-  <h2>תשלום וגבייה מאובטחים</h2>
-  <span class="count">סליקת אשראי · נדרים פלוס</span>
-</div>
-
-<section class="payment">
+<section class="payment payment-glow">
+  <div class="page-intro">
+    <span class="eyebrow eyebrow-amber">סליקה מאובטחת</span>
+    <h2 class="page-heading">תשלום או <span class="mark-amber">תרומה</span></h2>
+    <p class="page-lede">בין אם מדובר בתשלום עבור שירות שהזמנת ובין אם ברצון לתמוך בהמשך הפיתוח של הכלים באתר — הכל קורה כאן, בביטחון מלא.</p>
+  </div>
   <div class="payment-card">
-    <p class="payment-sub">תשלום מאובטח בכרטיס אשראי, מוטמע ישירות באתר. פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס ולא עוברים ולא נשמרים בשרת של Xnet.</p>
+    <p class="payment-sub">פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס, ולא עוברים ולא נשמרים בשרת של Xnet.</p>
     <form id="payment-form">
       <div class="field">
         <label for="pf-name">שם מלא</label>
@@ -66,8 +66,9 @@
       </div>
       <div class="field-row">
         <div class="field">
-          <label for="pf-amount">סכום לתשלום (₪)</label>
+          <label for="pf-amount">סכום (₪)</label>
           <input type="number" id="pf-amount" name="pf-amount" min="1" step="1" required>
+          <p class="field-hint">לתרומה ניתן להזין כל סכום לבחירתכם</p>
         </div>
         <div class="field">
           <label for="pf-installments">מספר תשלומים</label>

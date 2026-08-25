@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xnet יצירת קשר</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span>Xnet</span>
+  </a>
+  <nav>
+    <ul>
+      <li class="nav-dropdown" id="projects-dropdown">
+        <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+          פרויקטים
+          <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <div class="nav-dropdown-menu" id="projects-menu">
+          <a href="projects.html#netlink">נטלינק</a>
+          <a href="projects.html#story">סטורי במייל</a>
+          <a href="projects.html#derech-haaretz">דרך הארץ</a>
+          <a href="projects.html#watsapp-phone">וואטסאפ פון</a>
+          <a href="projects.html#channel">ערוץ עדכונים</a>
+        </div>
+      </li>
+      <li><a href="services.html">שירותי אתרים</a></li>
+      <li><a href="payment.html">תשלום</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="section-head" style="margin-top:36px;">
+  <h2>יצירת קשר</h2>
+</div>
+
+<section class="payment">
+  <div class="payment-card">
+    <div class="contact-page-head">
+      <h3>יצירת קשר</h3>
+      <p>לבירור פרטים על פיתוח אתר, כלי או תוסף בהתאמה אישית, מלאו את הפרטים הבאים ואחזור אליכם בהקדם.</p>
+    </div>
+    <form id="contact-form">
+      <div class="field">
+        <label for="cf-name">שם</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="cf-phone">טלפון</label>
+        <input type="tel" id="cf-phone" name="phone" required>
+      </div>
+      <div class="field">
+        <label for="cf-email">מייל</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="cf-message">הודעה</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn contact-submit" id="contact-submit">שליחת פנייה</button>
+      <div class="contact-status" id="contact-status"></div>
+    </form>
+  </div>
+</section>
+
+<footer id="footer-info">
+  <div class="brand">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span style="font-weight:800;">Xnet</span>
+  </div>
+  <p class="tagline">מישהו היה צריך לבנות את זה</p>
+  <div class="profile-links">
+    <a href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    </a>
+    <a href="https://mitmachim.top/user/dhoc979" target="_blank" rel="noopener" aria-label="מתמחים טופ" title="מתמחים טופ">
+      <img src="https://mitmachim.top/favicon.ico" alt="מתמחים טופ">
+    </a>
+  </div>
+  <p>© 2026 Xnet כל הפרויקטים נבנו ומופעלים באופן עצמאי.</p>
+</footer>
+
+<script>
+  // ---------- nav "פרויקטים" dropdown ----------
+  const projectsDropdown = document.getElementById('projects-dropdown');
+  const projectsArrow    = document.getElementById('projects-arrow');
+
+  function toggleProjectsDropdown(e){
+    e.preventDefault();
+    e.stopPropagation();
+    projectsDropdown.classList.toggle('open');
+  }
+  projectsArrow.addEventListener('click', toggleProjectsDropdown);
+  projectsArrow.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ toggleProjectsDropdown(e); }
+  });
+  document.addEventListener('click', function(e){
+    if(!projectsDropdown.contains(e.target)) projectsDropdown.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') projectsDropdown.classList.remove('open');
+  });
+
+  // ---------- contact form submission ----------
+  // כתובת ה-Web App שמקבלים אחרי פריסת סקריפט Google Apps Script (ראו Code.gs)
+  const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycby2pvGgVqkQgGMwYGcZcMB4PM2eZcDfw-uEXNecsejIaRhACZAH6P2KnGmOVpqvAB1z/exec';
+
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit');
+  const statusEl  = document.getElementById('contact-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    statusEl.className = 'contact-status';
+    statusEl.textContent = 'שולח את הפנייה...';
+
+    const payload = {
+      name: document.getElementById('cf-name').value.trim(),
+      phone: document.getElementById('cf-phone').value.trim(),
+      email: document.getElementById('cf-email').value.trim(),
+      message: document.getElementById('cf-message').value.trim()
+    };
+
+    // no-cors: לא ניתן לקרוא את התשובה בפועל, לכן מניחים הצלחה
+    // אם הבקשה עצמה לא נזרקה לשגיאת רשת
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    }).then(() => {
+      statusEl.textContent = 'הפנייה נשלחה בהצלחה.';
+      statusEl.classList.add('ok');
+      form.reset();
+    }).catch(() => {
+      statusEl.textContent = 'אירעה שגיאה בשליחה. נא לנסות שוב.';
+      statusEl.classList.add('err');
+    }).finally(() => {
+      submitBtn.disabled = false;
+    });
+  });
+</script>
+
+</body>
+</html>

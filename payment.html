@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xnet תשלום</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span>Xnet</span>
+  </a>
+  <nav>
+    <ul>
+      <li class="nav-dropdown" id="projects-dropdown">
+        <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+          פרויקטים
+          <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <div class="nav-dropdown-menu" id="projects-menu">
+          <a href="projects.html#netlink">נטלינק</a>
+          <a href="projects.html#story">סטורי במייל</a>
+          <a href="projects.html#derech-haaretz">דרך הארץ</a>
+          <a href="projects.html#watsapp-phone">וואטסאפ פון</a>
+          <a href="projects.html#channel">ערוץ עדכונים</a>
+        </div>
+      </li>
+      <li><a href="services.html">שירותי אתרים</a></li>
+      <li><a href="payment.html">תשלום</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="section-head" style="margin-top:36px;">
+  <h2>תשלום וגבייה מאובטחים</h2>
+  <span class="count">סליקת אשראי · נדרים פלוס</span>
+</div>
+
+<section class="payment">
+  <div class="payment-card">
+    <p class="payment-sub">תשלום מאובטח בכרטיס אשראי, מוטמע ישירות באתר. פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס ולא עוברים ולא נשמרים בשרת של Xnet.</p>
+    <form id="payment-form">
+      <div class="field">
+        <label for="pf-name">שם מלא</label>
+        <input type="text" id="pf-name" name="pf-name" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-phone">טלפון</label>
+          <input type="tel" id="pf-phone" name="pf-phone" required>
+        </div>
+        <div class="field">
+          <label for="pf-mail">אימייל</label>
+          <input type="email" id="pf-mail" name="pf-mail">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-amount">סכום לתשלום (₪)</label>
+          <input type="number" id="pf-amount" name="pf-amount" min="1" step="1" required>
+        </div>
+        <div class="field">
+          <label for="pf-installments">מספר תשלומים</label>
+          <select id="pf-installments" name="pf-installments">
+            <option value="1">תשלום אחד</option>
+            <option value="2">2 תשלומים</option>
+            <option value="3">3 תשלומים</option>
+            <option value="6">6 תשלומים</option>
+            <option value="12">12 תשלומים</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="nedarim-frame-wrap">
+        <iframe id="NedarimFrame" title="פרטי כרטיס אשראי מאובטח נדרים פלוס"></iframe>
+      </div>
+
+      <button type="submit" class="btn contact-submit" id="payment-submit">אישור וחיוב</button>
+      <div class="contact-status" id="payment-status"></div>
+      <div class="payment-secure-note">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        חיבור מוצפן, סליקה מאובטחת דרך נדרים פלוס
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer id="footer-info">
+  <div class="brand">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span style="font-weight:800;">Xnet</span>
+  </div>
+  <p class="tagline">מישהו היה צריך לבנות את זה</p>
+  <div class="profile-links">
+    <a href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    </a>
+    <a href="https://mitmachim.top/user/dhoc979" target="_blank" rel="noopener" aria-label="מתמחים טופ" title="מתמחים טופ">
+      <img src="https://mitmachim.top/favicon.ico" alt="מתמחים טופ">
+    </a>
+  </div>
+  <p>© 2026 Xnet כל הפרויקטים נבנו ומופעלים באופן עצמאי.</p>
+</footer>
+
+<script>
+  // ---------- nav "פרויקטים" dropdown ----------
+  const projectsDropdown = document.getElementById('projects-dropdown');
+  const projectsArrow    = document.getElementById('projects-arrow');
+
+  function toggleProjectsDropdown(e){
+    e.preventDefault();
+    e.stopPropagation();
+    projectsDropdown.classList.toggle('open');
+  }
+  projectsArrow.addEventListener('click', toggleProjectsDropdown);
+  projectsArrow.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ toggleProjectsDropdown(e); }
+  });
+  document.addEventListener('click', function(e){
+    if(!projectsDropdown.contains(e.target)) projectsDropdown.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') projectsDropdown.classList.remove('open');
+  });
+
+  // ---------- nedarim plus סליקת אשראי מוטמעת ----------
+  // מזהי המוסד/API של נדרים פלוס (Mosad / ApiValid) לא סודיים, נדרשים ע"י שכבת ה-iframe עצמה
+  const NEDARIM_MOSAD    = '7011337';
+  const NEDARIM_API      = '2LR6bWRiJ+';
+  const NEDARIM_IFRAME_URL = 'https://www.matara.pro/nedarimplus/iframe/?language=he';
+
+  const nedarimFrame  = document.getElementById('NedarimFrame');
+  const paymentForm   = document.getElementById('payment-form');
+  const paymentSubmit = document.getElementById('payment-submit');
+  const paymentStatus = document.getElementById('payment-status');
+
+  // טוענים את ה-iframe המאובטח רק אחרי שהאזנה ל-postMessage כבר רשומה
+  setTimeout(() => { nedarimFrame.src = NEDARIM_IFRAME_URL; }, 300);
+
+  window.addEventListener('message', function(event){
+    const data = event.data;
+    if(!data || typeof data !== 'object' || !data.Name) return;
+
+    // ה-iframe מדווח על הגובה שלו כדי שנתאים את הגודל בעמוד
+    if(data.Name === 'Height' && data.Value){
+      nedarimFrame.style.height = data.Value + 'px';
+    }
+
+    // תגובת העסקה בסיום החיוב
+    if(data.Name === 'TransactionResponse'){
+      const res = data.Value || {};
+      paymentSubmit.disabled = false;
+      const success = res.Status === 'Success' || res.Status === 'OK' || res.Status === '1';
+      if(success){
+        paymentStatus.textContent = 'התשלום בוצע בהצלחה, תודה!';
+        paymentStatus.className = 'contact-status ok';
+        paymentForm.reset();
+      } else {
+        paymentStatus.textContent = res.Message || res.Hesbeer || 'העסקה לא הושלמה. נא לבדוק את הפרטים ולנסות שוב.';
+        paymentStatus.className = 'contact-status err';
+      }
+    }
+  });
+
+  paymentForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    paymentSubmit.disabled = true;
+    paymentStatus.className = 'contact-status';
+    paymentStatus.textContent = 'שולח לחיוב מאובטח...';
+
+    const chargeData = {
+      Mosad: NEDARIM_MOSAD,
+      ApiValid: NEDARIM_API,
+      PaymentType: 'Ragil',
+      Currency: '1',
+      Zeout: '',
+      FirstName: document.getElementById('pf-name').value.trim(),
+      LastName: '',
+      Street: '',
+      City: '',
+      Phone: document.getElementById('pf-phone').value.trim(),
+      Mail: document.getElementById('pf-mail').value.trim(),
+      Amount: document.getElementById('pf-amount').value.trim(),
+      Tashlumim: document.getElementById('pf-installments').value,
+      Groupe: '',
+      Comment: 'תשלום דרך אתר Xnet',
+      CallBack: ''
+    };
+
+    nedarimFrame.contentWindow.postMessage(chargeData, '*');
+  });
+</script>
+
+</body>
+</html>

@@ -120,6 +120,8 @@
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(19,20,23,.4);}
   .btn-ghost{border-color:var(--line); color:var(--ink); background:var(--surface);}
   .btn-ghost:hover{border-color:var(--muted-2); transform:translateY(-2px);}
+  .btn-donate svg{color:var(--amber);}
+  .btn-donate:hover{border-color:var(--amber);}
   .btn svg{transition:transform .2s ease;}
   .btn:hover svg{transform:translateX(-3px);}
 
@@ -154,6 +156,7 @@
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none; transition:none;}
     .hero-glow .eyebrow, .hero-glow h1, .hero-glow p.lede, .hero-glow .hero-cta{animation:none;}
+    .payment-glow .eyebrow, .payment-glow .page-heading, .payment-glow .page-lede, .payment-glow .payment-card{animation:none;}
   }
 
   /* ---------- DOCK (signature element) ---------- */
@@ -422,8 +425,28 @@
   /* ---------- PAYMENT ---------- */
   .payment{
     max-width:760px; margin:0 auto;
-    padding:0 clamp(20px,6vw,64px) clamp(60px,8vw,100px);
+    padding:clamp(36px,6vw,56px) clamp(20px,6vw,64px) clamp(60px,8vw,100px);
+    position:relative; z-index:1;
   }
+  .payment-glow::before{
+    content:'';
+    position:absolute;
+    top:-40px; right:50%; transform:translateX(50%);
+    width:min(760px, 140vw); height:360px;
+    background:
+      radial-gradient(circle at 30% 35%, rgba(201,121,14,.18), transparent 60%),
+      radial-gradient(circle at 72% 55%, rgba(194,38,111,.14), transparent 58%);
+    filter:blur(46px);
+    z-index:-1;
+    pointer-events:none;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .payment-glow .eyebrow{animation:rise-in .6s ease both;}
+    .payment-glow .page-heading{animation:rise-in .6s .08s ease both;}
+    .payment-glow .page-lede{animation:rise-in .6s .16s ease both;}
+    .payment-glow .payment-card{animation:rise-in .6s .22s ease both;}
+  }
+  .field-hint{font-size:.78rem; color:var(--muted-2); margin-top:6px;}
   .payment-card{
     background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg);
     padding:clamp(24px,4vw,36px);
@@ -491,18 +514,27 @@
   .about-card .btn{margin-top:20px;}
 
   .eyebrow-teal{color:var(--teal); background:var(--teal-soft);}
-  .about-intro{
+  .eyebrow-amber{color:var(--amber); background:var(--amber-soft);}
+  .page-intro{
     text-align:center; margin-bottom:26px;
     display:flex; flex-direction:column; align-items:center;
   }
-  .about-heading{
+  .page-heading{
     font-size:clamp(1.75rem, 3.4vw, 2.5rem);
     font-weight:800; letter-spacing:-.015em; line-height:1.15;
   }
-  .about-heading .mark-teal{position:relative;}
-  .about-heading .mark-teal::after{
+  .page-heading .mark-teal,
+  .page-heading .mark-amber{position:relative;}
+  .page-heading .mark-teal::after,
+  .page-heading .mark-amber::after{
     content:''; position:absolute; right:0; left:0; bottom:.06em; height:.28em;
-    background:var(--teal); opacity:.18; z-index:-1; border-radius:6px;
+    z-index:-1; border-radius:6px;
+  }
+  .page-heading .mark-teal::after{background:var(--teal); opacity:.18;}
+  .page-heading .mark-amber::after{background:var(--amber); opacity:.22;}
+  .page-lede{
+    color:var(--muted); font-size:clamp(.95rem,1.3vw,1.02rem);
+    line-height:1.5; max-width:46ch; margin:10px auto 0;
   }
   .about-icon{
     width:46px; height:46px; border-radius:14px;

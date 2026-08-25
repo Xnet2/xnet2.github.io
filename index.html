@@ -41,7 +41,7 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero hero-glow">
   <div class="eyebrow">XNET · פרויקטים עצמאיים</div>
   <h1>Xnet. <span class="mark">מישהו היה צריך לבנות את זה.</span></h1>
   <p class="lede">כמה כלים שנולדו מתוך שעמום, קצת עקשנות, ובלי לשאול יותר מדי שאלות.</p>
@@ -55,7 +55,7 @@
 </section>
 
 <div class="dock-wrap">
-  <div class="dock" id="dock">
+  <div class="dock reveal" id="dock">
     <a href="projects.html#netlink" class="dock-item" style="--ring:#0d8f80;">
       <span class="tip">נטלינק</span>
       <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק">
@@ -79,12 +79,15 @@
   </div>
 </div>
 
-<div class="section-head" id="about">
-  <h2>אודות Xnet</h2>
-</div>
-
-<section class="about">
-  <div class="about-card">
+<section class="about" id="about">
+  <div class="about-intro reveal">
+    <span class="eyebrow eyebrow-teal">קצת רקע</span>
+    <h2 class="about-heading">אודות <span class="mark-teal">Xnet</span></h2>
+  </div>
+  <div class="about-card reveal">
+    <div class="about-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 4 3 12l5 8M16 4l5 8-5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
     <p>Xnet הוא פרויקט עצמאי: כלים, תוספים ואתרים שנבנים אחד אחד, בלי צוות גדול ובלי תקציב שיווק, רק כדי לפתור בעיה אמיתית שנתקלתי בה.</p>
     <p>כל כלי כאן נולד מתוך צורך שלי או של מישהו מהקהילה, ונשאר פתוח וזמין לכל מי שרוצה להשתמש בו. אם יש לך רעיון לכלי דומה, או שאת/ה מחפש/ת אתר בהתאמה אישית, אפשר פשוט ליצור קשר.</p>
     <a href="contact.html" class="btn btn-primary">
@@ -149,6 +152,22 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
+
+  // ---------- scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 </script>
 
 </body>

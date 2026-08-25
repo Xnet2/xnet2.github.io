@@ -123,6 +123,39 @@
   .btn svg{transition:transform .2s ease;}
   .btn:hover svg{transform:translateX(-3px);}
 
+  /* ---------- HERO AMBIENT GLOW (homepage) ---------- */
+  .hero-glow{position:relative; z-index:1;}
+  .hero-glow::before{
+    content:'';
+    position:absolute;
+    top:-140px; right:50%; transform:translateX(50%);
+    width:min(920px, 150vw); height:520px;
+    background:
+      radial-gradient(circle at 30% 35%, rgba(67,56,202,.20), transparent 60%),
+      radial-gradient(circle at 72% 60%, rgba(13,143,128,.18), transparent 58%);
+    filter:blur(50px);
+    z-index:-1;
+    pointer-events:none;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes rise-in{
+      from{opacity:0; transform:translateY(14px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+    .hero-glow .eyebrow{animation:rise-in .6s ease both;}
+    .hero-glow h1{animation:rise-in .6s .08s ease both;}
+    .hero-glow p.lede{animation:rise-in .6s .16s ease both;}
+    .hero-glow .hero-cta{animation:rise-in .6s .24s ease both;}
+  }
+
+  /* ---------- SCROLL REVEAL (homepage utility) ---------- */
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    .hero-glow .eyebrow, .hero-glow h1, .hero-glow p.lede, .hero-glow .hero-cta{animation:none;}
+  }
+
   /* ---------- DOCK (signature element) ---------- */
   .dock-wrap{
     display:flex; justify-content:center;
@@ -456,3 +489,24 @@
   .about-card p{color:var(--muted); font-size:.95rem; line-height:1.7;}
   .about-card p + p{margin-top:14px;}
   .about-card .btn{margin-top:20px;}
+
+  .eyebrow-teal{color:var(--teal); background:var(--teal-soft);}
+  .about-intro{
+    text-align:center; margin-bottom:26px;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .about-heading{
+    font-size:clamp(1.75rem, 3.4vw, 2.5rem);
+    font-weight:800; letter-spacing:-.015em; line-height:1.15;
+  }
+  .about-heading .mark-teal{position:relative;}
+  .about-heading .mark-teal::after{
+    content:''; position:absolute; right:0; left:0; bottom:.06em; height:.28em;
+    background:var(--teal); opacity:.18; z-index:-1; border-radius:6px;
+  }
+  .about-icon{
+    width:46px; height:46px; border-radius:14px;
+    background:var(--teal-soft); color:var(--teal);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }

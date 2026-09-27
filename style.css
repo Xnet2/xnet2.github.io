@@ -163,9 +163,12 @@
     .payment-glow .eyebrow, .payment-glow .page-heading, .payment-glow .page-lede, .payment-glow .payment-card{animation:none;}
   }
 
-  .dock-caption{
-    text-align:center; color:var(--muted-2); font-size:.84rem; font-weight:600;
-    max-width:520px; margin:0 auto; padding:0 20px;
+  .dock-caption{text-align:center; margin-bottom:16px;}
+  .dock-caption-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.78rem; font-weight:700; letter-spacing:.01em;
+    color:var(--muted); background:#eef0f4;
+    padding:6px 16px; border-radius:100px;
   }
 
   /* ---------- DOCK (signature element) ---------- */
@@ -428,6 +431,54 @@
   }
   .contact-status.ok{color:var(--green);}
   .contact-status.err{color:var(--red);}
+
+  /* ---------- PROMO (limited time offer) ---------- */
+  .promo-wrap{ max-width:1180px; margin:0 auto; padding:0 clamp(20px,6vw,64px) clamp(18px,3vw,26px); }
+  .promo-card{
+    position:relative; overflow:hidden;
+    background:linear-gradient(135deg, #1c1408 0%, #241a0d 100%);
+    border:1px solid #2b2110;
+    border-radius:var(--radius-lg);
+    padding:clamp(26px,4vw,40px);
+    display:flex; align-items:center; justify-content:space-between; gap:clamp(20px,4vw,40px);
+    flex-wrap:wrap;
+    box-shadow:0 30px 60px -30px rgba(19,20,23,.4);
+  }
+  .promo-card::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(560px 240px at 12% 8%, rgba(201,121,14,.35), transparent 60%);
+    pointer-events:none;
+  }
+  .promo-content{ position:relative; z-index:1; flex:1; min-width:240px; }
+  .promo-badge{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:.74rem; font-weight:700; letter-spacing:.04em;
+    color:#ffc670; background:rgba(201,121,14,.2);
+    padding:5px 12px; border-radius:100px; margin-bottom:14px;
+  }
+  .promo-dot{
+    width:7px; height:7px; border-radius:50%; background:#ffb238;
+    box-shadow:0 0 0 0 rgba(255,178,56,.6); animation:live-pulse 1.8s infinite;
+  }
+  .promo-title{ color:#fff; font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:800; margin-bottom:8px; letter-spacing:-.01em; line-height:1.25; }
+  .promo-text{ color:#c8c2b8; font-size:.92rem; line-height:1.55; max-width:46ch; }
+  .promo-price-box{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+    border-radius:var(--radius-md); padding:22px 30px; flex:0 0 auto;
+    text-align:center;
+  }
+  .promo-price{ color:#fff; font-size:2.5rem; font-weight:900; line-height:1; display:flex; align-items:baseline; gap:4px; }
+  .promo-currency{ font-size:1.2rem; font-weight:700; color:#ffc670; }
+  .promo-price-label{ color:#9a9488; font-size:.8rem; font-weight:600; }
+  .promo-cta.btn-primary{ background:#ffb238; color:#1c1408; margin-top:4px; }
+  .promo-cta.btn-primary:hover{ box-shadow:0 10px 24px -8px rgba(255,178,56,.5); }
+  @media (max-width:640px){
+    .promo-card{ flex-direction:column; text-align:center; }
+    .promo-content{ text-align:center; }
+    .promo-text{ margin:0 auto; }
+  }
 
   /* ---------- SERVICES ---------- */
   .services{

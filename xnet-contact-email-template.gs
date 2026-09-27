@@ -38,12 +38,14 @@ function buildContactEmailHtml(data) {
   +   '<tr><td align="center">'
   +     '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 20px 45px -20px rgba(19,20,23,.25);">'
 
+  // כותרת עליונה בגרדיאנט אינדיגו, ממורכזת
   +       '<tr><td style="background:linear-gradient(135deg,' + indigo + ',#6d5ef0);padding:36px 24px;text-align:center;">'
   +         '<img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" width="44" height="44" alt="Xnet" style="display:block;margin:0 auto 14px;">'
   +         '<div style="color:#ffffff;font-size:22px;font-weight:800;font-family:' + font + ';">הודעה חדשה מיצירת קשר</div>'
   +         '<div style="color:rgba(255,255,255,.82);font-size:13px;margin-top:6px;font-family:' + font + ';">התקבלה פנייה חדשה דרך אתר Xnet</div>'
   +       '</td></tr>'
 
+  // גוף עם פרטי הפנייה
   +       '<tr><td style="padding:32px 28px;">'
   +         fieldRow('שם', name, indigo, ink, font)
   +         fieldRow('טלפון', phone, indigo, ink, font)
@@ -51,6 +53,7 @@ function buildContactEmailHtml(data) {
   +         messageRow(message, indigo, ink, bg, font)
   +       '</td></tr>'
 
+  // פוטר
   +       '<tr><td style="padding:20px 28px 28px;border-top:1px solid ' + line + ';">'
   +         '<div style="color:' + muted + ';font-size:12px;text-align:center;font-family:' + font + ';">נשלח אוטומטית מטופס יצירת הקשר באתר Xnet</div>'
   +       '</td></tr>'

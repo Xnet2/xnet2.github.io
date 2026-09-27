@@ -53,6 +53,8 @@
   nav ul{display:flex; align-items:center; gap:clamp(14px,2.4vw,28px); list-style:none; flex-wrap:wrap;}
   nav a{font-size:.9rem; color:var(--muted); font-weight:600; transition:color .2s;}
   nav a:hover{color:var(--ink);}
+  nav a.nav-highlight{color:var(--ink);}
+  nav a.nav-highlight:hover{color:var(--indigo);}
   @media (max-width:640px){ nav ul{gap:12px;} nav a{font-size:.78rem;} }
 
   /* ---------- NAV DROPDOWN ---------- */
@@ -161,6 +163,11 @@
     .payment-glow .eyebrow, .payment-glow .page-heading, .payment-glow .page-lede, .payment-glow .payment-card{animation:none;}
   }
 
+  .dock-caption{
+    text-align:center; color:var(--muted-2); font-size:.84rem; font-weight:600;
+    max-width:520px; margin:0 auto; padding:0 20px;
+  }
+
   /* ---------- DOCK (signature element) ---------- */
   .dock-wrap{
     display:flex; justify-content:center;
@@ -259,12 +266,15 @@
   /* row 2: two medium */
   .card-d      { grid-column:1 / 4; grid-row:2; }
   .card-c      { grid-column:4 / 7; grid-row:2; }
-  /* row 3: channel banner, full width */
-  .card-f      { grid-column:1 / 7; grid-row:3; }
+  /* row 3: two medium (added tools) */
+  .card-a      { grid-column:1 / 4; grid-row:3; }
+  .card-e      { grid-column:4 / 7; grid-row:3; }
+  /* row 4: channel banner, full width */
+  .card-f      { grid-column:1 / 7; grid-row:4; }
 
   @media (max-width:560px){
     .bento{grid-template-columns:1fr;}
-    .card-feature, .card-b, .card-c, .card-d, .card-f{grid-column:1; grid-row:auto;}
+    .card-feature, .card-b, .card-c, .card-d, .card-a, .card-e, .card-f{grid-column:1; grid-row:auto;}
   }
 
   .tag{

@@ -432,48 +432,47 @@
   .contact-status.ok{color:var(--green);}
   .contact-status.err{color:var(--red);}
 
-  /* ---------- PROMO (limited time offer) ---------- */
-  .promo-wrap{ max-width:1180px; margin:0 auto; padding:0 clamp(20px,6vw,64px) clamp(18px,3vw,26px); }
+  /* ---------- PROMO (launch price) ---------- */
+  .promo-wrap{ max-width:1180px; margin:0 auto; padding:clamp(20px,3vw,28px) 0 0; }
   .promo-card{
     position:relative; overflow:hidden;
-    background:linear-gradient(135deg, #1c1408 0%, #241a0d 100%);
-    border:1px solid #2b2110;
+    background:var(--surface);
+    border:1px solid var(--line);
     border-radius:var(--radius-lg);
     padding:clamp(26px,4vw,40px);
     display:flex; align-items:center; justify-content:space-between; gap:clamp(20px,4vw,40px);
     flex-wrap:wrap;
-    box-shadow:0 30px 60px -30px rgba(19,20,23,.4);
+    box-shadow:0 24px 60px -28px rgba(19,20,23,.16);
   }
   .promo-card::before{
     content:''; position:absolute; inset:0;
-    background:radial-gradient(560px 240px at 12% 8%, rgba(201,121,14,.35), transparent 60%);
+    background:radial-gradient(560px 240px at 12% 8%, rgba(22,102,194,.14), transparent 60%);
     pointer-events:none;
   }
   .promo-content{ position:relative; z-index:1; flex:1; min-width:240px; }
   .promo-badge{
     display:inline-flex; align-items:center; gap:7px;
     font-size:.74rem; font-weight:700; letter-spacing:.04em;
-    color:#ffc670; background:rgba(201,121,14,.2);
+    color:var(--blue); background:var(--blue-soft);
     padding:5px 12px; border-radius:100px; margin-bottom:14px;
   }
   .promo-dot{
-    width:7px; height:7px; border-radius:50%; background:#ffb238;
-    box-shadow:0 0 0 0 rgba(255,178,56,.6); animation:live-pulse 1.8s infinite;
+    width:7px; height:7px; border-radius:50%; background:var(--blue);
+    box-shadow:0 0 0 0 rgba(22,102,194,.5); animation:live-pulse 1.8s infinite;
   }
-  .promo-title{ color:#fff; font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:800; margin-bottom:8px; letter-spacing:-.01em; line-height:1.25; }
-  .promo-text{ color:#c8c2b8; font-size:.92rem; line-height:1.55; max-width:46ch; }
+  .promo-title{ color:var(--ink); font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:800; margin-bottom:8px; letter-spacing:-.01em; line-height:1.25; }
+  .promo-text{ color:var(--muted); font-size:.92rem; line-height:1.55; max-width:46ch; }
   .promo-price-box{
     position:relative; z-index:1;
     display:flex; flex-direction:column; align-items:center; gap:10px;
-    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+    background:var(--blue-soft); border:1px solid var(--line);
     border-radius:var(--radius-md); padding:22px 30px; flex:0 0 auto;
     text-align:center;
   }
-  .promo-price{ color:#fff; font-size:2.5rem; font-weight:900; line-height:1; display:flex; align-items:baseline; gap:4px; }
-  .promo-currency{ font-size:1.2rem; font-weight:700; color:#ffc670; }
-  .promo-price-label{ color:#9a9488; font-size:.8rem; font-weight:600; }
-  .promo-cta.btn-primary{ background:#ffb238; color:#1c1408; margin-top:4px; }
-  .promo-cta.btn-primary:hover{ box-shadow:0 10px 24px -8px rgba(255,178,56,.5); }
+  .promo-price{ color:var(--ink); font-size:2.5rem; font-weight:900; line-height:1; display:flex; align-items:baseline; gap:4px; }
+  .promo-currency{ font-size:1.2rem; font-weight:700; color:var(--blue); }
+  .promo-price-label{ color:var(--muted); font-size:.8rem; font-weight:600; }
+  .promo-cta.btn-primary{ margin-top:4px; }
   @media (max-width:640px){
     .promo-card{ flex-direction:column; text-align:center; }
     .promo-content{ text-align:center; }

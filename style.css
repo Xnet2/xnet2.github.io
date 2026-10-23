@@ -943,3 +943,41 @@
 @media(max-width:640px){
   .bento .forum-link{font-size:.68rem;padding:7px 8px;gap:6px;}
 }
+
+
+/* ---------- PROJECT TYPE ICONS: left side of cards ---------- */
+.bento > .card{position:relative;padding-left:62px;}
+.bento .project-type-icon{
+  position:absolute;
+  left:14px;
+  top:16px;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  color:#5b6475;
+  background:#f1f3f7;
+  border:1px solid #e5e8ef;
+  z-index:2;
+}
+.bento .project-type-icon svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bento .project-type-icon.is-extension{
+  color:#6750a4;
+  background:#f0ebff;
+  border-color:#e2d9ff;
+}
+@media(max-width:640px){
+  .bento > .card{padding-left:54px;}
+  .bento .project-type-icon{left:10px;top:12px;width:28px;height:28px;border-radius:8px;}
+  .bento .project-type-icon svg{width:16px;height:16px;}
+}

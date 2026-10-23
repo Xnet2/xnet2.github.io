@@ -981,3 +981,28 @@
   .bento .project-type-icon{left:10px;top:12px;width:28px;height:28px;border-radius:8px;}
   .bento .project-type-icon svg{width:16px;height:16px;}
 }
+
+
+/* Refined recognizable globe and puzzle symbols */
+.bento .project-type-icon{
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  background:#f7f8fb;
+  border:1px solid #e5e7ef;
+  color:#657084;
+}
+.bento .project-type-icon svg{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bento .project-type-icon.is-extension{
+  color:#7155b7;
+  background:#f5f0ff;
+  border-color:#e5d9ff;
+}

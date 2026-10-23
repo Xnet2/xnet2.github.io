@@ -905,3 +905,41 @@
 @media(max-width:400px){
   .bento{grid-template-columns:1fr;}
 }
+
+
+/* ---------- MITMACHIM TOP THREAD BUTTON ---------- */
+.bento .forum-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:fit-content;
+  max-width:100%;
+  margin-top:10px;
+  padding:7px 10px;
+  border:1px solid #e1e4ec;
+  border-radius:10px;
+  background:#fff;
+  color:#4c5262;
+  font-family:inherit;
+  font-size:.72rem;
+  font-weight:700;
+  line-height:1.2;
+  text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.bento .forum-link:hover{
+  background:#f1f4f8;
+  border-color:#c8cedb;
+  transform:translateY(-1px);
+}
+.bento .forum-link img{
+  width:17px;
+  height:17px;
+  object-fit:contain;
+  border-radius:4px;
+  flex:0 0 17px;
+}
+@media(max-width:640px){
+  .bento .forum-link{font-size:.68rem;padding:7px 8px;gap:6px;}
+}

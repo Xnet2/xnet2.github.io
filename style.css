@@ -274,10 +274,12 @@
   .card-e      { grid-column:4 / 7; grid-row:3; }
   /* row 4: channel banner, full width */
   .card-f      { grid-column:1 / 7; grid-row:4; }
+  .card-g      { grid-column:4 / 7; grid-row:4; }
+  .card-channel{ grid-row:5; }
 
   @media (max-width:560px){
     .bento{grid-template-columns:1fr;}
-    .card-feature, .card-b, .card-c, .card-d, .card-a, .card-e, .card-f{grid-column:1; grid-row:auto;}
+    .card-feature, .card-b, .card-c, .card-d, .card-a, .card-e, .card-f, .card-g{grid-column:1; grid-row:auto;}
   }
 
   .tag{
@@ -349,7 +351,7 @@
   }
   .card-feature .logo-plate{min-height:100px;}
   .card-d .logo-plate, .card-c .logo-plate{min-height:70px;}
-  .card-a .logo-plate, .card-e .logo-plate{min-height:60px;}
+  .card-a .logo-plate, .card-e .logo-plate, .card-g .logo-plate{min-height:60px;}
   .card-b .logo-plate{min-height:0; padding:10px;}
   .logo-plate img{max-height:80px; width:auto; object-fit:contain;}
   .card-feature .logo-plate img{max-height:96px;}

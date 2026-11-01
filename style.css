@@ -26,7 +26,8 @@
     --radius-md:16px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  /* clip: ההילות הדקורטיביות (140vw) לא ירחיבו את המסך לרוחב בניידים, בלי לשבור את ה-header הדביק */
+  html{scroll-behavior:smooth; overflow-x:clip;}
   body{
     background:var(--bg);
     color:var(--ink);
@@ -639,6 +640,11 @@
   .gen-section-title:first-of-type{margin-top:0; padding-top:0; border-top:0;}
   .check-row{display:flex; align-items:center; gap:8px; font-size:.88rem; font-weight:600; color:var(--muted); margin-bottom:10px; cursor:pointer;}
   .check-row input{width:16px; height:16px; accent-color:var(--indigo);}
+  .check-row.test-toggle{
+    padding:10px 12px; margin-bottom:22px; border-radius:12px;
+    background:var(--amber-soft); color:var(--amber);
+  }
+  .field-row-tight .field{flex-basis:120px;}
   .method-chips{display:flex; flex-wrap:wrap; gap:8px 16px;}
   .method-chips .check-row{margin-bottom:0;}
   .gen-result{
@@ -661,6 +667,20 @@
   .gen-history-item button{
     font-family:inherit; font-size:.8rem; font-weight:700; cursor:pointer;
     background:var(--surface); border:1.5px solid var(--line); border-radius:10px; padding:6px 12px; color:var(--ink);
+  }
+  @media (max-width:560px){
+    .payment{padding-top:28px; padding-bottom:56px;}
+    .payment-card{padding:20px 16px; border-radius:20px;}
+    .payment-sub{font-size:.88rem; margin-bottom:18px;}
+    /* 16px מונע זום אוטומטי של iOS בפוקוס על שדה */
+    .field input, .field textarea, .field select, .gen-link{font-size:16px;}
+    .field-row{gap:0 12px;}
+    .pay-request{padding:14px;}
+    .gen-actions .btn{flex:1 1 auto; justify-content:center;}
+    .gen-history-item button{padding:8px 14px;}
+    .method-chips{gap:10px 14px;}
+    .check-row{align-items:flex-start; line-height:1.4;}
+    .check-row input{flex:0 0 auto; margin-top:2px;}
   }
   .test-badge{display:inline-block; font-size:.7rem; font-weight:800; color:var(--amber); background:var(--amber-soft); border-radius:6px; padding:1px 6px; margin-inline-start:6px;}
 

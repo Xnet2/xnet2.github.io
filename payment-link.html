@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Xnet יצירת קישור לתשלום</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span>Xnet</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="payment.html">תשלום</a></li>
+      <li><a href="contact.html">יצירת קשר</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="payment payment-glow">
+  <div class="page-intro">
+    <span class="eyebrow eyebrow-amber">כלי ניהול</span>
+    <h2 class="page-heading">יצירת <span class="mark-amber">קישור לתשלום</span></h2>
+    <p class="page-lede">מגדירים סכום ופרטים, מקבלים קישור ושולחים ללקוח. הלקוח רק בוחר אמצעי תשלום ומשלים. הסכום נעול בשרת של נדרים פלוס ולא ניתן לשינוי.</p>
+  </div>
+
+  <div class="payment-card">
+    <form id="gen-form">
+      <label class="check-row"><input type="checkbox" id="g-test"> מצב בדיקות (מוסד 0 של נדרים, ללא חיוב אמיתי)</label>
+
+      <div class="gen-section-title">מה רואה הלקוח</div>
+      <div class="field">
+        <label for="g-title">כותרת הבקשה</label>
+        <input type="text" id="g-title" maxlength="80" placeholder="לדוגמה: בניית דף נחיתה">
+      </div>
+      <div class="field">
+        <label for="g-desc">תיאור (לא חובה)</label>
+        <textarea id="g-desc" maxlength="400" placeholder="פירוט קצר שיוצג מעל אזור התשלום"></textarea>
+      </div>
+
+      <div class="gen-section-title">סכום ותשלומים</div>
+      <div class="field-row">
+        <div class="field">
+          <label for="g-amount">סכום</label>
+          <input type="number" id="g-amount" min="1" step="0.01" inputmode="decimal" required>
+        </div>
+        <div class="field">
+          <label for="g-currency">מטבע</label>
+          <select id="g-currency">
+            <option value="1">₪ שקל</option>
+            <option value="2">$ דולר</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="g-type">סוג חיוב</label>
+          <select id="g-type">
+            <option value="Ragil">חיוב רגיל / תשלומים</option>
+            <option value="HK">הוראת קבע חודשית</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="g-tashlumim" id="g-tashlumim-label">מספר תשלומים</label>
+          <input type="number" id="g-tashlumim" min="1" max="36" step="1" value="1">
+          <p class="field-hint" id="g-tashlumim-hint">הסכום מתחלק לפי מספר התשלומים</p>
+        </div>
+      </div>
+      <div class="field" id="g-maxpay-wrap">
+        <label for="g-maxpay">לאפשר ללקוח לבחור תשלומים עד</label>
+        <select id="g-maxpay">
+          <option value="">לא, מספר התשלומים קבוע</option>
+          <option value="2">2</option><option value="3">3</option><option value="4">4</option>
+          <option value="6">6</option><option value="10">10</option><option value="12">12</option>
+          <option value="24">24</option><option value="36">36</option>
+        </select>
+        <p class="field-hint">כשמופעל, הבחירה של הלקוח באזור התשלום היא הקובעת</p>
+      </div>
+
+      <div class="gen-section-title">פרטי הלקוח (לא חובה, מה שלא ימולא ייבקש מהלקוח לפי הצורך)</div>
+      <div class="field-row">
+        <div class="field"><label for="g-first">שם פרטי</label><input type="text" id="g-first" maxlength="50"></div>
+        <div class="field"><label for="g-last">שם משפחה</label><input type="text" id="g-last" maxlength="50"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="g-phone">טלפון</label><input type="tel" id="g-phone" maxlength="20" inputmode="tel"></div>
+        <div class="field"><label for="g-mail">אימייל</label><input type="email" id="g-mail" maxlength="50"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="g-zeout">תעודת זהות</label><input type="text" id="g-zeout" maxlength="9" inputmode="numeric"></div>
+        <div class="field"><label for="g-city">עיר</label><input type="text" id="g-city" maxlength="100"></div>
+        <div class="field"><label for="g-street">רחוב</label><input type="text" id="g-street" maxlength="100"></div>
+      </div>
+
+      <div class="gen-section-title">רישום בנדרים פלוס</div>
+      <div class="field-row">
+        <div class="field"><label for="g-groupe">קטגוריה</label><input type="text" id="g-groupe" maxlength="100"></div>
+        <div class="field"><label for="g-param2">מזהה הזמנה (Param2)</label><input type="text" id="g-param2" maxlength="100" placeholder="ייווצר אוטומטית"></div>
+      </div>
+      <div class="field">
+        <label for="g-comment">הערות פנימיות</label>
+        <input type="text" id="g-comment" maxlength="300" placeholder="ללא קישורים">
+      </div>
+
+      <div class="gen-section-title">אזור התשלום</div>
+      <div class="field">
+        <label>אמצעי תשלום מותרים</label>
+        <div class="method-chips" id="g-methods">
+          <label class="check-row"><input type="checkbox" value="Card" checked> כרטיס אשראי</label>
+          <label class="check-row"><input type="checkbox" value="GooglePay" checked> Google Pay</label>
+          <label class="check-row"><input type="checkbox" value="ApplePay" checked> Apple Pay</label>
+          <label class="check-row"><input type="checkbox" value="Bit" checked> ביט</label>
+          <label class="check-row"><input type="checkbox" value="DigitalTransfer" checked> העברה בקליק</label>
+        </div>
+        <p class="field-hint">ביט והעברה בקליק מוצגים רק בשקלים, בתשלום אחד ובחיוב רגיל</p>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="g-button">טקסט כפתור התשלום</label><input type="text" id="g-button" maxlength="40" value="תשלום"></div>
+        <div class="field"><label for="g-callback">כתובת Webhook (לא חובה)</label><input type="url" id="g-callback" maxlength="1000" dir="ltr" placeholder="https://..."></div>
+      </div>
+      <label class="check-row"><input type="checkbox" id="g-receipt"> אני מפיק קבלה בעצמי (נדרים לא תפיק קבלה)</label>
+
+      <button type="submit" class="btn contact-submit" id="gen-submit">
+        יצירת קישור לתשלום
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="contact-status" id="gen-status"></div>
+    </form>
+
+    <div class="gen-result" id="gen-result" hidden>
+      <div class="gen-result-label" id="gen-result-label">הקישור מוכן</div>
+      <input type="text" class="gen-link" id="gen-link" readonly>
+      <div class="gen-actions">
+        <button type="button" class="btn btn-primary" id="gen-copy">העתקה</button>
+        <a class="btn btn-ghost" id="gen-whatsapp" target="_blank" rel="noopener">שליחה בוואטסאפ</a>
+        <a class="btn btn-ghost" id="gen-open" target="_blank" rel="noopener">פתיחה</a>
+      </div>
+    </div>
+
+    <div class="gen-history" id="gen-history" hidden>
+      <div class="gen-section-title">קישורים אחרונים (נשמרים רק בדפדפן הזה)</div>
+      <div id="gen-history-list"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ---------- nedarim plus: הקמת עסקה מראש (CreateTransaction) ----------
+  // ApiValid לא סודי: הוא מאפשר רק לפתוח עסקה לתשלום, לא למשוך מידע
+  const ACCOUNTS = {
+    live: { Mosad: '7011337', ApiValid: '2LR6bWRiJ+' },
+    test: { Mosad: '0',       ApiValid: 'j+iyEFN3bE' }
+  };
+  const CREATE_URL  = 'https://matara.pro/nedarimplus/V6/Files/WebServices/DebitIframe.aspx?Action=CreateTransaction';
+  const HISTORY_KEY = 'xnet-payment-links';
+
+  const $ = id => document.getElementById(id);
+  const genForm   = $('gen-form');
+  const genSubmit = $('gen-submit');
+  const genStatus = $('gen-status');
+
+  function setStatus(text, cls){
+    genStatus.textContent = text || '';
+    genStatus.className = 'contact-status' + (cls ? ' ' + cls : '');
+  }
+
+  // תשלומים / חודשים לפי סוג החיוב
+  function syncType(){
+    const hk = $('g-type').value === 'HK';
+    $('g-tashlumim-label').textContent = hk ? 'מספר חודשים' : 'מספר תשלומים';
+    $('g-tashlumim-hint').textContent  = hk ? 'ריק = ללא הגבלה. הסכום ייגבה כל חודש' : 'הסכום מתחלק לפי מספר התשלומים';
+    $('g-tashlumim').min   = hk ? '' : '1';
+    $('g-tashlumim').value = hk ? '' : ($('g-tashlumim').value || '1');
+    $('g-maxpay-wrap').hidden = hk;
+    if(hk) $('g-maxpay').value = '';
+  }
+  $('g-type').addEventListener('change', syncType);
+
+  function buildLink(tx, form){
+    const url = new URL('payment.html', location.href);
+    url.search = '';
+    const p = url.searchParams;
+    p.set('tid', tx.ID);
+    p.set('key', tx.Key);
+    if(form.title) p.set('t', form.title);
+    if(form.desc)  p.set('d', form.desc);
+    if(form.methods) p.set('m', form.methods);
+    if(form.button && form.button !== 'תשלום') p.set('b', form.button);
+    if(form.maxPay) p.set('mp', form.maxPay);
+    return url.toString();
+  }
+
+  function showLink(link, label){
+    $('gen-result').hidden = false;
+    $('gen-result-label').textContent = label;
+    $('gen-link').value = link;
+    $('gen-open').href = link;
+    $('gen-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent('קישור לתשלום מאובטח:\n' + link);
+    $('gen-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ---------- היסטוריה מקומית ----------
+  function readHistory(){
+    try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch(e){ return []; }
+  }
+  function saveHistory(list){
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, 30))); } catch(e){}
+  }
+  function renderHistory(){
+    const list = readHistory();
+    $('gen-history').hidden = !list.length;
+    const box = $('gen-history-list');
+    box.textContent = '';
+    list.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'gen-history-item';
+      const info = document.createElement('div');
+      const name = document.createElement('div');
+      name.textContent = (item.title || 'קישור לתשלום') + ' · ' + item.amount;
+      if(item.test){
+        const b = document.createElement('span');
+        b.className = 'test-badge'; b.textContent = 'בדיקה';
+        name.appendChild(b);
+      }
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = new Date(item.at).toLocaleString('he-IL') + ' · עסקה ' + item.id;
+      info.append(name, meta);
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.textContent = 'הצגה';
+      btn.addEventListener('click', () => showLink(item.link, 'הקישור: ' + (item.title || item.amount)));
+      row.append(info, btn);
+      box.appendChild(row);
+    });
+  }
+  renderHistory();
+
+  genForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const test = $('g-test').checked;
+    const acc  = test ? ACCOUNTS.test : ACCOUNTS.live;
+    const type = $('g-type').value;
+    const comment = $('g-comment').value.trim();
+    if(/http|www|<img|src=/i.test(comment)){
+      setStatus('אסור לכלול קישורים בהערות', 'err');
+      return;
+    }
+    const methods = Array.from(document.querySelectorAll('#g-methods input:checked')).map(i => i.value);
+    if(!methods.length){
+      setStatus('יש לבחור לפחות אמצעי תשלום אחד', 'err');
+      return;
+    }
+
+    const form = {
+      title: $('g-title').value.trim(),
+      desc: $('g-desc').value.trim(),
+      methods: methods.length === 5 ? '' : methods.join(','),
+      button: $('g-button').value.trim(),
+      maxPay: type === 'Ragil' ? $('g-maxpay').value : ''
+    };
+    const amount = $('g-amount').value.trim();
+    const param2 = $('g-param2').value.trim() || 'XNET-LINK-' + Date.now();
+    const callback = $('g-callback').value.trim();
+
+    const body = new URLSearchParams({
+      Mosad: acc.Mosad,
+      ApiValid: acc.ApiValid,
+      PaymentType: type,
+      Currency: $('g-currency').value,
+      Amount: amount,
+      Tashlumim: $('g-tashlumim').value.trim(),
+      FirstName: $('g-first').value.trim(),
+      LastName: $('g-last').value.trim(),
+      Phone: $('g-phone').value.replace(/\D/g, ''),
+      Mail: $('g-mail').value.trim(),
+      Zeout: $('g-zeout').value.replace(/\D/g, ''),
+      City: $('g-city').value.trim(),
+      Street: $('g-street').value.trim(),
+      Groupe: $('g-groupe').value.trim(),
+      Comment: comment,
+      Param2: param2,                 // לא Param1: הוא מסתיר את ביט והעברה בקליק
+      CallBack: callback,
+      ThirdPartyReceipt: $('g-receipt').checked ? '1' : '',
+      AjaxId: Date.now() + '-' + Math.random().toString(36).slice(2, 8)
+    });
+
+    genSubmit.disabled = true;
+    setStatus('יוצר עסקה בנדרים פלוס...');
+    try {
+      const res = await fetch(CREATE_URL, { method: 'POST', body });
+      const tx = await res.json();
+      if(tx.Status !== 'OK' || !tx.ID || !tx.Key){
+        setStatus(tx.Message || 'יצירת העסקה נכשלה', 'err');
+        return;
+      }
+      const link = buildLink(tx, form);
+      const amountLabel = ($('g-currency').value === '2' ? '$' : '₪') + amount + (type === 'HK' ? ' לחודש' : '');
+      setStatus('');
+      showLink(link, 'הקישור מוכן' + (test ? ' (מצב בדיקות)' : '') + ' · ' + amountLabel);
+      const list = readHistory();
+      list.unshift({ id: tx.ID, link, title: form.title, amount: amountLabel, test, at: Date.now() });
+      saveHistory(list);
+      renderHistory();
+    } catch(err){
+      setStatus('אין חיבור לנדרים פלוס. נסו שוב.', 'err');
+    } finally {
+      genSubmit.disabled = false;
+    }
+  });
+
+  $('gen-copy').addEventListener('click', async function(){
+    const link = $('gen-link').value;
+    try { await navigator.clipboard.writeText(link); }
+    catch(e){ $('gen-link').select(); document.execCommand('copy'); }
+    this.textContent = 'הועתק!';
+    setTimeout(() => { this.textContent = 'העתקה'; }, 1600);
+  });
+</script>
+
+</body>
+</html>

@@ -47,26 +47,32 @@
     <p class="page-lede">בין אם מדובר בתשלום עבור שירות שהזמנת ובין אם ברצון לתמוך בהמשך הפיתוח של הכלים באתר, הכל קורה כאן בביטחון מלא.</p>
   </div>
   <div class="payment-card">
-    <p class="payment-sub">פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס, ולא עוברים ולא נשמרים בשרת של Xnet.</p>
+    <!-- בקשת תשלום שנשלחה בקישור (payment.html?tid=...&key=...) -->
+    <div class="pay-request" id="pay-request" hidden>
+      <div class="pay-request-title" id="pay-request-title">בקשת תשלום</div>
+      <div class="pay-request-desc" id="pay-request-desc"></div>
+    </div>
+
+    <p class="payment-sub" id="payment-sub">פרטי האשראי מוזנים בתוך אזור מאובטח של נדרים פלוס, ולא עוברים ולא נשמרים בשרת של Xnet. אפשר לשלם בכרטיס אשראי, Google Pay, Apple Pay, ביט או העברה בנקאית.</p>
     <form id="payment-form">
       <div class="field">
         <label for="pf-name">שם מלא</label>
-        <input type="text" id="pf-name" name="pf-name" required>
+        <input type="text" id="pf-name" name="pf-name" autocomplete="name" required>
       </div>
       <div class="field-row">
         <div class="field">
           <label for="pf-phone">טלפון</label>
-          <input type="tel" id="pf-phone" name="pf-phone" required>
+          <input type="tel" id="pf-phone" name="pf-phone" autocomplete="tel" inputmode="tel" required>
         </div>
         <div class="field">
           <label for="pf-mail">אימייל</label>
-          <input type="email" id="pf-mail" name="pf-mail">
+          <input type="email" id="pf-mail" name="pf-mail" autocomplete="email">
         </div>
       </div>
       <div class="field-row">
         <div class="field">
           <label for="pf-amount">סכום (₪)</label>
-          <input type="number" id="pf-amount" name="pf-amount" min="1" step="1" required>
+          <input type="number" id="pf-amount" name="pf-amount" min="1" step="1" inputmode="decimal" required>
           <p class="field-hint">לתרומה ניתן להזין כל סכום לבחירתכם</p>
         </div>
         <div class="field">
@@ -78,23 +84,37 @@
             <option value="6">6 תשלומים</option>
             <option value="12">12 תשלומים</option>
           </select>
+          <p class="field-hint">ביט והעברה בקליק זמינים בתשלום אחד</p>
         </div>
       </div>
 
-      <div class="nedarim-frame-wrap">
-        <iframe id="NedarimFrame" title="פרטי כרטיס אשראי מאובטח נדרים פלוס"></iframe>
-      </div>
-
       <button type="submit" class="btn contact-submit" id="payment-submit">
-        אישור וחיוב
+        המשך לבחירת אמצעי תשלום
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="contact-status" id="payment-status"></div>
-      <div class="payment-secure-note">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        חיבור מוצפן, סליקה מאובטחת דרך נדרים פלוס
-      </div>
     </form>
+
+    <!-- אייפרם נדרים פלוס, שיטה 3: התורם בוחר אמצעי תשלום ומשלם בתוך האייפרם -->
+    <div class="nedarim-frame-wrap v3" id="frame-wrap" hidden>
+      <div class="frame-loading" id="frame-loading">טוען אזור תשלום מאובטח...</div>
+      <iframe id="NedarimFrame" allow="payment" scrolling="no" loading="eager" title="תשלום מאובטח נדרים פלוס"></iframe>
+    </div>
+
+    <div class="pay-result" id="pay-result" hidden>
+      <div class="pay-result-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>התשלום בוצע בהצלחה</h3>
+      <p id="pay-result-text">תודה רבה!</p>
+      <p class="pay-ref" id="pay-result-ref"></p>
+      <button type="button" class="btn btn-ghost" id="pay-again" hidden>לתשלום נוסף</button>
+    </div>
+
+    <div class="contact-status" id="payment-status"></div>
+    <div class="payment-secure-note">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      חיבור מוצפן, סליקה מאובטחת דרך נדרים פלוס
+    </div>
   </div>
 </section>
 
@@ -136,71 +156,175 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 
-  // ---------- nedarim plus סליקת אשראי מוטמעת ----------
+  // ---------- nedarim plus: אייפרם שיטה 3 (iframe/v3) ----------
   // מזהי המוסד/API של נדרים פלוס (Mosad / ApiValid) לא סודיים, נדרשים ע"י שכבת ה-iframe עצמה
-  const NEDARIM_MOSAD    = '7011337';
-  const NEDARIM_API      = '2LR6bWRiJ+';
-  const NEDARIM_IFRAME_URL = 'https://www.matara.pro/nedarimplus/iframe/?language=he';
+  const NEDARIM_MOSAD      = '7011337';
+  const NEDARIM_API        = '2LR6bWRiJ+';
+  // חובה עם www, אחרת חלון Google Pay נסגר מיד
+  const NEDARIM_IFRAME_URL = 'https://www.matara.pro/nedarimplus/iframe/v3/?language=he';
 
   const nedarimFrame  = document.getElementById('NedarimFrame');
+  const frameWrap     = document.getElementById('frame-wrap');
+  const frameLoading  = document.getElementById('frame-loading');
   const paymentForm   = document.getElementById('payment-form');
+  const paymentSub    = document.getElementById('payment-sub');
   const paymentSubmit = document.getElementById('payment-submit');
   const paymentStatus = document.getElementById('payment-status');
+  const payResult     = document.getElementById('pay-result');
 
-  // טוענים את ה-iframe המאובטח רק אחרי שהאזנה ל-postMessage כבר רשומה
-  setTimeout(() => { nedarimFrame.src = NEDARIM_IFRAME_URL; }, 300);
+  // מצב קישור תשלום (נוצר ב-payment-link.html): עסקה שהוקמה מראש, הסכום נעול בשרת של נדרים
+  const urlParams = new URLSearchParams(location.search);
+  const linkTx = urlParams.get('tid') && urlParams.get('key') ? {
+    TransactionId: urlParams.get('tid'),
+    Key: urlParams.get('key'),
+    Methods: urlParams.get('m') || '',
+    ButtonText: urlParams.get('b') || 'תשלום'
+  } : null;
 
+  const maxPayments = urlParams.get('mp');
+  const FRAME_SRC = NEDARIM_IFRAME_URL + (maxPayments ? '&MaxPayments=' + encodeURIComponent(maxPayments) : '');
+
+  let pendingPayment = null;   // נשלח לאייפרם ב-StartPayment כשהוא מדווח Ready
+
+  function PostNedarim(data){
+    nedarimFrame.contentWindow.postMessage(data, '*');
+  }
+
+  function setStatus(text, cls){
+    paymentStatus.textContent = text || '';
+    paymentStatus.className = 'contact-status' + (cls ? ' ' + cls : '');
+  }
+
+  function showStage(stage){
+    paymentForm.hidden = stage !== 'form';
+    paymentSub.hidden  = stage !== 'form';
+    frameWrap.hidden   = stage !== 'frame';
+    payResult.hidden   = stage !== 'result';
+  }
+
+  // כמו בדף הדוגמא של נדרים: מציגים את האזור, טוענים את האייפרם מחדש,
+  // ושולחים StartPayment רק אחרי אירוע Ready
+  function openPayment(value){
+    pendingPayment = value;
+    setStatus('');
+    showStage('frame');
+    frameLoading.hidden = false;
+    nedarimFrame.style.height = '';
+    nedarimFrame.src = FRAME_SRC;
+  }
+
+  function closeFrame(){
+    pendingPayment = null;
+    nedarimFrame.src = 'about:blank';
+  }
+
+  const METHOD_NAMES = { Card:'כרטיס אשראי', GooglePay:'Google Pay', ApplePay:'Apple Pay', Bit:'ביט', DigitalTransfer:'העברה בנקאית' };
+
+  function showResult(res){
+    const method = METHOD_NAMES[res.PaymentMethod];
+    document.getElementById('pay-result-text').textContent = 'תודה רבה!' + (method ? ' התשלום התקבל ב' + method + '.' : '');
+    const ref = [];
+    if(res.ID) ref.push('מספר עסקה: ' + res.ID);
+    if(res.Confirmation) ref.push('אישור: ' + res.Confirmation);
+    if(res.LastNum) ref.push('כרטיס: ****' + res.LastNum);
+    document.getElementById('pay-result-ref').textContent = ref.join(' · ');
+    document.getElementById('pay-again').hidden = !!linkTx;
+    showStage('result');
+  }
+
+  // מאזין אחד בלבד, נרשם פעם אחת לפני טעינת ה-src (רישום כפול = חיוב כפול)
   window.addEventListener('message', function(event){
+    if(event.source !== nedarimFrame.contentWindow) return;
     const data = event.data;
     if(!data || typeof data !== 'object' || !data.Name) return;
 
-    // ה-iframe מדווח על הגובה שלו כדי שנתאים את הגודל בעמוד
-    if(data.Name === 'Height' && data.Value){
-      nedarimFrame.style.height = data.Value + 'px';
-    }
+    switch(data.Name){
+      case 'Ready':
+        frameLoading.hidden = true;
+        if(pendingPayment){
+          PostNedarim({ Name: 'StartPayment', Value: pendingPayment });
+          pendingPayment = null;
+        }
+        break;
 
-    // תגובת העסקה בסיום החיוב
-    if(data.Name === 'TransactionResponse'){
-      const res = data.Value || {};
-      paymentSubmit.disabled = false;
-      const success = res.Status === 'Success' || res.Status === 'OK' || res.Status === '1';
-      if(success){
-        paymentStatus.textContent = 'התשלום בוצע בהצלחה, תודה!';
-        paymentStatus.className = 'contact-status ok';
-        paymentForm.reset();
-      } else {
-        paymentStatus.textContent = res.Message || res.Hesbeer || 'העסקה לא הושלמה. נא לבדוק את הפרטים ולנסות שוב.';
-        paymentStatus.className = 'contact-status err';
+      case 'Height': {
+        const h = parseInt(data.Value, 10);
+        if(h > 0){
+          frameLoading.hidden = true;
+          nedarimFrame.style.height = (h + 15) + 'px';
+        }
+        break;
+      }
+
+      case 'Back':
+        // "חזרה" באייפרם: במצב קישור אין טופס לחזור אליו, אז פותחים שוב את התשלום
+        if(linkTx){ PostNedarim({ Name: 'StartPayment', Value: linkTx }); }
+        else { closeFrame(); showStage('form'); paymentSubmit.disabled = false; }
+        break;
+
+      case 'PendingTransaction':
+        setStatus('ממתין לאישור התשלום באפליקציה. אחרי האישור הדף יתעדכן לבד.');
+        break;
+
+      case 'TransactionResponse': {
+        const res = data.Value || {};
+        if(res.Status === 'OK'){
+          setStatus('');
+          showResult(res);
+          if(!linkTx) paymentForm.reset();
+        } else {
+          // האייפרם מציג את השגיאה בעצמו ומאפשר ניסיון נוסף בתוכו
+          setStatus(String(res.Message || 'העסקה לא הושלמה. אפשר לנסות שוב.').replace(/<[^>]*>/g, ' '), 'err');
+        }
+        break;
       }
     }
   });
 
+  if(linkTx){
+    // קישור תשלום: אין טופס פרטים, רק תיאור הבקשה ואמצעי התשלום
+    const title = urlParams.get('t');
+    document.getElementById('pay-request').hidden = false;
+    if(title) document.getElementById('pay-request-title').textContent = title;
+    document.getElementById('pay-request-desc').textContent = urlParams.get('d') || '';
+    document.querySelector('.page-heading').innerHTML = 'בקשת <span class="mark-amber">תשלום</span>';
+    document.querySelector('.page-lede').textContent = 'הסכום והפרטים הוגדרו מראש. נשאר רק לבחור אמצעי תשלום ולהשלים.';
+    openPayment(linkTx);
+  }
+
   paymentForm.addEventListener('submit', function(e){
     e.preventDefault();
     paymentSubmit.disabled = true;
-    paymentStatus.className = 'contact-status';
-    paymentStatus.textContent = 'שולח לחיוב מאובטח...';
 
-    const chargeData = {
+    const nameParts = document.getElementById('pf-name').value.trim().split(/\s+/);
+    openPayment({
       Mosad: NEDARIM_MOSAD,
       ApiValid: NEDARIM_API,
       PaymentType: 'Ragil',
       Currency: '1',
-      Zeout: '',
-      FirstName: document.getElementById('pf-name').value.trim(),
-      LastName: '',
-      Street: '',
-      City: '',
-      Phone: document.getElementById('pf-phone').value.trim(),
-      Mail: document.getElementById('pf-mail').value.trim(),
       Amount: document.getElementById('pf-amount').value.trim(),
       Tashlumim: document.getElementById('pf-installments').value,
+      FirstName: nameParts.shift() || '',
+      LastName: nameParts.join(' '),
+      Phone: document.getElementById('pf-phone').value.replace(/\D/g, ''),
+      Mail: document.getElementById('pf-mail').value.trim(),
+      Zeout: '', Street: '', City: '',
       Groupe: '',
       Comment: 'תשלום דרך אתר Xnet',
-      CallBack: ''
-    };
+      Param1: '',                          // Param1 מסתיר את ביט והעברה בקליק, לכן המזהה ב-Param2
+      Param2: 'XNET-' + Date.now(),
+      CallBack: '', CallBackMailError: '',
+      ThirdPartyReceipt: '', ForceUpdateMatching: '',
+      Day: '', StartFrom: '', Tokef: '',
+      MaxPayments: '', Methods: '',
+      ButtonText: 'תשלום'
+    });
+  });
 
-    nedarimFrame.contentWindow.postMessage(chargeData, '*');
+  document.getElementById('pay-again').addEventListener('click', function(){
+    closeFrame();
+    paymentSubmit.disabled = false;
+    showStage('form');
   });
 </script>
 

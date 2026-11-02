@@ -12,11 +12,12 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xnet</title>
+<title>Xnet · דפי נחיתה שמביאים פניות</title>
+<meta name="description" content="דפי נחיתה ואתרי תדמית בעיצוב אישי, מהירים ומותאמים לנייד, עם טופס פניות מחובר. דף נחיתה מלא במחיר השקה של 250 ₪.">
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
 <link rel="stylesheet" href="style.css">
 </head>
-  
+
 <body>
 
 <header>
@@ -46,128 +47,297 @@
         </div>
       </li>
       <li><a href="payment.html">תשלום</a></li>
-      <li><a href="contact.html">יצירת קשר</a></li>
+      <li><a href="contact.html" class="nav-cta"><span class="dot"></span>בואו נדבר</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="hero hero-glow">
-  <div class="eyebrow">XNET · בניית אתרים ודפי נחיתה</div>
-  <h1>Xnet. <span class="mark">מישהו היה צריך לבנות את זה.</span></h1>
-  <p class="lede">אני בונה אתרי תדמית ודפי נחיתה מקצועיים, מהירים ומותאמים בדיוק לצורך שלכם.</p>
-  <div class="hero-cta">
-    <a href="services.html" class="btn btn-primary">
-      לשירותי בניית האתרים
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#about" class="btn btn-ghost">אודות Xnet</a>
-    <a href="payment.html" class="btn btn-ghost btn-donate">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.35-9.5-8.5C.9 7.7 2.7 4 6.3 4c2 0 3.6 1.1 4.2 2.7C11.1 5.1 12.7 4 14.7 4c3.6 0 5.4 3.7 2.8 7.5C15 15.65 12 20 12 20Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      תשלום / תרומה
-    </a>
-  </div>
-</section>
-
-<section class="services services-glow" id="services-teaser">
-  <div class="page-intro reveal">
-    <span class="eyebrow eyebrow-blue">בהתאמה אישית</span>
-    <h2 class="page-heading">שירותי <span class="mark-blue">בניית אתרים</span></h2>
-  </div>
-  <div class="services-wrap reveal">
-    <div class="services-intro">
-      <h3>אתר שנראה מקצועי, נבנה מהר, ועובד</h3>
-      <p>אני בונה אתרים בהזמנה אישית, מדף נחיתה פשוט ועד מערכת שלמה עם טפסים, תוכן דינמי וסליקת תשלומים. בלי תבניות מוכנות, עיצוב נקי ומודרני, וקוד שנבנה בדיוק לפי הצורך של הלקוח.</p>
-      <a href="contact.html" class="btn btn-primary">
-        לתיאום שיחת ייעוץ
+<!-- ============ HERO ============ -->
+<section class="x-hero">
+  <div class="x-copy">
+    <span class="eyebrow">דפי נחיתה · אתרי תדמית · כלים בהתאמה</span>
+    <h1>דף נחיתה שגורם לאנשים <span class="grad-text">להשאיר פרטים.</span></h1>
+    <p class="lede">לא עוד אתר שרק "נראה טוב". אני מעצב ומפתח דפי נחיתה חדים, מהירים ומותאמים לנייד, שבנויים סביב מטרה אחת: שהגולש ירים טלפון, ישאיר פרטים או ישלם.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-lg btn-glow">
+        אני רוצה דף נחיתה
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+      <a href="#pricing" class="btn btn-lg btn-ghost">מה מקבלים ב-250 ₪?</a>
     </div>
-    <div class="services-grid">
-      <div class="service-item">
-        <div class="service-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.6"/></svg>
+    <ul class="x-ticks">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>עיצוב מאפס, בלי תבניות</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>מותאם לנייד</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>טופס פניות מחובר</li>
+    </ul>
+  </div>
+
+  <div class="mock" aria-hidden="true">
+    <div class="mock-float lead">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      <span>פנייה חדשה התקבלה<small>מהטופס בדף הנחיתה</small></span>
+    </div>
+    <div class="mock-browser">
+      <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">your-business.co.il</span></div>
+      <div class="mock-page">
+        <div>
+          <div class="mock-kicker"></div>
+          <div class="mock-h">העסק שלך,<br><span>במיטבו.</span></div>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <span class="mock-btn">לתיאום שיחה ←</span>
         </div>
-        <h4>עיצוב מותאם אישית</h4>
-        <p>לא תבנית עיצוב שנבנה סביב המותג, התוכן והקהל שלכם.</p>
-      </div>
-      <div class="service-item">
-        <div class="service-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div class="mock-form">
+          <b>השאירו פרטים</b>
+          <div class="mock-input"></div>
+          <div class="mock-input"></div>
+          <div class="mock-submit"></div>
         </div>
-        <h4>אתר מהיר וקליל</h4>
-        <p>קוד נקי בלי עומס מיותר טעינה מהירה גם במובייל וגם בגלישה איטית.</p>
       </div>
-      <div class="service-item">
-        <div class="service-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>טופס יצירת קשר ותשלומים</h4>
-        <p>טפסים חכמים, אינטגרציות וסליקת אשראי מוטמעת ישירות באתר הכול במקום אחד.</p>
-      </div>
-      <div class="service-item">
-        <div class="service-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>תמיכה וליווי</h4>
-        <p>גם אחרי שהאתר עולה לאוויר עדכונים, תוספות ותיקונים בזמינות גבוהה.</p>
-      </div>
+      <div class="mock-strip"><div></div><div></div><div></div></div>
+    </div>
+    <div class="mock-float speed">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      <span>נטען מהר<small>קוד נקי, בלי עומס</small></span>
+    </div>
+    <div class="mock-float mobile">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      <span>נראה מושלם בנייד<small>שם רוב הגולשים שלכם</small></span>
     </div>
   </div>
 </section>
 
-<p class="dock-caption reveal">לצד השירות, בונה גם כמה כלים עצמאיים בזמן הפנוי</p>
-<div class="dock-wrap">
-  <div class="dock reveal" id="dock">
-    <a href="projects.html#netlink" class="dock-item" style="--ring:#0d8f80;">
-      <span class="tip">נטלינק</span>
-      <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק">
-    </a>
-    <a href="projects.html#story" class="dock-item" style="--ring:#c2266f;">
-      <span class="tip">סטורי במייל</span>
-      <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A1%D7%98%D7%95%D7%A8%D7%99.png" alt="סטורי במייל">
-    </a>
-    <a href="projects.html#derech-haaretz" class="dock-item" style="--ring:#1f8a4c;">
-      <span class="tip">דרך הארץ</span>
-      <img src="https://res.cloudinary.com/dpsgd6esr/image/upload/v1785752770/ghcmqbdryluaunig43co.jpg" alt="דרך הארץ">
-    </a>
-    <a href="projects.html#watsapp-phone" class="dock-item" style="--ring:#1666c2;">
-      <span class="tip">וואטסאפ פון</span>
-      <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="וואטסאפ פון">
-    </a>
-    <a href="projects.html#mytube" class="dock-item" style="--ring:#c9790e;">
-      <span class="tip">מייטיוב</span>
-      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="מייטיוב">
-    </a>
-    <a href="projects.html#flash-push" class="dock-item" style="--ring:#d92d3f;">
-      <span class="tip">פלאש פוש</span>
-      <img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="פלאש פוש">
-    </a>
-    <a href="projects.html#clipx" class="dock-item" style="--ring:#7258d8;">
-      <span class="tip">ClipX – עורך קליפים</span>
-      <img src="https://cdn-icons-png.flaticon.com/128/17784/17784286.png" alt="ClipX">
-    </a>
-    <a href="projects.html#channel" class="dock-item" style="--ring:#d92d3f;">
-      <span class="tip">ערוץ עדכונים</span>
-      <img src="https://cdn-icons-png.flaticon.com/128/1827/1827392.png" alt="ערוץ עדכונים">
-    </a>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>דפי נחיתה</span><span>אתרי תדמית</span><span>טפסי לידים</span><span>סליקת אשראי</span><span>מותאם לנייד</span><span>עיצוב מאפס</span><span>קוד נקי ומהיר</span><span>ליווי אחרי העלייה</span>
+    <span>דפי נחיתה</span><span>אתרי תדמית</span><span>טפסי לידים</span><span>סליקת אשראי</span><span>מותאם לנייד</span><span>עיצוב מאפס</span><span>קוד נקי ומהיר</span><span>ליווי אחרי העלייה</span>
   </div>
 </div>
 
-<section class="about" id="about">
-  <div class="page-intro reveal">
-    <span class="eyebrow eyebrow-teal">קצת רקע</span>
-    <h2 class="page-heading">אודות <span class="mark-teal">Xnet</span></h2>
+<!-- ============ WHY ============ -->
+<section class="x-section wrap">
+  <div class="x-head reveal">
+    <span class="eyebrow eyebrow-teal">למה דף נחיתה?</span>
+    <h2>אתר מציג. <span class="grad-text">דף נחיתה מוכר.</span></h2>
+    <p>גולש מחליט תוך שניות אם להישאר. דף נחיתה טוב לא מבזבז לו אותן: מסר אחד ברור, סיבה טובה לפעול, וכפתור שאי אפשר לפספס.</p>
   </div>
-  <div class="about-card reveal">
-    <div class="about-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 4 3 12l5 8M16 4l5 8-5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="why-grid">
+    <div class="why-card spot reveal">
+      <span class="why-num">01</span>
+      <h3>מטרה אחת, בלי הסחות</h3>
+      <p>בלי תפריטים מיותרים ובלי עשרה עמודים. כל אלמנט בדף מוביל לאותה פעולה: פנייה, הרשמה או תשלום.</p>
     </div>
-    <p>Xnet הוא פרויקט עצמאי: כלים, תוספים ואתרים שנבנים אחד אחד, בלי צוות גדול ובלי תקציב שיווק, רק כדי לפתור בעיה אמיתית שנתקלתי בה.</p>
-    <p>כל כלי כאן נולד מתוך צורך שלי או של מישהו מהקהילה, ונשאר פתוח וזמין לכל מי שרוצה להשתמש בו. אם יש לך רעיון לכלי דומה, או שאת/ה מחפש/ת אתר בהתאמה אישית, אפשר פשוט ליצור קשר.</p>
-    <a href="contact.html" class="btn btn-primary">
-      ליצירת קשר
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="why-card spot reveal">
+      <span class="why-num">02</span>
+      <h3>מבינים אתכם בשלוש שניות</h3>
+      <p>כותרת חדה, מבנה ברור ועיצוב שמכבד את העסק. הגולש יודע מיד מה אתם מציעים ולמה זה בשבילו.</p>
+    </div>
+    <div class="why-card spot reveal">
+      <span class="why-num">03</span>
+      <h3>הפנייה מגיעה ישר אליכם</h3>
+      <p>טופס מחובר, כפתור שיחה, ואפילו סליקה מאובטחת. מהרגע שהדף באוויר הוא עובד בשבילכם, גם בשתיים בלילה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="x-section wrap" id="services-teaser">
+  <div class="x-head reveal">
+    <span class="eyebrow eyebrow-blue">מה נכנס לדף</span>
+    <h2>כל מה שצריך כדי <span class="grad-text">להיראות ולמכור</span></h2>
+  </div>
+  <div class="feat-grid">
+    <div class="feat wide accent reveal">
+      <div class="service-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.6"/></svg></div>
+      <h3>עיצוב מותאם אישית, לא תבנית</h3>
+      <p>כל דף מעוצב מאפס סביב המותג, הקהל והמסר שלכם. אף אחד אחר לא יקבל דף זהה.</p>
+    </div>
+    <div class="feat wide reveal">
+      <div class="service-icon ic-amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+      <h3>מהיר וקליל</h3>
+      <p>קוד נקי בלי עומס מיותר. טעינה מהירה גם בנייד וגם בגלישה איטית, כי כל שנייה של המתנה עולה בלקוחות.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="service-icon ic-teal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <h3>מושלם בכל מסך</h3>
+      <p>נבנה קודם כל לנייד, ונראה מצוין גם במחשב.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="service-icon ic-pink"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+      <h3>טופס פניות מחובר</h3>
+      <p>כל פנייה מגיעה אליכם מיד, בלי לפספס אף ליד.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="service-icon ic-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.7"/></svg></div>
+      <h3>סליקה מאובטחת</h3>
+      <p>אשראי, ביט ו-Google Pay ישירות מהדף, כשצריך.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="x-section tint">
+  <div class="wrap">
+    <div class="x-head reveal">
+      <span class="eyebrow eyebrow-pink">איך זה עובד</span>
+      <h2>מרעיון לדף באוויר, <span class="grad-text">בארבעה צעדים</span></h2>
+      <p>בלי בירוקרטיה ובלי מונחים טכניים. אתם מספרים על העסק, ואני דואג לכל השאר.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <h3>שיחת היכרות</h3>
+        <p>מבינים את העסק, את הקהל ומה בדיוק הגולש צריך לעשות בדף.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <h3>מבנה ומסר</h3>
+        <p>בונים יחד את סדר הדף ואת הכותרות שיובילו לפנייה.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <h3>עיצוב ופיתוח</h3>
+        <p>עיצוב מאפס וקוד נקי. אתם רואים את הדף ומאשרים לפני שהוא עולה.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <h3>באוויר ומביא פניות</h3>
+        <p>הטופס מחובר, הדף פתוח לעולם, ואני זמין לעדכונים ושינויים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="x-section wrap" id="pricing">
+  <div class="x-head reveal">
+    <span class="eyebrow eyebrow-amber">מחיר אחד, בלי הפתעות</span>
+    <h2>דף נחיתה מלא. <span class="grad-text">250 ₪.</span></h2>
+    <p>מחיר השקה לתקופה מוגבלת, למי שרוצה להתחיל להביא פניות כבר עכשיו.</p>
+  </div>
+  <div class="price-card reveal">
+    <div class="price-main">
+      <span class="badge-live"><span class="promo-dot"></span>מחיר השקה</span>
+      <h3>כל מה שדף נחיתה צריך, במחיר אחד וברור</h3>
+      <p>בלי חבילות מסובכות ובלי "תוספת קטנה" בסוף. זה מה שנכנס:</p>
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>עיצוב מותאם אישית<small>נבנה מאפס סביב העסק שלכם, לא מתבנית</small></span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>טעינה מהירה והתאמה מלאה לנייד<small>נראה ועובד מצוין בכל מסך</small></span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>טופס יצירת קשר מחובר<small>הפניות מגיעות ישירות אליכם</small></span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ליווי גם אחרי שהדף עולה<small>עדכונים, תיקונים ותוספות בזמינות גבוהה</small></span></li>
+      </ul>
+    </div>
+    <div class="price-side">
+      <div class="price-tag"><span class="cur">₪</span><span class="num">250</span></div>
+      <span class="price-note">לדף נחיתה מלא</span>
+      <a href="contact.html" class="btn btn-lg btn-glow">
+        שריינו את המחיר
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="fine">צריכים אתר מלא או סליקה? נבנה הצעה מותאמת</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="x-section wrap" id="about">
+  <div class="proof reveal">
+    <div>
+      <span class="eyebrow eyebrow-teal">מי בונה לכם את הדף</span>
+      <h2>לא רק מעצב. <span class="grad-text">מפתח שבונה דברים שעובדים.</span></h2>
+      <p>Xnet הוא סטודיו של אדם אחד. מעבר לאתרים ללקוחות, אני בונה ומפעיל בעצמי כלים, תוספים ואתרים שפותרים בעיות אמיתיות, בלי צוות גדול ובלי תקציב שיווק.</p>
+      <p>מה זה אומר בשבילכם? מי שבונה לכם את הדף מבין גם בעיצוב, גם בקוד וגם במה שגורם לאנשים ללחוץ. ואתם מדברים ישירות איתו, בלי מתווכים.</p>
+      <div class="proof-stat">
+        <div><b>8</b>כלים ופרויקטים באוויר</div>
+        <div><b>1:1</b>עבודה ישירה, בלי מתווכים</div>
+      </div>
+      <a href="projects.html" class="btn btn-ghost">
+        לכל הפרויקטים
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="dock-wrap">
+      <div class="dock" id="dock">
+        <a href="projects.html#netlink" class="dock-item" style="--ring:#0d8f80;">
+          <span class="tip">נטלינק</span>
+          <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק">
+        </a>
+        <a href="projects.html#story" class="dock-item" style="--ring:#c2266f;">
+          <span class="tip">סטורי במייל</span>
+          <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A1%D7%98%D7%95%D7%A8%D7%99.png" alt="סטורי במייל">
+        </a>
+        <a href="projects.html#derech-haaretz" class="dock-item" style="--ring:#1f8a4c;">
+          <span class="tip">דרך הארץ</span>
+          <img src="https://res.cloudinary.com/dpsgd6esr/image/upload/v1785752770/ghcmqbdryluaunig43co.jpg" alt="דרך הארץ">
+        </a>
+        <a href="projects.html#watsapp-phone" class="dock-item" style="--ring:#1666c2;">
+          <span class="tip">וואטסאפ פון</span>
+          <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="וואטסאפ פון">
+        </a>
+        <a href="projects.html#mytube" class="dock-item" style="--ring:#c9790e;">
+          <span class="tip">מייטיוב</span>
+          <img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="מייטיוב">
+        </a>
+        <a href="projects.html#flash-push" class="dock-item" style="--ring:#d92d3f;">
+          <span class="tip">פלאש פוש</span>
+          <img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="פלאש פוש">
+        </a>
+        <a href="projects.html#clipx" class="dock-item" style="--ring:#7258d8;">
+          <span class="tip">ClipX – עורך קליפים</span>
+          <img src="https://cdn-icons-png.flaticon.com/128/17784/17784286.png" alt="ClipX">
+        </a>
+        <a href="projects.html#channel" class="dock-item" style="--ring:#d92d3f;">
+          <span class="tip">ערוץ עדכונים</span>
+          <img src="https://cdn-icons-png.flaticon.com/128/1827/1827392.png" alt="ערוץ עדכונים">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="x-section wrap">
+  <div class="x-head reveal">
+    <span class="eyebrow">שאלות נפוצות</span>
+    <h2>לפני שמתחילים</h2>
+  </div>
+  <div class="faq reveal">
+    <details>
+      <summary>מה בדיוק כלול ב-250 ₪?</summary>
+      <p>דף נחיתה מלא בעיצוב מותאם אישית, טעינה מהירה, התאמה מלאה לנייד וטופס יצירת קשר מחובר, כולל ליווי אחרי שהדף עולה. בלי חבילות ובלי תוספות נסתרות.</p>
+    </details>
+    <details>
+      <summary>אין לי טקסטים ותמונות מוכנים. זה בעיה?</summary>
+      <p>ממש לא. אם יש לכם חומרים, מעולה. אם לא, בשיחת ההיכרות נבנה יחד את המבנה והמסר של הדף, כך שתדעו בדיוק מה צריך.</p>
+    </details>
+    <details>
+      <summary>אפשר לקבל תשלומים ישירות מהדף?</summary>
+      <p>כן. אפשר לשלב סליקה מאובטחת עם כרטיס אשראי, ביט ו-Google Pay, או לשלוח ללקוחות קישור לתשלום בסכום קבוע. נתאים את זה לצורך שלכם בהצעה נפרדת.</p>
+    </details>
+    <details>
+      <summary>מה קורה אחרי שהדף עולה לאוויר?</summary>
+      <p>אני ממשיך להיות זמין: עדכוני תוכן, תיקונים ותוספות. אתם לא נשארים לבד עם הדף.</p>
+    </details>
+    <details>
+      <summary>צריך יותר מדף אחד?</summary>
+      <p>אין בעיה. אני בונה גם אתרי תדמית מלאים ומערכות עם טפסים, תוכן דינמי וסליקה. ספרו לי מה אתם צריכים ואחזור עם הצעה מותאמת.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="x-section wrap">
+  <div class="cta-band reveal">
+    <span class="eyebrow eyebrow-amber">הצעד הבא</span>
+    <h2>יש לכם עסק טוב.<br><span class="grad-text">מגיע לו דף שמביא פניות.</span></h2>
+    <p>ספרו לי בכמה מילים על העסק ועל מה שאתם צריכים, ואחזור אליכם בהקדם עם כיוון ברור.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-lg btn-glow">
+        בואו נתחיל
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="services.html" class="btn btn-lg btn-ghost">לפרטים על השירות</a>
+    </div>
   </div>
 </section>
 
@@ -225,6 +395,15 @@
   });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
+  });
+
+  // ---------- spotlight שעוקב אחרי העכבר בכרטיסים ----------
+  document.querySelectorAll('.spot').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
   });
 
   // ---------- scroll reveal ----------

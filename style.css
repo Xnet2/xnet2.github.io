@@ -1122,6 +1122,13 @@ nav a.nav-cta .dot{width:6px; height:6px; border-radius:50%; background:#4ade80;
   padding:clamp(40px,7vw,88px) clamp(20px,6vw,64px) clamp(48px,7vw,88px);
   display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(30px,5vw,64px); align-items:center;
 }
+/* hero בלי הדמיה: טור אחד ממורכז */
+.x-hero.solo{grid-template-columns:1fr; justify-items:center; text-align:center; padding-bottom:clamp(40px,6vw,72px);}
+.x-hero.solo .x-copy{max-width:760px;}
+.x-hero h1{text-wrap:balance;}
+.x-hero h1 .accent{white-space:nowrap;}
+.x-hero.solo .lede{margin-inline:auto;}
+.x-hero.solo .hero-cta{justify-content:center;}
 .kicker{display:block; font-size:.86rem; font-weight:700; color:var(--muted); margin-bottom:12px;}
 .x-hero h1{
   font-size:clamp(2.2rem,5vw,3.6rem); font-weight:800; line-height:1.1; letter-spacing:-.03em;
@@ -1182,11 +1189,26 @@ nav a.nav-cta .dot{width:6px; height:6px; border-radius:50%; background:#4ade80;
   display:grid; grid-template-columns:repeat(3,1fr);
   border-top:1px solid var(--line);
 }
-.get{padding:22px 4px 22px 22px; border-bottom:1px solid var(--line);}
+.get{padding:24px 4px 24px 22px; border-bottom:1px solid var(--line);}
+.get-ic{
+  width:42px; height:42px; border-radius:12px; margin-bottom:14px;
+  display:flex; align-items:center; justify-content:center;
+}
+.get-ic.ic-pink{background:var(--pink-soft); color:var(--pink);}
+.get-ic.ic-blue{background:var(--blue-soft); color:var(--blue);}
+.get-ic.ic-green{background:var(--green-soft); color:var(--green);}
+.get-ic.ic-amber{background:var(--amber-soft); color:var(--amber);}
+.get-ic.ic-indigo{background:var(--indigo-soft); color:var(--indigo);}
+.get-ic.ic-teal{background:var(--teal-soft); color:var(--teal);}
 .get b{display:block; font-size:1rem; font-weight:800; margin-bottom:6px;}
 .get p{color:var(--muted); font-size:.9rem; line-height:1.6;}
 @media (max-width:820px){ .get-list{grid-template-columns:1fr 1fr;} }
-@media (max-width:520px){ .get-list{grid-template-columns:1fr;} .get{padding-inline:0;} }
+@media (max-width:520px){
+  .get-list{grid-template-columns:1fr;}
+  .get{padding:18px 0; display:grid; grid-template-columns:42px 1fr; column-gap:14px; align-items:start;}
+  .get-ic{grid-row:span 2; margin-bottom:0;}
+  .get b{margin:2px 0 4px;}
+}
 
 /* ---------- FEATURES (bento) ---------- */
 .feat-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:14px;}

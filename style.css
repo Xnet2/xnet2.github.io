@@ -1436,3 +1436,53 @@ nav a.nav-cta .dot{width:6px; height:6px; border-radius:50%; background:#4ade80;
   .prj-channel-btn{width:100%; justify-content:center;}
 }
 
+/* ---------- עמוד אפליקציות ---------- */
+.apps-tools{display:flex; flex-direction:column; align-items:center; gap:14px; padding-bottom:clamp(26px,4vw,40px);}
+.apps-search{
+  display:flex; align-items:center; gap:10px; width:100%; max-width:520px;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:12px 18px; color:var(--muted);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.apps-search:focus-within{border-color:var(--indigo); box-shadow:0 0 0 3px var(--indigo-soft);}
+.apps-search input{flex:1; min-width:0; border:0; outline:0; background:transparent; font-family:inherit; font-size:.95rem; color:var(--ink);}
+.apps-chips{display:flex; flex-wrap:wrap; justify-content:center; gap:8px;}
+.apps-chip{
+  font-family:inherit; font-size:.84rem; font-weight:700; color:var(--muted); cursor:pointer;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:8px 14px;
+  transition:color .2s ease, border-color .2s ease, background .2s ease;
+}
+.apps-chip:hover{color:var(--ink); border-color:#d4d5de;}
+.apps-chip:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
+.apps-chip.active{background:var(--ink); border-color:var(--ink); color:#fff;}
+.apps-chip-m36:not(.active){color:var(--green); background:var(--green-soft); border-color:transparent;}
+.apps-count{font-size:.82rem; font-weight:600; color:var(--muted-2);}
+.apps-group{margin-bottom:clamp(30px,5vw,48px);}
+.apps-group h2{font-size:clamp(1.2rem,2.2vw,1.45rem); font-weight:800; letter-spacing:-.02em; margin-bottom:14px;}
+.apps-grid{padding-bottom:0;}
+.apps-icon svg{width:100%; height:100%;}
+.apps-icon.apps-pink{color:var(--pink); background:var(--pink-soft);}
+.apps-icon.apps-indigo{color:var(--indigo); background:var(--indigo-soft);}
+.apps-icon.apps-red{color:var(--red); background:var(--red-soft);}
+.apps-icon.apps-blue{color:var(--blue); background:var(--blue-soft);}
+.apps-icon.apps-teal{color:var(--teal); background:var(--teal-soft);}
+.apps-icon.apps-amber{color:var(--amber); background:var(--amber-soft);}
+.apps-icon.apps-green{color:var(--green); background:var(--green-soft);}
+.apps-icon{border-color:transparent;}
+.apps-badge{
+  align-self:flex-start; font-size:.74rem; font-weight:700; color:var(--green);
+  background:var(--green-soft); border-radius:999px; padding:3px 10px; margin-bottom:8px;
+}
+.prj p.apps-warn{flex:none; color:var(--amber); background:var(--amber-soft); border-radius:10px; padding:8px 12px; font-size:.82rem; line-height:1.5;}
+.apps-alt{font-size:.8rem; font-weight:700; color:var(--indigo);}
+.apps-alt:hover{text-decoration:underline;}
+.apps-empty{text-align:center; color:var(--muted); padding-block:40px;}
+.apps-notes{display:grid; grid-template-columns:1fr 1fr; gap:14px; padding-bottom:clamp(56px,8vw,96px);}
+.apps-note{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2.6vw,24px);}
+.apps-note h2{font-size:1.05rem; font-weight:800; letter-spacing:-.01em; margin-bottom:6px;}
+.apps-note p{color:var(--muted); font-size:.9rem; line-height:1.6;}
+.apps-note a{color:var(--indigo); font-weight:700;}
+.apps-note a:hover{text-decoration:underline;}
+.apps-note-warn{background:var(--amber-soft); border-color:transparent;}
+.apps-note-warn p{color:var(--ink);}
+@media (max-width:760px){ .apps-notes{grid-template-columns:1fr;} }

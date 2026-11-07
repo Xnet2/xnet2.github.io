@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xnet אפליקציות אופליין</title>
+<meta name="description" content="רשימה מסודרת של אפליקציות אופליין לאנדרואיד מהפורום מתמחים טופ, עם קישורים להורדה וסימון למה שמתאים לנגן M36.">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span>Xnet</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="services.html" class="nav-highlight">שירותי אתרים</a></li>
+      <li class="nav-dropdown" id="projects-dropdown">
+        <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+          פרויקטים
+          <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <div class="nav-dropdown-menu" id="projects-menu">
+          <a href="projects.html#netlink">נטלינק</a>
+          <a href="projects.html#story">סטורי במייל</a>
+          <a href="projects.html#derech-haaretz">דרך הארץ</a>
+          <a href="projects.html#watsapp-phone">וואטסאפ פון</a>
+          <a href="projects.html#mytube">מייטיוב</a>
+          <a href="projects.html#flash-push">פלאש פוש</a>
+          <a href="projects.html#channel">ערוץ עדכונים</a>
+          <a href="projects.html#clipx">ClipX – עורך קליפים</a>
+        </div>
+      </li>
+      <li><a href="payment.html">תשלום</a></li>
+      <li><a href="contact.html" class="nav-cta"><span class="dot"></span>בואו נדבר</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="wrap prj-top">
+  <span class="kicker">אפליקציות לאנדרואיד</span>
+  <h1>אפליקציות אופליין</h1>
+  <p>ריכוז של אפליקציות מומלצות מהפורום מתמחים טופ. הן לא שלי: הקישורים מובילים לקבצים ולשרשורים של מי שהעלה אותן.</p>
+</section>
+
+<section class="wrap apps-tools" aria-label="חיפוש וסינון">
+  <div class="apps-search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="apps-search" placeholder="חיפוש אפליקציה..." aria-label="חיפוש אפליקציה" autocomplete="off">
+  </div>
+  <div class="apps-chips" id="apps-chips"></div>
+  <p class="apps-count" id="apps-count" aria-live="polite"></p>
+</section>
+
+<section class="wrap apps-list" id="apps-list"></section>
+
+<section class="wrap apps-notes">
+  <article class="apps-note">
+    <h2>קובץ שמסתיים ב-.ap</h2>
+    <p>כך מעלים קבצים שנטפרי חוסם. אחרי ההורדה משנים את שם הקובץ ומוסיפים <b>k</b> בסוף, כך שהסיומת תהיה <b>.apk</b>. אם הסיומת לא מוצגת, מפעילים את הצגת הסיומות בסייר הקבצים.</p>
+  </article>
+  <article class="apps-note">
+    <h2>נגישות אפורה באנדרואיד 13</h2>
+    <p>מנסים להפעיל את האפליקציה במסך הנגישות ונותנים לזה להיחסם. מיד אחר כך נכנסים לפרטי האפליקציה, לוחצים על שלוש הנקודות, בוחרים "אפשר הגדרות מוגבלות" ומקלידים את הקוד. <a href="https://mitmachim.top/topic/103017" target="_blank" rel="noopener">השרשור עם הפתרון</a></p>
+  </article>
+  <article class="apps-note">
+    <h2>נגן M36 עם קיידרואיד</h2>
+    <p>מורידים במחשב ומעבירים לנגן בכבל. אם ההתקנה נכשלת, בודקים מקום פנוי וגרסה קודמת שכבר מותקנת. הסימון "מתאים ל-M36" מבוסס על דיווחים מהפורום ועל גרסת האנדרואיד, ולא כל אפליקציה נוסתה על המכשיר.</p>
+  </article>
+  <article class="apps-note apps-note-warn">
+    <h2>לפני שמתקינים</h2>
+    <p>הקבצים הועלו על ידי משתמשי הפורום, וחלקם שונו מהמקור. "אופליין" הוא לפי מה שכתבו המפרסמים. כדאי לבדוק כל קובץ ב-<a href="https://www.virustotal.com/" target="_blank" rel="noopener">VirusTotal</a>, ולשים לב במיוחד לאפליקציות שמבקשות הרשאת נגישות.</p>
+  </article>
+</section>
+
+<footer id="footer-info">
+  <div class="brand">
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span style="font-weight:800;">Xnet</span>
+  </div>
+  <p class="tagline">מישהו היה צריך לבנות את זה</p>
+  <div class="profile-links">
+    <a href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    </a>
+    <a href="https://mitmachim.top/user/dhoc979" target="_blank" rel="noopener" aria-label="מתמחים טופ" title="מתמחים טופ">
+      <img src="https://mitmachim.top/favicon.ico" alt="מתמחים טופ">
+    </a>
+  </div>
+  <p>© 2026 Xnet כל הפרויקטים נבנו ומופעלים באופן עצמאי.</p>
+</footer>
+
+<script>
+  // ---------- nav "פרויקטים" dropdown ----------
+  const projectsDropdown = document.getElementById('projects-dropdown');
+  const projectsArrow    = document.getElementById('projects-arrow');
+
+  function toggleProjectsDropdown(e){
+    e.preventDefault();
+    e.stopPropagation();
+    projectsDropdown.classList.toggle('open');
+  }
+  projectsArrow.addEventListener('click', toggleProjectsDropdown);
+  projectsArrow.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ toggleProjectsDropdown(e); }
+  });
+  document.addEventListener('click', function(e){
+    if(!projectsDropdown.contains(e.target)) projectsDropdown.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') projectsDropdown.classList.remove('open');
+  });
+
+  // ---------- נתוני האפליקציות ----------
+  const UP = 'https://mitmachim.top/assets/uploads/files/';
+  const SH = 'https://apk.shnet.app/assets/uploads/files/';
+  const TOPIC = 'https://mitmachim.top/topic/';
+
+  const CATEGORIES = [
+    {id:'music',  name:'מוזיקה',            color:'pink',   icon:'<path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>'},
+    {id:'shade',  name:'וילון הודעות',      color:'indigo', icon:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M4 10h16M8 6.5h.01M12 6.5h.01M16 6.5h.01"/>'},
+    {id:'lock',   name:'מסך נעילה',         color:'red',    icon:'<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>'},
+    {id:'ui',     name:'ממשק ועיצוב',       color:'blue',   icon:'<rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/>'},
+    {id:'tools',  name:'כלים והתקנה',       color:'teal',   icon:'<path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3L15 12l-3-3z"/>'},
+    {id:'speech', name:'דיבור, תרגום ו-AI', color:'amber',  icon:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>'},
+    {id:'maps',   name:'מפות וניווט',       color:'green',  icon:'<path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.900 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/>'},
+    {id:'daily',  name:'פתקים ויומיום',     color:'indigo', icon:'<path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7"/>'},
+    {id:'lists',  name:'אוספים בפורום',     color:'teal',   icon:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>'}
+  ];
+
+  // m36: מתאים לנגן M36 עם קיידרואיד. warn: דיווח על בעיה שחשוב לדעת עליה.
+  const APPS = [
+    {cat:'music', name:'Musicolet 6.14', meta:'נגן מוזיקה · עם עברית', m36:true,
+     desc:'נגן מהיר בלי פרסומות. הקובץ כולל חבילת XAPK, ולכן צריך מתקין מתאים.',
+     links:[['הורדת ZIP', UP+'1779962531357-908d319e-920c-4bfd-97dc-7260925fe00a-musicolet-music-player_6.14-build530.zip'], ['השרשור', TOPIC+'96884']]},
+    {cat:'music', name:'Musicolet 6.13', meta:'נגן מוזיקה · גם ב-APK רגיל',
+     desc:'למכשיר שלא מתקין XAPK. הארכיון כולל גרסה ב-APK רגיל ובעברית.',
+     links:[['הורדת ZIP', UP+'1776405954543-apps.zip'], ['השרשור', TOPIC+'95979']]},
+
+    {cat:'shade', name:'Power Shade 18.4.4.1', meta:'וילון והגדרות מהירות', m36:true,
+     desc:'מחליפה את הווילון ואת ההגדרות המהירות, עם הרבה אפשרויות. דורשת הרשאת נגישות.',
+     warn:'בפורום דיווחו על קריסות ועל וילון כפול ב-Jelly Star.',
+     links:[['הורדת ZIP', UP+'1743621628390-power-shade-notification-bar-changer-and-manager-18-4-4-1.zip'], ['גרסה מתורגמת', UP+'1760873313139-08ca7696-fadd-4bf1-8f52-37c26e04b39c-power-shade_signed.zip'], ['השרשור', TOPIC+'88909']]},
+    {cat:'shade', name:'One Shade', meta:'עיצוב הווילון',
+     desc:'חלופה ל-Power Shade עם עיצוב אחר. בגרסאות העדכניות אין עברית לפי הפורום.',
+     warn:'דווח שגם היא מוסיפה תפריט שני בלי לבטל את המקורי.',
+     links:[['הורדת ZIP', UP+'1755632785904-one-shade.zip'], ['APKMirror', 'https://www.apkmirror.com/apk/zipoapps/one-shade-custom-notifications-and-quick-settings/'], ['השרשור', TOPIC+'102084']]},
+    {cat:'shade', name:'סטטוס בר ערוך 17.6', meta:'וילון בלי אינטרנט',
+     desc:'גרסה ישנה של Power Shade, ערוכה בלי שום דבר שקשור לאינטרנט. מתאימה בעיקר עד אנדרואיד 10.',
+     warn:'משתמש דיווח שלא עבדה לו באנדרואיד 13.',
+     links:[['הורדת ZIP', UP+'1744913995264-%D7%A1%D7%98%D7%98%D7%95%D7%A1_%D7%91%D7%A8_17.6_-com.treydev.pns-1.zip'], ['קובץ .ap', UP+'1744913739560-%D7%A1%D7%98%D7%98%D7%95%D7%A1_%D7%91%D7%A8_17.6_-com.treydev.pns-1.ap'], ['השרשור', TOPIC+'82172']]},
+    {cat:'shade', name:'Material Notification Shade 18.4.1', meta:'וילון · מ-2022',
+     desc:'מחליפה את לוח ההתראות ומוסיפה ערכות נושא. דורשת אנדרואיד 5 ומעלה.',
+     links:[['קובץ APK', SH+'1656955485890-material-shade_v18.4.1-16701468.apk'], ['השרשור', TOPIC+'30400/659']]},
+    {cat:'shade', name:'Quick Control Panel 4.2', meta:'הגדרות מהירות · מ-2022',
+     desc:'לוח הגדרות מהירות שעובד גם במסך הנעילה. ייתכן שלא יתאים למכשירים חדשים.',
+     links:[['קובץ APK', SH+'1660826316613-quick-control-panel_4.2.apk'], ['השרשור', TOPIC+'30400/762']]},
+    {cat:'shade', name:'Notification Toggle 3.8.8', meta:'מתגים בהתראות',
+     desc:'לא מחליפה את הווילון, אלא מוסיפה אליו התראה עם מתגים וקיצורי דרך.',
+     links:[['קובץ APK', SH+'1657630968742-de.j4velin.notificationtoggle.3880.apk'], ['השרשור', TOPIC+'30400/359']]},
+    {cat:'shade', name:'AOSPMods', meta:'מודול · דורש רוט',
+     desc:'משנה את הווילון המקורי במקום להוסיף עליו. דורש Magisk, ומיועד בעיקר לפיקסל ולאנדרואיד נקי.',
+     links:[['GitHub', 'https://github.com/TeaqariaWTF/AOSPMods?tab=readme-ov-file'], ['השרשור', TOPIC+'95556']]},
+
+    {cat:'lock', name:'נעילה עם זיהוי פנים', meta:'מסך נעילה · עד אנדרואיד 14', m36:true,
+     desc:'זיהוי פנים, קוד גיבוי, נעילת אפליקציות, התראות ותאריך עברי, בלי רוט. המפתח משתמש בה על M36.',
+     warn:'לא להריץ את פקודת ה-ADB מהשרשור. ודאו שיש קוד גיבוי.',
+     links:[['עוגן פליי', 'https://ogenplay.com/apps/84661945-37e3-4bd5-aaed-31c7cd15fd21'], ['השרשור', TOPIC+'100717']]},
+    {cat:'lock', name:'נועל מסך לכל אנדרואיד', meta:'מסך נעילה · אנדרואיד 4 ומעלה',
+     desc:'מסך נעילה מעוצב וקטן במיוחד, 65KB. מתאים לעיצוב יותר מאשר לאבטחה.',
+     warn:'בגרסה הראשונה הייתה סיסמת מנהל. המפתח כתב שהחליף אותה.',
+     links:[['עוגן פליי', 'https://ogenplay.com/apps/fa973edf-dbca-446a-86fb-2dfd7779f557'], ['השרשור', TOPIC+'102460']]},
+    {cat:'lock', name:'WoW Galaxy Lock Screen', meta:'מסך נעילה · מ-2022',
+     desc:'מסך נעילה בסגנון Galaxy S6, מתורגם לעברית. כנראה לא מתאים למכשירים חדשים.',
+     links:[['קובץ APK', SH+'1669577814993-wow-galaxy-lock-screen.4.2-%D7%91%D7%A2%D7%91%D7%A8%D7%99%D7%AA-%D7%9E%D7%9C%D7%90%D7%94.apk'], ['השרשור', TOPIC+'40980']]},
+
+    {cat:'ui', name:'Nova Launcher 8.1.1', meta:'מסך בית', m36:true,
+     desc:'הלאונצ\'ר הכי מומלץ בשרשור. יכול לעזור גם כשקיצורים של קיידרואיד לא מוצגים במסך הבית.',
+     links:[['קובץ .ap', UP+'1752437002668-nova-launcher-v8.1.1.ap'], ['השרשור', TOPIC+'85565']]},
+    {cat:'ui', name:'MonoLaunch', meta:'מסך בית · קוד פתוח',
+     desc:'לאונצ\'ר בקוד פתוח.',
+     links:[['קובץ APK', 'https://github.com/AshiVered/monolaunch/releases/download/1.0.4/app-debug.apk'], ['השרשור', TOPIC+'85565']]},
+    {cat:'ui', name:'Volume Styles', meta:'עיצוב · מתורגם', m36:true,
+     desc:'מעצבת את פס עוצמת הקול.',
+     links:[['הורדת ZIP', UP+'1755813431059-volume-styles-%D7%9E%D7%AA%D7%95%D7%A8%D7%92%D7%9D.zip'], ['השרשור', TOPIC+'87078']]},
+    {cat:'ui', name:'ווידג\'ט שעון דיגיטלי', meta:'ווידג\'ט',
+     desc:'שעון למסך הבית שאפשר לערוך ולעצב.',
+     links:[['הורדת ZIP', UP+'1755633070612-%D7%95%D7%95%D7%99%D7%93%D7%92-x27-%D7%98-%D7%A9%D7%A2%D7%95%D7%9F-%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99.zip'], ['השרשור', TOPIC+'87078']]},
+    {cat:'ui', name:'Simple Keyboard', meta:'מקלדת · קוד פתוח · מ-2022',
+     desc:'מקלדת קלה ופשוטה בלי חיפוש ו-GIF.',
+     links:[['קובץ APK', SH+'1651700513299-rkr.simplekeyboard.inputmethod_94.apk'], ['השרשור', TOPIC+'39798']]},
+    {cat:'ui', name:'True Dialer', meta:'חייגן',
+     desc:'חייגן בלי פרסומות, עם הרבה הגדרות למראה ולניהול השיחה.',
+     links:[['Uptodown', 'https://true-phone.en.uptodown.com/android/download'], ['השרשור', TOPIC+'75282']]},
+
+    {cat:'tools', name:'XAPK Installer', meta:'מתקין · מתורגם · מ-2022', m36:true,
+     desc:'מתקין קבצי XAPK ו-APKS. משתמש בפורום המליץ עליו ל-M36.',
+     links:[['קובץ APK', SH+'1650742049080-yos-xapk-installer-v1.7.00.apk'], ['השרשור', TOPIC+'39067']]},
+    {cat:'tools', name:'OfflineStore', meta:'חנות אופליין',
+     desc:'הופכת תיקיית קבצים לחנות אפליקציות נוחה, למכשירים שלא מחוברים לרשת.',
+     links:[['הורדת ZIP', UP+'1777828991943-offlinestore1.zip'], ['השרשור', TOPIC+'94629']]},
+    {cat:'tools', name:'החנות הכשרה', meta:'חנות אופליין',
+     desc:'עשרות אפליקציות בחנות אחת. ההתקנה דרך רוט או מתקין החבילה.',
+     links:[['השרשור', TOPIC+'102444']]},
+    {cat:'tools', name:'PDF24', meta:'כלי PDF · מתורגם', m36:true,
+     desc:'צפייה, מיזוג, פיצול ועריכת PDF, והמרת תמונות ל-PDF.',
+     links:[['הורדת ZIP', UP+'1770200696182-pdf24-%D7%9E%D7%AA%D7%95%D7%A8%D7%92%D7%9D.zip'], ['השרשור', TOPIC+'93152']]},
+    {cat:'tools', name:'Smart Gallery 2.7', meta:'גלריה בלי וידאו · אנדרואיד 7 ומעלה', m36:true,
+     desc:'גלריה עם חילוץ טקסט מתמונה, סיווג אוטומטי וזיהוי תמונות זהות, הכל אופליין.',
+     links:[['אתר ההורדה', 'https://www.yosef-mobile.co.il/downloads.html'], ['השרשור', TOPIC+'91469']]},
+
+    {cat:'speech', name:'הקלדה קולית אופליין', meta:'דיבור לטקסט', m36:true,
+     desc:'מקלידה מדיבור בכל שדה טקסט. דורשת הרשאת נגישות. משתמש דיווח שעובדת מצוין על M36.',
+     links:[['עוגן פליי', 'https://ogenplay.com/apps/61b2d915-f595-4327-9eb9-11c202b8fdae'], ['השרשור', TOPIC+'102860']]},
+    {cat:'speech', name:'צ\'אט כשר', meta:'AI על המכשיר · ניסיוני', m36:true,
+     desc:'צ\'אט שהמודל שלו נמצא בתוך האפליקציה, בלי אינטרנט. המפתח מריץ אותה על M36 Plus, והיא איטית.',
+     links:[['עוגן פליי', 'https://ogenplay.com/apps/1b369c90-b664-4575-a764-9bc123730f3f'], ['השרשור', TOPIC+'102337']]},
+    {cat:'speech', name:'Microsoft Translator', meta:'תרגום · מ-2023',
+     desc:'תרגום עם עברית אופליין בלי רוט. כנראה צריך גם חבילת שפה.',
+     links:[['הורדה מ-Drive', 'https://drive.google.com/file/d/1-BVpm_6YUljihiKxB7NgrFppC2TqvMC4/view?usp=drivesdk'], ['השרשור', TOPIC+'31030']]},
+    {cat:'speech', name:'TTS אופליין', meta:'הקראה בעברית, אנגלית וערבית',
+     desc:'טקסט לדיבור בלי אינטרנט. ההתקנה קצת מורכבת.',
+     warn:'ב-M36 דווח שההתקנה נכשלת בגלל התנגשות חבילות.',
+     links:[['השרשור', TOPIC+'85180']]},
+
+    {cat:'maps', name:'Organic Maps', meta:'מפות · קוד פתוח',
+     desc:'מפות אופליין נוחות עם עברית. את קבצי המפה צריך להוריד בנפרד.',
+     links:[['GitHub', 'https://github.com/organicmaps/organicmaps/releases/tag/2026.01.16-8-android'], ['השרשור', TOPIC+'92573']]},
+    {cat:'maps', name:'ניווט למכשירי מקשים', meta:'ניווט GPS בלי אינטרנט',
+     desc:'ניווט שנבנה במיוחד למכשירי מקשים, עם מד קמ"ש, מסלולים והקלטות ניווט.',
+     links:[['עוגן פליי', 'https://ogenplay.com/apps/cf5e8002-8c3a-4b45-b104-25a93acf8510'], ['השרשור', TOPIC+'103293']]},
+
+    {cat:'daily', name:'שעון וירטואלי', meta:'שעון · נבנה לקיידרואיד', m36:true,
+     desc:'שעון שלא נשען על שעון המערכת, כולל שעון מעורר, טיימרים וווידג\'טים. למי שקיידרואיד לא נותן לו לכוון שעה.',
+     links:[['הורדה', 'https://ogen-plei-qype.vercel.app/apps/cbf60ca6-82d6-4b93-8ee2-6cf1d3af541d'], ['השרשור', TOPIC+'100436']]},
+    {cat:'daily', name:'הפתקים שלי', meta:'פתקים · קוד פתוח', m36:true,
+     desc:'פתקים קלים ומהירים, בלי פרסומות ובלי הרשאות מיותרות. מותאם גם למקשים.',
+     links:[['הורדת ZIP', UP+'1781135160112-app-release.apk.zip'], ['GitHub', 'https://github.com/szs-770/My-Notes'], ['השרשור', TOPIC+'94729']]},
+    {cat:'daily', name:'Another Notes', meta:'הערות · קוד פתוח · מתורגם',
+     desc:'אפליקציית הערות פשוטה ויפה.',
+     links:[['קובץ .ap', UP+'1755721911642-app-debug.ap'], ['השרשור', TOPIC+'87147']]},
+    {cat:'daily', name:'סימנא', meta:'שעון מעורר הלכתי',
+     desc:'שעון מעורר הלכתי. נשען על שעון המערכת, אז השעה במכשיר צריכה להיות מדויקת.',
+     links:[['הורדת ZIP', UP+'1769895664073-simana-1.4.1-43.zip'], ['Google Play', 'https://play.google.com/store/apps/details?id=org.pninim.simana'], ['השרשור', TOPIC+'92982']]},
+    {cat:'daily', name:'קום כבר', meta:'שעון מעורר',
+     desc:'נועל את המכשיר בזמן האזעקה עד שמשלימים משימה, כמו ניעור או הקלדה.',
+     links:[['השרשור', TOPIC+'96807']]},
+    {cat:'daily', name:'מצב תפילה', meta:'מצב שקט לתפילה',
+     desc:'כפתור לכל תפילה שמעביר את הטלפון למצב שקט לזמן שנקבע.',
+     links:[['קובץ .ap', UP+'1784138229427-a6bfb701-0f46-4b1b-bf9b-8eb46d4f6c0a-%D7%90%D7%A4%D7%9C%D7%99%D7%A7%D7%A6%D7%99%D7%AA-%D7%9E%D7%A6%D7%91-%D7%AA%D7%A4%D7%99%D7%9C%D7%94-%D7%9C%D7%90%D7%A0%D7%93%D7%A8%D7%95%D7%90%D7%99%D7%93-%D7%92%D7%91%D7%95%D7%94-%D7%9C%D7%9E%D7%A0%D7%95%D7%98%D7%A4%D7%A8%D7%99%D7%9D-%D7%94%D7%9E%D7%95%D7%A2%D7%A8%D7%A6%D7%99%D7%9D.ap'], ['השרשור', TOPIC+'99196']]},
+    {cat:'daily', name:'בייביסיטר טלפוני', meta:'להורים · גם למקשים',
+     desc:'עוזר לשמור על הילדים כשיוצאים לרגע מהבית, בלי אינטרנט.',
+     links:[['קובץ .ap', UP+'1787526618004-%D7%91%D7%99%D7%99%D7%91%D7%99%D7%A1%D7%99%D7%98%D7%A8-%D7%98%D7%9C%D7%A4%D7%95%D7%A0%D7%99-7.ap'], ['GitHub', 'https://github.com/YairDaniel11/BabySitterApp'], ['השרשור', TOPIC+'100806']]},
+
+    {cat:'lists', name:'אוסף אפליקציות אופליין', meta:'רשימה מתעדכנת',
+     desc:'רשימה של משתמש בפורום, כולל Kiwix, OsmAnd, IGO ותמלול AI.',
+     links:[['לרשימה', TOPIC+'96554']]},
+    {cat:'lists', name:'אוסף אפליקציות לעיצוב אישי', meta:'רשימה',
+     desc:'טפטים, ווידג\'טים, מחוות, לאונצ\'רים ועוד.',
+     links:[['לרשימה', TOPIC+'87078']]},
+    {cat:'lists', name:'7 מסכי בית', meta:'רשימה · קבצי .ap',
+     desc:'Nova, Apex, Cool Launcher ועוד, בקישורים שפתוחים לנטפרי.',
+     links:[['לרשימה', TOPIC+'85565']]}
+  ];
+
+  // ---------- תצוגה וסינון ----------
+  const MAIN_ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const listEl  = document.getElementById('apps-list');
+  const chipsEl = document.getElementById('apps-chips');
+  const countEl = document.getElementById('apps-count');
+  const searchEl = document.getElementById('apps-search');
+  let activeFilter = 'all';
+
+  function linkHtml(link, index){
+    const label = link[0], url = link[1];
+    if(url.startsWith(TOPIC)){
+      return '<a href="'+url+'" target="_blank" rel="noopener" class="prj-forum"><img src="https://mitmachim.top/favicon.ico" alt="">'+label+'</a>';
+    }
+    if(index === 0){
+      return '<a href="'+url+'" target="_blank" rel="noopener" class="prj-main">'+label+' '+MAIN_ARROW+'</a>';
+    }
+    return '<a href="'+url+'" target="_blank" rel="noopener" class="apps-alt">'+label+'</a>';
+  }
+
+  function cardHtml(app, cat){
+    return '<article class="prj">'
+      + '<div class="prj-logo apps-icon apps-'+cat.color+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+cat.icon+'</svg></div>'
+      + '<div class="prj-body">'
+      +   '<span class="prj-meta">'+app.meta+'</span>'
+      +   '<h3>'+app.name+'</h3>'
+      +   (app.m36 ? '<span class="apps-badge">מתאים ל-M36</span>' : '')
+      +   '<p>'+app.desc+'</p>'
+      +   (app.warn ? '<p class="apps-warn">'+app.warn+'</p>' : '')
+      +   '<div class="prj-links">'+app.links.map(linkHtml).join('')+'</div>'
+      + '</div></article>';
+  }
+
+  function matches(app, query){
+    if(activeFilter === 'm36' && !app.m36) return false;
+    if(activeFilter !== 'all' && activeFilter !== 'm36' && app.cat !== activeFilter) return false;
+    if(!query) return true;
+    return (app.name+' '+app.meta+' '+app.desc).toLowerCase().includes(query);
+  }
+
+  function render(){
+    const query = searchEl.value.trim().toLowerCase();
+    const visible = APPS.filter(a => matches(a, query));
+    listEl.innerHTML = CATEGORIES.map(cat => {
+      const items = visible.filter(a => a.cat === cat.id);
+      if(!items.length) return '';
+      return '<div class="apps-group"><h2>'+cat.name+'</h2><div class="prj-grid apps-grid">'
+        + items.map(a => cardHtml(a, cat)).join('') + '</div></div>';
+    }).join('') || '<p class="apps-empty">לא נמצאו אפליקציות. נסו חיפוש אחר.</p>';
+    countEl.textContent = visible.length + ' מתוך ' + APPS.length + ' פריטים';
+  }
+
+  function renderChips(){
+    const chips = [{id:'all', name:'הכל'}, {id:'m36', name:'מתאים ל-M36'}].concat(CATEGORIES);
+    chipsEl.innerHTML = chips.map(c =>
+      '<button type="button" class="apps-chip'+(c.id === activeFilter ? ' active' : '')+(c.id === 'm36' ? ' apps-chip-m36' : '')+'" data-filter="'+c.id+'" aria-pressed="'+(c.id === activeFilter)+'">'+c.name+'</button>'
+    ).join('');
+  }
+
+  chipsEl.addEventListener('click', function(e){
+    const btn = e.target.closest('.apps-chip');
+    if(!btn) return;
+    activeFilter = btn.dataset.filter;
+    renderChips();
+    render();
+  });
+  searchEl.addEventListener('input', render);
+
+  renderChips();
+  render();
+</script>
+
+</body>
+</html>

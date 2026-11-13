@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>חנות Xnet · אפליקציות לאנדרואיד</title>
+<meta name="description" content="חנות האפליקציות של Xnet: אפליקציות לאנדרואיד להורדה ישירה, כולל VODOS לנגנים בלי אינטרנט.">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f9f9fb; --surface:#fff; --ink:#131417; --muted:#6b6f7c; --muted-2:#a3a6b2; --line:#ececf1;
+    --chip:#f3f3f6; --pink:#e5486e; --pink-soft:#fdecf0; --purple:#6d5bd0; --purple-soft:#efecfc;
+    --shadow:0 30px 70px -40px rgba(30,27,75,.35);
+    --mono:ui-monospace,'SFMono-Regular',Consolas,'Liberation Mono',monospace;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1013; --surface:#17181d; --ink:#f2f2f5; --muted:#9a9db0; --muted-2:#6e7180; --line:#25262e;
+    --chip:#202128; --pink-soft:#3a1d27; --purple-soft:#26223f; --shadow:0 30px 70px -40px rgba(0,0,0,.7);
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{overflow-x:clip;}
+  body{background:var(--bg); color:var(--ink); font-family:'Rubik',sans-serif; line-height:1.5; transition:background .2s ease;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  button{font-family:inherit; cursor:pointer;}
+  .mono{font-family:var(--mono);}
+
+  /* ---------- header ---------- */
+  .topline{height:3px; background:linear-gradient(90deg,#f7a1b9,#c3b6f7,#9fd8f0);}
+  .st-head{
+    position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:16px;
+    padding:12px clamp(16px,3vw,32px); background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
+  }
+  .st-brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.2rem;}
+  .st-brand img{width:34px; height:34px; border-radius:10px; background:#fff; border:1px solid var(--line); padding:4px;}
+  .st-search{flex:1; max-width:420px; margin-inline:auto; position:relative;}
+  .st-search input{
+    width:100%; font-family:inherit; font-size:16px; color:var(--ink); background:var(--surface);
+    border:1px solid var(--line); border-radius:12px; padding:9px 38px 9px 14px; outline:none;
+  }
+  .st-search input:focus{border-color:var(--purple);}
+  .st-search svg{position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--muted-2);}
+  .st-tools{display:flex; align-items:center; gap:6px;}
+  .icon-btn{width:34px; height:34px; border-radius:10px; border:0; background:transparent; color:var(--muted); display:flex; align-items:center; justify-content:center;}
+  .icon-btn:hover{background:var(--chip); color:var(--ink);}
+  .pill-btn{display:inline-flex; align-items:center; gap:7px; font-size:.84rem; font-weight:600; border:1px solid var(--line); background:var(--surface); border-radius:100px; padding:7px 13px;}
+  .pill-btn:hover{border-color:var(--muted-2);}
+
+  main{max-width:1240px; margin:0 auto; padding:clamp(24px,4vw,48px) clamp(16px,3vw,32px) 80px;}
+
+  /* ---------- soon banner ---------- */
+  .soon{
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    background:var(--purple-soft); color:var(--purple); border-radius:16px; padding:12px 16px; margin-bottom:36px; font-size:.9rem; font-weight:600;
+  }
+  .soon b{font-weight:800;}
+  .soon a{margin-inline-start:auto; font-weight:800; text-decoration:underline; text-underline-offset:3px;}
+
+  /* ---------- home ---------- */
+  .label{display:flex; align-items:center; gap:8px; font-size:.86rem; font-weight:700; color:var(--muted); letter-spacing:.04em; margin-bottom:14px;}
+  .label svg{color:var(--pink);}
+  .featured{
+    display:flex; align-items:center; gap:clamp(16px,3vw,32px); flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,3.5vw,40px);
+    box-shadow:0 30px 70px -45px rgba(229,72,110,.45), 0 30px 70px -45px rgba(109,91,208,.45); margin-bottom:48px; cursor:pointer;
+  }
+  .app-icon{flex:0 0 auto; border-radius:22px; background:var(--surface); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .app-icon img{width:100%; height:100%; object-fit:contain;}
+  .featured .app-icon{width:104px; height:104px; padding:10px;}
+  .featured-body{flex:1 1 280px; min-width:0;}
+  .featured h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.02em; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .ver-chip{font-family:var(--mono); font-size:.8rem; font-weight:500; color:var(--muted); background:var(--chip); border:1px solid var(--line); border-radius:8px; padding:3px 8px;}
+  .pkg{font-family:var(--mono); font-size:.82rem; color:var(--muted); margin:4px 0 10px; direction:ltr; text-align:right;}
+  .featured p{color:var(--ink); font-size:1rem; margin-bottom:10px;}
+  .author{display:flex; align-items:center; gap:7px; font-size:.86rem; color:var(--muted);}
+  .avatar{width:22px; height:22px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--muted-2);}
+  .featured-cta{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  .dl-btn{display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--bg); font-weight:800; font-size:1rem; border-radius:100px; padding:15px 30px; border:0;}
+  .dl-btn:hover{opacity:.9;}
+  .installs{font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; color:var(--muted-2); display:flex; align-items:center; gap:6px;}
+
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-bottom:18px; margin-bottom:22px; border-bottom:1px solid var(--line);}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{font-size:.88rem; font-weight:700; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:100px; padding:8px 16px;}
+  .chip.on{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+  .count{font-size:.84rem; font-weight:600; color:var(--muted);}
+
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .card{
+    display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:22px;
+    transition:box-shadow .2s ease, border-color .2s ease; cursor:pointer;
+  }
+  .card:hover{box-shadow:var(--shadow);}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;}
+  .card .app-icon{width:52px; height:52px; border-radius:14px; padding:4px;}
+  .dl-count{font-family:var(--mono); font-size:.76rem; color:var(--muted); background:var(--chip); border-radius:6px; padding:3px 8px; display:flex; align-items:center; gap:5px;}
+  .card h3{font-size:1.08rem; font-weight:800;}
+  .card p{color:var(--muted); font-size:.9rem; margin-bottom:10px; flex:1;}
+  .card-foot{display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:16px; margin-top:16px;}
+  .card-foot .mono{font-size:.8rem; line-height:1.6;}
+  .card-foot small{display:block; color:var(--muted-2); letter-spacing:.06em;}
+  .soft-btn{font-size:.86rem; font-weight:700; background:var(--chip); color:var(--ink); border:0; border-radius:100px; padding:9px 18px;}
+  .soft-btn:hover{background:var(--line);}
+  .ghost-card{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:8px;
+    border:1.5px dashed var(--line); border-radius:22px; padding:22px; color:var(--muted); min-height:240px;
+  }
+  .ghost-card b{color:var(--ink);}
+  .empty{grid-column:1 / -1; text-align:center; color:var(--muted); padding:40px 0;}
+
+  /* ---------- app page ---------- */
+  .back{display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-weight:600; margin-bottom:34px;}
+  .back:hover{color:var(--ink);}
+  .app-layout{display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:clamp(24px,4vw,48px); align-items:start;}
+  .app-hero{display:flex; gap:clamp(18px,3vw,32px); align-items:flex-start; margin-bottom:40px;}
+  .app-hero .app-icon{width:clamp(110px,13vw,160px); height:clamp(110px,13vw,160px); border-radius:36px; padding:14px; box-shadow:var(--shadow);}
+  .app-hero h1{font-size:clamp(2.2rem,5vw,3.4rem); font-weight:800; letter-spacing:-.03em; line-height:1.05;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 26px;}
+  .tag{font-size:.8rem; font-weight:700; border-radius:100px; padding:4px 12px; border:1px solid var(--line); background:var(--chip); color:var(--muted);}
+  .tag.ver{background:var(--pink-soft); color:var(--pink); border-color:transparent; font-family:var(--mono);}
+  .tag.by{background:var(--purple-soft); color:var(--purple); border-color:transparent;}
+  .big-dl{display:inline-flex; align-items:center; gap:16px; background:var(--ink); color:var(--bg); border-radius:100px; padding:18px 30px; font-weight:800; font-size:1.08rem;}
+  .big-dl .size{font-family:var(--mono); font-weight:500; font-size:.88rem; opacity:.6; padding-inline-start:16px; border-inline-start:1px solid currentColor;}
+  .big-dl:hover{opacity:.92;}
+  .also{display:block; margin-top:12px; font-size:.86rem; color:var(--muted);}
+  .also a{font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
+  .block{padding-top:28px; margin-top:28px; border-top:1px solid var(--line);}
+  .block h2{display:flex; align-items:center; gap:8px; font-size:1.25rem; font-weight:800; margin-bottom:14px;}
+  .block h2 svg{color:var(--muted-2);}
+  .about{font-size:clamp(1.05rem,1.8vw,1.35rem); line-height:1.65;}
+  .about + .about{margin-top:12px;}
+  .side-card{background:var(--surface); border:1px solid var(--line); border-radius:24px; padding:22px; margin-bottom:22px;}
+  .side-title{font-size:.86rem; font-weight:700; color:var(--muted); letter-spacing:.04em; margin-bottom:12px;}
+  .kv{display:flex; justify-content:space-between; gap:10px; padding:13px 0; border-top:1px solid var(--line); font-size:.92rem;}
+  .kv:first-of-type{border-top:0; padding-top:4px;}
+  .kv span{color:var(--muted);}
+  .kv b{font-weight:700;}
+  .vlist{display:grid; gap:6px;}
+  .vrow{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; border-radius:14px; background:var(--surface); border:1px solid var(--line);}
+  .vrow b{font-family:var(--mono); font-size:.95rem; direction:ltr;}
+  .vrow small{display:block; font-size:.76rem; color:var(--muted-2);}
+  .vrow a{width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--muted);}
+  .vrow a:hover{background:var(--chip); color:var(--ink);}
+  .notes{list-style:none; display:grid; gap:8px;}
+  .notes li{display:flex; gap:10px; align-items:flex-start; font-size:.95rem; line-height:1.6; color:var(--muted);}
+  .notes li::before{content:''; flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:var(--pink); margin-top:.6em;}
+  .disclaimer{text-align:center; font-size:.8rem; color:var(--muted-2); margin-top:56px;}
+
+  @media (max-width:980px){ .grid{grid-template-columns:1fr 1fr;} .app-layout{grid-template-columns:1fr;} }
+  @media (max-width:640px){
+    .st-head{flex-wrap:wrap;}
+    .st-search{order:3; max-width:none; flex-basis:100%;}
+    .st-tools .pill-btn span{display:none;}
+    .grid{grid-template-columns:1fr;}
+    .featured-cta{width:100%;}
+    .featured-cta .dl-btn{width:100%; justify-content:center;}
+    .app-hero{flex-direction:column;}
+    .big-dl{width:100%; justify-content:center;}
+  }
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header class="st-head">
+  <a class="st-brand" href="#" data-home>
+    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="">
+    חנות
+  </a>
+  <label class="st-search">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="q" placeholder="חיפוש..." aria-label="חיפוש אפליקציה">
+  </label>
+  <div class="st-tools">
+    <button class="icon-btn" id="theme" aria-label="מצב כהה" title="מצב כהה">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="icon-btn" href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    </a>
+    <a class="pill-btn" href="index.html" title="לאתר Xnet">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 4l9 6.5V20H3v-9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>לאתר Xnet</span>
+    </a>
+    <a class="pill-btn" href="contact.html" title="בקשת אפליקציה">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>בקשת אפליקציה</span>
+    </a>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<script>
+  // ---------- הנתונים של החנות ----------
+  // כדי להוסיף אפליקציה: מוסיפים אובייקט ל-APPS. אם יש repo עם releases ב-GitHub,
+  // החנות מושכת ממנו בעצמה את הגרסה האחרונה, הגודל, התאריך ומספר ההורדות.
+  const APPS = [
+    {
+      id: 'vodos',
+      name: 'VODOS',
+      pkg: 'il.vodos.offline',
+      icon: 'assets/vodos.png',
+      category: 'video',
+      author: 'xnet2',
+      short: 'פיד סרטונים קצרים לנגן אנדרואיד, בלי אינטרנט. המחשב מעדכן את הנגן בכבל.',
+      about: [
+        'VODOS מביא את פיד הסרטונים הקצרים של Xnet לנגן MP4/MP5 או לכל מכשיר אנדרואיד שאין בו אינטרנט.',
+        'מתקינים את האפליקציה בנגן ואת התוכנה במחשב. כשמחברים את הנגן בכבל, המחשב מוריד את הסרטונים החדשים ומעתיק אותם אליו בלחיצה אחת.'
+      ],
+      page: 'projects/vodos.html',
+      repo: 'Xnet2/vodos-offline',
+      asset: 'VODOS.apk',
+      extra: { name: 'VODOS-PC.zip', label: 'התוכנה למחשב (Windows)' },
+      minAndroid: 'אנדרואיד 4.4 ומעלה',
+      // גיבוי אם GitHub לא זמין
+      versions: [
+        { v: '2.0', date: '2026-11-12T23:20:39Z', size: 152357, downloads: 2, notes: ['המחשב לא שומר יותר סרטונים: מוריד ומעתיק לנגן רק כשלוחצים "התחל עדכון"', 'בכל עדכון הנגן מתחלף לסרטונים הכי חדשים, ו"אהבתי" נשארים'] },
+        { v: '1.9', date: '2026-11-11T23:02:32Z', size: 152357, downloads: 13 },
+        { v: '1.8', date: '2026-11-11T21:17:55Z', size: 152357, downloads: 5 },
+        { v: '1.7', date: '2026-11-09T20:41:34Z', size: 123621, downloads: 29 },
+        { v: '1.6', date: '2026-11-09T12:49:20Z', size: 123622, downloads: 5 },
+        { v: '1.5', date: '2026-11-09T12:16:49Z', size: 86609, downloads: 5 },
+        { v: '1.4', date: '2026-11-09T11:43:50Z', size: 86610, downloads: 9 },
+        { v: '1.3', date: '2026-11-08T22:22:14Z', size: 82513, downloads: 15 },
+        { v: '1.2', date: '2026-11-08T22:11:53Z', size: 74321, downloads: 3 }
+      ]
+    }
+  ];
+  const CATS = [['all', 'הכל'], ['video', 'וידאו ומדיה'], ['tools', 'כלים'], ['comm', 'תקשורת']];
+
+  // ---------- עזרים ----------
+  const $view = document.getElementById('view');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fmtDate = iso => new Date(iso).toLocaleDateString('he-IL', { day: 'numeric', month: 'short', year: 'numeric' });
+  const fmtSize = b => b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.round(b / 1024) + ' KB';
+  const fmtNum = n => n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K' : String(n);
+  const total = app => app.versions.reduce((s, v) => s + (v.downloads || 0), 0);
+  const apkUrl = (app, v) => `https://github.com/${app.repo}/releases/download/v${v}/${app.asset}`;
+  const latestUrl = (app, name) => `https://github.com/${app.repo}/releases/latest/download/${name}`;
+  const ICON_DL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_USER = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+  // ---------- נתונים חיים מ-GitHub releases ----------
+  async function syncFromGitHub(app) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${app.repo}/releases?per_page=50`);
+      if (!res.ok) return;
+      const rel = await res.json();
+      const list = rel.filter(r => !r.draft && !r.prerelease).map(r => {
+        const a = (r.assets || []).find(x => x.name === app.asset);
+        if (!a) return null;
+        const notes = (r.body || '').split('\n').map(l => l.trim()).filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, ''));
+        return { v: r.tag_name.replace(/^v/, ''), date: r.published_at, size: a.size, downloads: a.download_count, notes };
+      }).filter(Boolean);
+      if (list.length) { app.versions = list; render(); }
+    } catch (e) { /* נשארים עם נתוני הגיבוי */ }
+  }
+
+  // ---------- תצוגות ----------
+  let cat = 'all';
+  const q = document.getElementById('q');
+
+  function home() {
+    const term = q.value.trim().toLowerCase();
+    const list = APPS.filter(a => (cat === 'all' || a.category === cat) &&
+      (!term || (a.name + ' ' + a.short + ' ' + a.pkg).toLowerCase().includes(term)));
+    const top = APPS.slice().sort((a, b) => total(b) - total(a))[0];
+    const tv = top.versions[0];
+    return `
+      <div class="soon"><b>החנות בהקמה.</b> בקרוב יתווספו כאן עוד אפליקציות. בינתיים VODOS כבר זמינה להורדה.<a href="contact.html">יש לכם בקשה?</a></div>
+      ${term ? '' : `
+      <div class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>הכי הרבה הורדות</div>
+      <article class="featured" data-open="${top.id}">
+        <div class="app-icon"><img src="${top.icon}" alt=""></div>
+        <div class="featured-body">
+          <h2>${esc(top.name)} <span class="ver-chip">v${tv.v}</span></h2>
+          <div class="pkg">${top.pkg}</div>
+          <p>${esc(top.short)}</p>
+          <div class="author"><span class="avatar">${ICON_USER}</span>@${top.author}</div>
+        </div>
+        <div class="featured-cta">
+          <a class="dl-btn" href="${latestUrl(top, top.asset)}" data-stop>${ICON_DL} הורדה</a>
+          <span class="installs">INSTALLS ${fmtNum(total(top))} ${ICON_DL}</span>
+        </div>
+      </article>`}
+      <div class="bar">
+        <div class="chips">${CATS.map(([k, t]) => `<button class="chip${k === cat ? ' on' : ''}" data-cat="${k}">${t}</button>`).join('')}</div>
+        <span class="count">${list.length} ${list.length === 1 ? 'אפליקציה' : 'אפליקציות'}</span>
+      </div>
+      <div class="grid">
+        ${list.map(card).join('')}
+        ${list.length ? (cat === 'all' && !term ? `<div class="ghost-card"><b>עוד אפליקציות בקרוב</b>החנות רק התחילה.</div>` : '') : `<div class="empty">${term ? 'לא נמצאו אפליקציות.' : 'עוד אין כאן אפליקציות. בקרוב.'}</div>`}
+      </div>
+      <p class="disclaimer">כל האפליקציות בחנות נבנו על ידי Xnet. ההורדה ישירה מ-GitHub.</p>`;
+  }
+
+  function card(a) {
+    const v = a.versions[0];
+    return `
+      <article class="card" data-open="${a.id}">
+        <div class="card-top">
+          <div class="app-icon"><img src="${a.icon}" alt=""></div>
+          <span class="dl-count">${fmtNum(total(a))} ${ICON_DL}</span>
+        </div>
+        <h3>${esc(a.name)}</h3>
+        <div class="pkg">${a.pkg}</div>
+        <p>${esc(a.short)}</p>
+        <div class="author"><span class="avatar">${ICON_USER}</span>@${a.author}</div>
+        <div class="card-foot">
+          <div class="mono">V${v.v}<small>${fmtDate(v.date)}</small></div>
+          <a class="soft-btn" href="${latestUrl(a, a.asset)}" data-stop>הורדה</a>
+        </div>
+      </article>`;
+  }
+
+  function appPage(a) {
+    const v = a.versions[0];
+    const catName = (CATS.find(c => c[0] === a.category) || [, ''])[1];
+    return `
+      <a class="back" href="#" data-home><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-6-6M19 12l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>חזרה לחנות</a>
+      <div class="app-layout">
+        <div>
+          <div class="app-hero">
+            <div class="app-icon"><img src="${a.icon}" alt=""></div>
+            <div>
+              <h1>${esc(a.name)}</h1>
+              <div class="pkg">${a.pkg}</div>
+              <div class="tags"><span class="tag">${catName}</span><span class="tag ver">v${v.v}</span><span class="tag by">@${a.author}</span></div>
+              <a class="big-dl" href="${latestUrl(a, a.asset)}">${ICON_DL} הורד APK <span class="size" dir="ltr">${fmtSize(v.size)}</span></a>
+              ${a.extra ? `<span class="also">צריך גם את <a href="${latestUrl(a, a.extra.name)}">${a.extra.name}</a>, ${a.extra.label}.</span>` : ''}
+            </div>
+          </div>
+          <section class="block">
+            <h2><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>על האפליקציה</h2>
+            ${a.about.map(t => `<p class="about">${esc(t)}</p>`).join('')}
+            ${a.page ? `<span class="also"><a href="${a.page}">לעמוד המלא, עם הוראות התקנה</a></span>` : ''}
+          </section>
+          ${v.notes && v.notes.length ? `
+          <section class="block">
+            <h2>מה חדש בגרסה ${v.v}</h2>
+            <ul class="notes">${v.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>
+          </section>` : ''}
+        </div>
+        <aside>
+          <div class="side-card">
+            <div class="side-title">פרטים טכניים</div>
+            <div class="kv"><span>הורדות</span><b class="mono">${total(a)}</b></div>
+            <div class="kv"><span>גודל</span><b class="mono" dir="ltr">${fmtSize(v.size)}</b></div>
+            <div class="kv"><span>דרישות</span><b>${a.minAndroid}</b></div>
+            <div class="kv"><span>מקור</span><b><a href="https://github.com/${a.repo}" target="_blank" rel="noopener">GitHub</a></b></div>
+            <div class="kv"><span>עדכון אחרון</span><b>${fmtDate(v.date)}</b></div>
+          </div>
+          <div class="side-title">היסטוריית גרסאות</div>
+          <div class="vlist">
+            ${a.versions.map(x => `
+            <div class="vrow">
+              <div><b>v${x.v}</b><small>${fmtDate(x.date)}</small></div>
+              <a href="${apkUrl(a, x.v)}" aria-label="הורדת גרסה ${x.v}" title="הורדת גרסה ${x.v}">${ICON_DL}</a>
+            </div>`).join('')}
+          </div>
+        </aside>
+      </div>`;
+  }
+
+  function render() {
+    const m = location.hash.match(/^#app\/(.+)$/);
+    const app = m && APPS.find(a => a.id === decodeURIComponent(m[1]));
+    $view.innerHTML = app ? appPage(app) : home();
+    document.title = app ? `${app.name} · חנות Xnet` : 'חנות Xnet · אפליקציות לאנדרואיד';
+  }
+
+  // ---------- אירועים ----------
+  $view.addEventListener('click', e => {
+    if (e.target.closest('[data-stop]')) return;
+    const chip = e.target.closest('[data-cat]');
+    if (chip) { cat = chip.dataset.cat; render(); return; }
+    const open = e.target.closest('[data-open]');
+    if (open) { location.hash = 'app/' + open.dataset.open; window.scrollTo(0, 0); }
+  });
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-home]')) { e.preventDefault(); history.pushState(null, '', location.pathname); render(); window.scrollTo(0, 0); }
+  });
+  q.addEventListener('input', () => { if (location.hash) history.replaceState(null, '', location.pathname); render(); });
+  window.addEventListener('hashchange', render);
+
+  // מצב כהה, נזכר בין ביקורים
+  const root = document.documentElement;
+  try { if (localStorage.getItem('store-theme') === 'dark') root.dataset.theme = 'dark'; } catch (e) {}
+  document.getElementById('theme').addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? '' : 'dark';
+    try { localStorage.setItem('store-theme', root.dataset.theme); } catch (e) {}
+  });
+
+  render();
+  APPS.forEach(a => a.repo && syncFromGitHub(a));
+</script>
+</body>
+</html>

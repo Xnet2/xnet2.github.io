@@ -10,16 +10,22 @@
 </head>
 <body>
 
-<header>
+<div class="topline"></div>
+<header class="site-head">
   <a class="brand" href="../index.html">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span>Xnet</span>
   </a>
+  <label class="site-search">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="site-q" placeholder="חיפוש באתר..." aria-label="חיפוש באתר" autocomplete="off">
+    <div class="search-results" id="search-results" hidden></div>
+  </label>
   <nav>
     <ul>
-      <li><a href="../services.html" class="nav-highlight">שירותי אתרים</a></li>
+      <li><a href="../services.html" class="nav-pill"><span class="nav-long">שירותי אתרים</span><span class="nav-short">שירותים</span></a></li>
       <li class="nav-dropdown" id="projects-dropdown">
-        <a href="../projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+        <a href="../projects.html" class="nav-dropdown-trigger nav-pill" id="projects-trigger">
           פרויקטים
           <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -27,6 +33,7 @@
         </a>
         <div class="nav-dropdown-menu" id="projects-menu">
           <a href="vodos.html">VODOS</a>
+          <a href="vodos-online.html">VODOS אונליין</a>
           <a href="derech-haaretz.html">דרך הארץ</a>
           <a href="netlink.html">נטלינק</a>
           <a href="story.html">סטורי במייל</a>
@@ -35,33 +42,34 @@
           <a href="flash-push.html">פלאש פוש</a>
           <a href="clipx.html">ClipX</a>
           <a href="../projects.html#channel">ערוץ עדכונים</a>
-          <a href="../store.html" class="menu-store">חנות האפליקציות</a>
         </div>
       </li>
-      <li><a href="../payment.html">תשלום</a></li>
+      <li><a href="../store.html" class="nav-pill">חנות</a></li>
+      <li><a href="../payment.html" class="nav-pill">תשלום</a></li>
       <li><a href="../contact.html" class="nav-cta"><span class="dot"></span>בואו נדבר</a></li>
     </ul>
   </nav>
 </header>
 
 <main class="wrap pp">
-  <a href="../projects.html" class="pp-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-6-6M19 12l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> כל הפרויקטים</a>
-
-  <section class="pp-hero">
-    <div class="pp-icon"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="פלאש פוש"></div>
-    <div class="pp-head">
-      <span class="pp-meta">תוסף לכרום · חדשות</span>
-      <h1>פלאש פוש</h1>
-      <p class="pp-lede">כמה ערוצי חדשות בפיד אחד, בסרגל הצד של הדפדפן.</p>
-      <div class="pp-actions">
-        <a href="https://chromewebstore.google.com/detail/gniofaojlacllfmbojflaigaofgbgfkb" target="_blank" rel="noopener" class="btn btn-lg btn-primary">התקנת התוסף <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://mitmachim.top/post/1220234" target="_blank" rel="noopener" class="pp-forum"><img src="https://mitmachim.top/favicon.ico" alt="">השרשור במתמחים טופ</a>
-      </div>
-    </div>
-  </section>
+  <a href="../projects.html" class="pp-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-6-6M19 12l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> חזרה לפרויקטים</a>
 
   <div class="pp-grid">
     <div class="pp-main">
+      <section class="pp-hero">
+        <div class="pp-icon"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="פלאש פוש"></div>
+        <div class="pp-head">
+          <h1>פלאש פוש</h1>
+          <div class="pp-addr">chrome web store</div>
+          <div class="tags"><span class="tag">תוסף לכרום</span><span class="tag by">@xnet2</span></div>
+          <p class="pp-lede">כמה ערוצי חדשות בפיד אחד, בסרגל הצד של הדפדפן.</p>
+          <div class="pp-actions">
+            <a href="https://chromewebstore.google.com/detail/gniofaojlacllfmbojflaigaofgbgfkb" target="_blank" rel="noopener" class="big-dl">התקנת התוסף <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="https://mitmachim.top/post/1220234" target="_blank" rel="noopener" class="pp-forum"><img src="https://mitmachim.top/favicon.ico" alt="">השרשור במתמחים טופ</a>
+          </div>
+        </div>
+      </section>
+
       <section class="pp-section">
         <h2>על הפרויקט</h2>
         <p>פלאש פוש הוא תוסף לכרום שאוסף עדכונים מכמה ערוצי חדשות לפיד אחד ומציג אותו בסרגל הצד של הדפדפן. אפשר להמשיך לגלוש ולראות את העדכונים בצד.</p>
@@ -83,10 +91,8 @@
     <aside class="pp-side">
 
       <div class="pp-card">
-        <h2>פרטים</h2>
-        <dl class="pp-details">
-        <div><dt>סוג</dt><dd>תוסף לכרום</dd></div>
-        </dl>
+        <div class="pp-card-title">פרטים</div>
+        <div class="kv"><span>סוג</span><b>תוסף לכרום</b></div>
       </div>
     </aside>
   </div>
@@ -94,7 +100,7 @@
 
 <footer id="footer-info">
   <div class="brand">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span style="font-weight:800;">Xnet</span>
   </div>
   <p class="tagline">מישהו היה צריך לבנות את זה</p>
@@ -130,6 +136,7 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 </script>
+<script src="../site.js"></script>
 
 </body>
 </html>

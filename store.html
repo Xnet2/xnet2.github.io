@@ -96,6 +96,7 @@
   .card:hover{box-shadow:var(--shadow);}
   .card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;}
   .card .app-icon{width:52px; height:52px; border-radius:14px; padding:4px;}
+  .dl-count.new{color:var(--pink); background:var(--pink-soft); font-family:inherit; font-weight:700;}
   .dl-count{font-family:var(--mono); font-size:.76rem; color:var(--muted); background:var(--chip); border-radius:6px; padding:3px 8px; display:flex; align-items:center; gap:5px;}
   .card h3{font-size:1.08rem; font-weight:800;}
   .card p{color:var(--muted); font-size:.9rem; margin-bottom:10px; flex:1;}
@@ -227,6 +228,27 @@
         { v: '1.3', date: '2026-11-08T22:22:14Z', size: 82513, downloads: 15 },
         { v: '1.2', date: '2026-11-08T22:11:53Z', size: 74321, downloads: 3 }
       ]
+    },
+    {
+      id: 'vodos-online',
+      name: 'VODOS אונליין',
+      pkg: 'il.vodos.online',
+      icon: 'assets/vodos-online.png',
+      category: 'video',
+      author: 'xnet2',
+      short: 'כל הסרטונים של VODOS ישר מהאינטרנט. בלי מחשב, ובלי לשמור סרטונים במכשיר.',
+      about: [
+        'אותה אפליקציה של VODOS, באותו מסך ועם אותם כפתורים, אבל הסרטונים מתנגנים ישר מהאינטרנט. הרשימה מגיעה מהאתר, באותו סינון ובאותו סדר.',
+        'מתאימה למכשיר אנדרואיד שיש בו אינטרנט. לא צריך תוכנה במחשב, ושום סרטון לא נשמר במכשיר, אלא אם מורידים אותו לגלריה.'
+      ],
+      page: 'projects/vodos-online.html',
+      // מתארח באתר עצמו (downloads/), לא ב-GitHub releases
+      file: v => `downloads/VODOS-online-${v}.apk`,
+      minAndroid: 'אנדרואיד 4.4 ומעלה',
+      isNew: true,
+      versions: [
+        { v: '1.0', date: '2026-11-13T11:33:08Z', size: 144163, notes: ['הגרסה הראשונה: כל הסרטונים מכל הערוצים ישר מהאתר', 'אהבתי, חיפוש, חלונית ערוץ, היסטוריה והורדה לגלריה'] }
+      ]
     }
   ];
   const CATS = [['all', 'הכל'], ['video', 'וידאו ומדיה'], ['tools', 'כלים'], ['comm', 'תקשורת']];
@@ -238,8 +260,8 @@
   const fmtSize = b => b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.round(b / 1024) + ' KB';
   const fmtNum = n => n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K' : String(n);
   const total = app => app.versions.reduce((s, v) => s + (v.downloads || 0), 0);
-  const apkUrl = (app, v) => `https://github.com/${app.repo}/releases/download/v${v}/${app.asset}`;
-  const latestUrl = (app, name) => `https://github.com/${app.repo}/releases/latest/download/${name}`;
+  const apkUrl = (app, v) => app.file ? app.file(v) : `https://github.com/${app.repo}/releases/download/v${v}/${app.asset}`;
+  const latestUrl = (app, name) => app.file ? app.file(app.versions[0].v) : `https://github.com/${app.repo}/releases/latest/download/${name}`;
   const ICON_DL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_USER = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
@@ -270,7 +292,7 @@
     const top = APPS.slice().sort((a, b) => total(b) - total(a))[0];
     const tv = top.versions[0];
     return `
-      <div class="soon"><b>החנות בהקמה.</b> בקרוב יתווספו כאן עוד אפליקציות. בינתיים VODOS כבר זמינה להורדה.<a href="contact.html">יש לכם בקשה?</a></div>
+      <div class="soon"><b>החנות בהקמה.</b> בקרוב יתווספו כאן עוד אפליקציות. בינתיים VODOS ו-VODOS אונליין כבר זמינות להורדה.<a href="contact.html">יש לכם בקשה?</a></div>
       ${term ? '' : `
       <div class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>הכי הרבה הורדות</div>
       <article class="featured" data-open="${top.id}">
@@ -303,7 +325,7 @@
       <article class="card" data-open="${a.id}">
         <div class="card-top">
           <div class="app-icon"><img src="${a.icon}" alt=""></div>
-          <span class="dl-count">${fmtNum(total(a))} ${ICON_DL}</span>
+          ${a.isNew && !total(a) ? '<span class="dl-count new">חדש</span>' : `<span class="dl-count">${fmtNum(total(a))} ${ICON_DL}</span>`}
         </div>
         <h3>${esc(a.name)}</h3>
         <div class="pkg">${a.pkg}</div>
@@ -347,10 +369,10 @@
         <aside>
           <div class="side-card">
             <div class="side-title">פרטים טכניים</div>
-            <div class="kv"><span>הורדות</span><b class="mono">${total(a)}</b></div>
+            ${a.repo ? `<div class="kv"><span>הורדות</span><b class="mono">${total(a)}</b></div>` : ''}
             <div class="kv"><span>גודל</span><b class="mono" dir="ltr">${fmtSize(v.size)}</b></div>
             <div class="kv"><span>דרישות</span><b>${a.minAndroid}</b></div>
-            <div class="kv"><span>מקור</span><b><a href="https://github.com/${a.repo}" target="_blank" rel="noopener">GitHub</a></b></div>
+            ${a.repo ? `<div class="kv"><span>מקור</span><b><a href="https://github.com/${a.repo}" target="_blank" rel="noopener">GitHub</a></b></div>` : ''}
             <div class="kv"><span>עדכון אחרון</span><b>${fmtDate(v.date)}</b></div>
           </div>
           <div class="side-title">היסטוריית גרסאות</div>

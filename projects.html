@@ -9,16 +9,22 @@
 </head>
 <body>
 
-<header>
+<div class="topline"></div>
+<header class="site-head">
   <a class="brand" href="index.html">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span>Xnet</span>
   </a>
+  <label class="site-search">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="site-q" placeholder="חיפוש באתר..." aria-label="חיפוש באתר" autocomplete="off">
+    <div class="search-results" id="search-results" hidden></div>
+  </label>
   <nav>
     <ul>
-      <li><a href="services.html" class="nav-highlight">שירותי אתרים</a></li>
+      <li><a href="services.html" class="nav-pill"><span class="nav-long">שירותי אתרים</span><span class="nav-short">שירותים</span></a></li>
       <li class="nav-dropdown" id="projects-dropdown">
-        <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+        <a href="projects.html" class="nav-dropdown-trigger nav-pill" id="projects-trigger">
           פרויקטים
           <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -26,6 +32,7 @@
         </a>
         <div class="nav-dropdown-menu" id="projects-menu">
           <a href="projects/vodos.html">VODOS</a>
+          <a href="projects/vodos-online.html">VODOS אונליין</a>
           <a href="projects/derech-haaretz.html">דרך הארץ</a>
           <a href="projects/netlink.html">נטלינק</a>
           <a href="projects/story.html">סטורי במייל</a>
@@ -34,126 +41,168 @@
           <a href="projects/flash-push.html">פלאש פוש</a>
           <a href="projects/clipx.html">ClipX</a>
           <a href="projects.html#channel">ערוץ עדכונים</a>
-          <a href="store.html" class="menu-store">חנות האפליקציות</a>
         </div>
       </li>
-      <li><a href="payment.html">תשלום</a></li>
+      <li><a href="store.html" class="nav-pill">חנות</a></li>
+      <li><a href="payment.html" class="nav-pill">תשלום</a></li>
       <li><a href="contact.html" class="nav-cta"><span class="dot"></span>בואו נדבר</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="wrap prj-top">
-  <span class="kicker">פרויקטים</span>
-  <h1>דברים שבניתי</h1>
-  <p>אתרים, כלים ותוספים שבניתי ואני ממשיך להפעיל בעצמי. לכל אחד יש עמוד עם הסבר מלא.</p>
-  <a href="store.html" class="btn btn-ghost prj-store">לחנות האפליקציות <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-</section>
-
-<section class="wrap prj-grid">
-  <article class="prj prj-wide reveal" id="vodos">
-    <div class="prj-logo"><img src="assets/vodos.png" alt="VODOS" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אפליקציה לאנדרואיד · אתר · תוכנה למחשב</span>
-      <h3><a href="projects/vodos.html">VODOS</a> <span class="prj-badge">גרסה 2.0</span></h3>
-      <p>פיד של סרטונים קצרים בגלילה אנכית. באתר, וגם על נגן אנדרואיד בלי אינטרנט: המחשב מוריד את הסרטונים ומעתיק אותם לנגן בכבל.</p>
-      <div class="prj-links">
-        <a href="projects/vodos.html#download" class="prj-main">הורדה ועדכוני גרסאות <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://xnet2.github.io/VOD/" target="_blank" rel="noopener" class="prj-forum">הפיד באתר <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+<main class="wrap s-page">
+  <div class="s-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>הכי חדש</div>
+  <article class="s-featured reveal" data-href="projects/vodos.html">
+    <div class="s-icon"><img src="assets/vodos.png" alt=""></div>
+    <div class="s-featured-body">
+      <h1>VODOS <span class="ver-chip">v2.0</span></h1>
+      <div class="s-addr">il.vodos.offline</div>
+      <p>פיד של סרטונים קצרים בגלילה אנכית, באתר וגם על נגן אנדרואיד בלי אינטרנט. עכשיו יש גם <a href="projects/vodos-online.html">VODOS אונליין</a>, שמנגנת ישר מהאינטרנט.</p>
+      <div class="s-author"><span class="s-avatar"><span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span></span>@xnet2</div>
+    </div>
+    <div class="s-featured-cta">
+      <a class="big-dl" href="projects/vodos.html#download"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> הורדה</a>
+      <a class="s-sub" href="store.html">לחנות האפליקציות</a>
     </div>
   </article>
 
-  <article class="prj prj-wide reveal" id="derech-haaretz">
-    <div class="prj-logo"><img src="https://res.cloudinary.com/dpsgd6esr/image/upload/v1785752770/ghcmqbdryluaunig43co.jpg" alt="דרך הארץ" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אתר · מסלולים וטבע</span>
+  <div class="s-bar">
+    <div class="chips" id="kind-chips">
+      <button class="chip on" data-kind="all">הכל</button>
+      <button class="chip" data-kind="site">אתרים</button>
+      <button class="chip" data-kind="ext">תוספים</button>
+      <button class="chip" data-kind="app">אפליקציות</button>
+    </div>
+    <span class="s-count" id="kind-count">9 פרויקטים</span>
+  </div>
+
+  <section class="s-grid" id="s-grid">
+    <article class="s-card reveal" data-kind="app" data-href="projects/vodos.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="assets/vodos.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אפליקציה</span>
+      </div>
+      <h3><a href="projects/vodos.html">VODOS</a></h3>
+      <div class="s-addr">il.vodos.offline</div>
+      <p>פיד של סרטונים קצרים בגלילה אנכית, באתר וגם על נגן אנדרואיד בלי אינטרנט.</p>
+      <div class="s-foot">
+        <div class="s-mono">v2.0<small>13 בנוב׳ 2026</small></div>
+        <a class="soft-btn" href="projects/vodos.html">פרטים</a>
+      </div>
+    </article>
+
+    <article class="s-card reveal" data-kind="app" data-href="projects/vodos-online.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="assets/vodos-online.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אפליקציה</span>
+      </div>
+      <h3><a href="projects/vodos-online.html">VODOS אונליין</a></h3>
+      <div class="s-addr">il.vodos.online</div>
+      <p>כל הסרטונים של VODOS ישר מהאינטרנט. בלי מחשב, ובלי לשמור סרטונים במכשיר.</p>
+      <div class="s-foot">
+        <div class="s-mono">v1.0<small>13 בנוב׳ 2026</small></div>
+        <a class="soft-btn" href="projects/vodos-online.html">פרטים</a>
+      </div>
+    </article>
+
+    <article class="s-card reveal" data-kind="site" data-href="projects/derech-haaretz.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://res.cloudinary.com/dpsgd6esr/image/upload/v1785752770/ghcmqbdryluaunig43co.jpg" alt="" loading="lazy"></div>
+        <span class="s-chip">אתר</span>
+      </div>
       <h3><a href="projects/derech-haaretz.html">דרך הארץ</a></h3>
-      <p>פלטפורמה שיתופית למטיילים: מעיינות, מסלולים ואתרי בילוי בישראל במקום אחד, עם ביקורות מהשטח.</p>
-      <div class="prj-links">
-        <a href="projects/derech-haaretz.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://metailim.pythonanywhere.com/" target="_blank" rel="noopener" class="prj-forum">לפתיחת המפה <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">metailim.pythonanywhere.com</div>
+      <p>מפה שיתופית של מעיינות, מסלולים ואתרי בילוי בישראל, עם ביקורות של מי שהיה שם.</p>
+      <div class="s-foot">
+        <div class="s-mono">WEB</div>
+        <a class="soft-btn" href="projects/derech-haaretz.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="netlink">
-    <div class="prj-logo"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="נטלינק" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אתר · לוח שיתופי</span>
+    <article class="s-card reveal" data-kind="site" data-href="projects/netlink.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A0%D7%98%D7%9C%D7%99%D7%A0%D7%A7.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אתר</span>
+      </div>
       <h3><a href="projects/netlink.html">נטלינק</a></h3>
-      <p>לוח קהילתי של אתרים נפוצים שפתוחים תחת נטפרי. כל משתמש יכול להוסיף אתר, והרשימה גדלה יחד עם הקהילה.</p>
-      <div class="prj-links">
-        <a href="projects/netlink.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://xnet2.github.io/netlink/" target="_blank" rel="noopener" class="prj-forum">לצפייה בלוח <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">xnet2.github.io/netlink</div>
+      <p>אינדקס קהילתי של אתרים נפוצים שפתוחים תחת נטפרי.</p>
+      <div class="s-foot">
+        <div class="s-mono">WEB</div>
+        <a class="soft-btn" href="projects/netlink.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="story">
-    <div class="prj-logo"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A1%D7%98%D7%95%D7%A8%D7%99.png" alt="סטורי במייל" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">תוסף לכרום</span>
+    <article class="s-card reveal" data-kind="ext" data-href="projects/story.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/%D7%A1%D7%98%D7%95%D7%A8%D7%99.png" alt="" loading="lazy"></div>
+        <span class="s-chip">תוסף לכרום</span>
+      </div>
       <h3><a href="projects/story.html">סטורי במייל</a></h3>
-      <p>מביא את הסטורי מוואטסאפ ומאינסטגרם ישירות לתיבת המייל, פתוח בכל הסינונים.</p>
-      <div class="prj-links">
-        <a href="projects/story.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://chromewebstore.google.com/detail/stories/ndnomejplhfnjioiapflolndcofeimkf" target="_blank" rel="noopener" class="prj-forum">התקנת התוסף <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">chrome web store</div>
+      <p>הסטוריז מוואטסאפ ומאינסטגרם, ישר לתיבת המייל.</p>
+      <div class="s-foot">
+        <div class="s-mono">CHROME</div>
+        <a class="soft-btn" href="projects/story.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="watsapp-phone">
-    <div class="prj-logo"><img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="וואטסאפ פון" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אתר · גישה קולית מהמחשב</span>
+    <article class="s-card reveal" data-kind="site" data-href="projects/watsapp-phone.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אתר</span>
+      </div>
       <h3><a href="projects/watsapp-phone.html">וואטסאפ פון</a></h3>
-      <p>גישה למערכת הקולית ישירות מהמחשב: שליחה וקבלה של הודעות שמתעדכנות כל הזמן, עם אנשי קשר.</p>
-      <div class="prj-links">
-        <a href="projects/watsapp-phone.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://xnet2.github.io/watsapp/" target="_blank" rel="noopener" class="prj-forum">לפתיחת המערכת <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">xnet2.github.io/watsapp</div>
+      <p>שולחים ומקבלים הודעות קוליות של מערכת ימות המשיח, ישר מהמחשב.</p>
+      <div class="s-foot">
+        <div class="s-mono">WEB</div>
+        <a class="soft-btn" href="projects/watsapp-phone.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="mytube">
-    <div class="prj-logo"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="מייטיוב" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אתר · מנויי יוטיוב</span>
+    <article class="s-card reveal" data-kind="site" data-href="projects/mytube.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אתר</span>
+      </div>
       <h3><a href="projects/mytube.html">מייטיוב</a></h3>
-      <p>העדכונים מהערוצים שאתם אוהבים לפי הסדר, בלי אלגוריתם ובלי המלצות. יש גם גרסה שעובדת ברשתות מסוננות.</p>
-      <div class="prj-links">
-        <a href="projects/mytube.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://mysube.com/" target="_blank" rel="noopener" class="prj-forum">לכניסה למייטיוב <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">mysube.com</div>
+      <p>העדכונים מהערוצים שאתם אוהבים, לפי הסדר. בלי אלגוריתם ובלי המלצות.</p>
+      <div class="s-foot">
+        <div class="s-mono">WEB</div>
+        <a class="soft-btn" href="projects/mytube.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="flash-push">
-    <div class="prj-logo"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="פלאש פוש" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">תוסף לכרום · חדשות</span>
+    <article class="s-card reveal" data-kind="ext" data-href="projects/flash-push.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827425.png" alt="" loading="lazy"></div>
+        <span class="s-chip">תוסף לכרום</span>
+      </div>
       <h3><a href="projects/flash-push.html">פלאש פוש</a></h3>
-      <p>פיד מאוחד מכמה ערוצי חדשות בסרגל הצד של הדפדפן, עם טאב לסרטונים קצרים.</p>
-      <div class="prj-links">
-        <a href="projects/flash-push.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://chromewebstore.google.com/detail/gniofaojlacllfmbojflaigaofgbgfkb" target="_blank" rel="noopener" class="prj-forum">התקנת התוסף <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="s-addr">chrome web store</div>
+      <p>כמה ערוצי חדשות בפיד אחד, בסרגל הצד של הדפדפן.</p>
+      <div class="s-foot">
+        <div class="s-mono">CHROME</div>
+        <a class="soft-btn" href="projects/flash-push.html">פרטים</a>
       </div>
-    </div>
-  </article>
+    </article>
 
-  <article class="prj reveal" id="clipx">
-    <div class="prj-logo"><img src="https://cdn-icons-png.flaticon.com/128/17784/17784286.png" alt="ClipX" loading="lazy"></div>
-    <div class="prj-body">
-      <span class="prj-meta">אתר · עריכת וידאו</span>
-      <h3><a href="projects/clipx.html">ClipX</a></h3>
-      <p>עורך קליפים חינמי בעברית: וידאו, תמונות, שמע וטקסט, כתוביות עם Gemini ומעברים. הכל רץ במחשב שלכם, בלי להעלות מדיה לשרת.</p>
-      <div class="prj-links">
-        <a href="projects/clipx.html" class="prj-main">לעמוד הפרויקט <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://xnet2.github.io/clipx/" target="_blank" rel="noopener" class="prj-forum">לפתיחת ClipX <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <article class="s-card reveal" data-kind="site" data-href="projects/clipx.html">
+      <div class="s-card-top">
+        <div class="s-icon"><img src="https://cdn-icons-png.flaticon.com/128/17784/17784286.png" alt="" loading="lazy"></div>
+        <span class="s-chip">אתר</span>
       </div>
-    </div>
-  </article>
+      <h3><a href="projects/clipx.html">ClipX</a></h3>
+      <div class="s-addr">xnet2.github.io/clipx</div>
+      <p>עורך קליפים חינמי בעברית, שעובד כולו בדפדפן שלכם.</p>
+      <div class="s-foot">
+        <div class="s-mono">WEB</div>
+        <a class="soft-btn" href="projects/clipx.html">פרטים</a>
+      </div>
+    </article>
+  </section>
 
   <article class="prj-channel reveal" id="channel">
     <div class="prj-logo"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/></svg></div>
@@ -161,13 +210,13 @@
       <h3>הערוץ האישי שלי</h3>
       <p>עדכונים, הכרזות ומאחורי הקלעים על כל מה שאני בונה.</p>
     </div>
-    <a href="https://xnet2.github.io/status" target="_blank" rel="noopener" class="btn prj-channel-btn">למעקב אחרי הערוץ <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://xnet2.github.io/status" target="_blank" rel="noopener" class="btn prj-channel-btn">למעקב אחרי הערוץ <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </article>
-</section>
+</main>
 
 <footer id="footer-info">
   <div class="brand">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span style="font-weight:800;">Xnet</span>
   </div>
   <p class="tagline">מישהו היה צריך לבנות את זה</p>
@@ -203,6 +252,25 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 
+
+  // ---------- סינון לפי סוג, וכרטיס שלם לחיץ (כמו בחנות) ----------
+  const kindChips = document.getElementById('kind-chips');
+  const kindCount = document.getElementById('kind-count');
+  kindChips.addEventListener('click', e => {
+    const b = e.target.closest('[data-kind]'); if(!b) return;
+    kindChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b));
+    let n = 0;
+    document.querySelectorAll('#s-grid .s-card').forEach(c => {
+      const show = b.dataset.kind === 'all' || c.dataset.kind === b.dataset.kind;
+      c.hidden = !show; if(show){ n++; c.classList.add('in-view'); }
+    });
+    kindCount.textContent = n + ' פרויקטים';
+  });
+  document.addEventListener('click', e => {
+    const c = e.target.closest('[data-href]');
+    if(c && !e.target.closest('a,button')) location.href = c.dataset.href;
+  });
+
   // ---------- scroll reveal ----------
   const revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && revealEls.length){
@@ -220,5 +288,6 @@
   }
 </script>
 
+<script src="site.js"></script>
 </body>
 </html>

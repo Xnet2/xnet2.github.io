@@ -10,16 +10,22 @@
 </head>
 <body>
 
-<header>
+<div class="topline"></div>
+<header class="site-head">
   <a class="brand" href="../index.html">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span>Xnet</span>
   </a>
+  <label class="site-search">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input type="search" id="site-q" placeholder="חיפוש באתר..." aria-label="חיפוש באתר" autocomplete="off">
+    <div class="search-results" id="search-results" hidden></div>
+  </label>
   <nav>
     <ul>
-      <li><a href="../services.html" class="nav-highlight">שירותי אתרים</a></li>
+      <li><a href="../services.html" class="nav-pill"><span class="nav-long">שירותי אתרים</span><span class="nav-short">שירותים</span></a></li>
       <li class="nav-dropdown" id="projects-dropdown">
-        <a href="../projects.html" class="nav-dropdown-trigger" id="projects-trigger">
+        <a href="../projects.html" class="nav-dropdown-trigger nav-pill" id="projects-trigger">
           פרויקטים
           <span class="dropdown-arrow" id="projects-arrow" role="button" tabindex="0" aria-label="הצגת רשימת פרויקטים">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -27,6 +33,7 @@
         </a>
         <div class="nav-dropdown-menu" id="projects-menu">
           <a href="vodos.html">VODOS</a>
+          <a href="vodos-online.html">VODOS אונליין</a>
           <a href="derech-haaretz.html">דרך הארץ</a>
           <a href="netlink.html">נטלינק</a>
           <a href="story.html">סטורי במייל</a>
@@ -35,37 +42,39 @@
           <a href="flash-push.html">פלאש פוש</a>
           <a href="clipx.html">ClipX</a>
           <a href="../projects.html#channel">ערוץ עדכונים</a>
-          <a href="../store.html" class="menu-store">חנות האפליקציות</a>
         </div>
       </li>
-      <li><a href="../payment.html">תשלום</a></li>
+      <li><a href="../store.html" class="nav-pill">חנות</a></li>
+      <li><a href="../payment.html" class="nav-pill">תשלום</a></li>
       <li><a href="../contact.html" class="nav-cta"><span class="dot"></span>בואו נדבר</a></li>
     </ul>
   </nav>
 </header>
 
 <main class="wrap pp">
-  <a href="../projects.html" class="pp-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-6-6M19 12l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> כל הפרויקטים</a>
-
-  <section class="pp-hero">
-    <div class="pp-icon"><img src="../assets/vodos.png" alt="VODOS"></div>
-    <div class="pp-head">
-      <span class="pp-meta">אפליקציה לאנדרואיד · אתר · תוכנה למחשב</span>
-      <h1>VODOS</h1>
-      <p class="pp-lede">פיד של סרטונים קצרים בגלילה אנכית, באתר וגם על נגן אנדרואיד בלי אינטרנט.</p>
-      <div class="pp-actions">
-        <a href="#download" class="btn btn-lg btn-primary">הורדה לנגן <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://xnet2.github.io/VOD/" target="_blank" rel="noopener" class="btn btn-lg btn-ghost">פתיחת הפיד באתר <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </div>
-  </section>
+  <a href="../projects.html" class="pp-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-6-6M19 12l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> חזרה לפרויקטים</a>
 
   <div class="pp-grid">
     <div class="pp-main">
+      <section class="pp-hero">
+        <div class="pp-icon"><img src="../assets/vodos.png" alt="VODOS"></div>
+        <div class="pp-head">
+          <h1>VODOS</h1>
+          <div class="pp-addr">il.vodos.offline</div>
+          <div class="tags"><span class="tag">אפליקציה</span><span class="tag ver">v2.0</span><span class="tag by">@xnet2</span></div>
+          <p class="pp-lede">פיד של סרטונים קצרים בגלילה אנכית, באתר וגם על נגן אנדרואיד בלי אינטרנט.</p>
+          <div class="pp-actions">
+            <a href="#download" class="big-dl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> הורדת APK <span class="size" dir="ltr">149 KB</span></a>
+            <a href="https://xnet2.github.io/VOD/" target="_blank" rel="noopener" class="btn btn-lg btn-ghost">פתיחת הפיד באתר <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </section>
+
       <section class="pp-section">
         <h2>על הפרויקט</h2>
         <p>VODOS אוסף סרטונים קצרים מכמה מקורות ומציג אותם בגלילה אנכית, סרטון אחרי סרטון. באתר אפשר לבחור בין "הכל", "עדכני" ו"לא נצפו", ולהגיב אחרי התחברות עם גוגל.</p>
         <p>את אותו פיד אפשר לקבל גם על נגן MP4/MP5 או כל מכשיר אנדרואיד שאין בו אינטרנט. המחשב מוריד את הסרטונים החדשים, וכשמחברים את הנגן בכבל הוא מעתיק אליו אותם. מהרגע הזה צופים בנגן בלי שום חיבור.</p>
+        <p>במכשיר שיש בו אינטרנט אפשר לוותר על המחשב: <a href="vodos-online.html">VODOS אונליין</a> מנגנת את הסרטונים ישר מהאתר.</p>
       </section>
 
       <section class="pp-section">
@@ -89,102 +98,102 @@
         </ol>
       </section>
 
-    <section class="pp-section" id="changelog">
-      <h2>עדכוני גרסאות</h2>
-      <p class="pp-muted">כדי לעדכן: מתקינים את VODOS.apk החדש מעל הקודם, ומריצים שוב את install.cmd מתוך VODOS-PC.zip.</p>
-      <ol class="pp-log">
-        <li class="latest">
-          <div class="pp-log-head"><span class="pp-ver">2.0</span><span class="pp-new">אחרונה</span><time>13.11.2026</time></div>
-          <h3>המחשב לא שומר יותר סרטונים</h3>
-          <ul>
-            <li>כשלוחצים "התחל עדכון", המחשב בוחר את הסרטונים הכי חדשים (עד הנפח שבחרתם לנגן), מוריד אותם ומעתיק כל סרטון לנגן מיד כשהוא מוכן. במחשב לא נשאר כלום.</li>
-            <li>אין יותר הורדות ברקע: בלי לחיצה לא קורה כלום.</li>
-            <li>בכל עדכון הנגן מתחלף לסרטונים הכי חדשים, וסרטונים שסימנתם "אהבתי" נשארים. לכן הכפתור "עדכון יומי" הוסר.</li>
-            <li>צריך אינטרנט בזמן העדכון.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.9</span><time>12.11.2026</time></div>
-          <h3>העדכון מתחיל רק כשאתם מחליטים</h3>
-          <ul>
-            <li>כשמחברים את הנגן, נפתח במחשב חלון המצב עם הכפתור "התחל עדכון". עד שלוחצים לא נכתב לנגן כלום, ובנגן לא מופיעה התראה.</li>
-            <li>אחרי עדכון אפשר ללחוץ "עדכן שוב" בלי לנתק את הנגן.</li>
-            <li>כפתור "עדכון יומי": מוחק מהנגן את כל הסרטונים (חוץ מ"אהבתי") וממלא אותו מחדש בסרטונים הכי חדשים.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.8</span><time>11.11.2026</time></div>
-          <h3>חלון מצב במחשב ונפח מירבי בנגן</h3>
-          <ul>
-            <li>כשהנגן מחובר בכבל, האפליקציה נשארת פעילה עד סוף ההעתקה, ומצב העדכון מוצג בהתראה לאורך כל הדרך.</li>
-            <li>נפח מירבי בנגן: כשעוברים אותו, נמחקים קודם סרטונים שנצפו ואחר כך הישנים ביותר. סרטונים שסימנתם "אהבתי" לא נמחקים.</li>
-            <li>כפתורי שיתוף והורדה, חיפוש, סרגל ניווט תחתון, עצירת העדכון מהנגן ופס התקדמות שאפשר לגרור.</li>
-            <li>במחשב: חלון מצב בדפדפן שנפתח לבד בכל חיבור של הנגן, וקיצור "VODOS" על שולחן העבודה.</li>
-            <li>תיקון: התקנת Node.js נכשלה אצל מי שגולש עם נטפרי.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.7</span><time>9.11.2026</time></div>
-          <h3>זיהוי מהיר של הנגן</h3>
-          <ul>
-            <li>ההתראה בנגן קופצת מיד כשמחברים את הכבל, בלי לפתוח את האפליקציה.</li>
-            <li>התוכנה במחשב מזהה את הנגן תוך שנייה.</li>
-            <li>תיקון: ההעתקה נתקעה כשהמחשב בחר בזיכרון הפנימי במקום בכרטיס הזיכרון. עכשיו הוא זוכר איפה זה עבד ומוודא שהקבצים הגיעו.</li>
-            <li>כל שלב שנתקע נעצר אחרי זמן קצוב, והתוכנה ממשיכה.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.6</span><time>9.11.2026</time></div>
-          <h3>הגדרות מורחבות וחלונית ערוץ</h3>
-          <ul>
-            <li>גופן אסיסטנט בכל האפליקציה, והנפשות קטנות בכפתורים ובתפריטים.</li>
-            <li>הגדרות: כמה סרטונים ומקום יש בנגן, עדכון אחרון, מעבר אוטומטי לסרטון הבא, הסתרת סרטונים שנצפו ואיפוס היסטוריית צפייה.</li>
-            <li>לחיצה על שם ערוץ מציגה מידע עליו ואת כל הסרטונים שלו.</li>
-            <li>במחשב: קובץ שלא נמחק כבר לא עוצר את הסנכרון.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.5</span><time>9.11.2026</time></div>
-          <h3>רואים מה קורה בזמן ההעתקה</h3>
-          <ul>
-            <li>מהרגע שמחברים את הנגן מופיעה בו התראה עם המצב: מחובר, מוריד סרטונים, מעתיק X מתוך Y, מעודכן.</li>
-            <li>אותו מצב מוצג גם בתוך האפליקציה.</li>
-            <li>הודעה ברורה אם משהו נכשל, למשל אין אינטרנט במחשב או שההעתקה נקטעה.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.4</span><time>9.11.2026</time></div>
-          <h3>אהבתי וגלילה מהירה יותר</h3>
-          <ul>
-            <li>טעינה וגלילה מהירות יותר, והסרטון הקודם נעצר מיד כשגוללים.</li>
-            <li>כפתור ולשונית "אהבתי": סרטון שסימנתם נשאר בנגן גם אחרי שנצפה.</li>
-            <li>הגדרות: כמה GB לשמור במחשב וכמה להעביר לנגן בכל חיבור.</li>
-            <li>בכל חיבור, סרטונים שנצפו מתחלפים בחדשים.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.3</span><time>9.11.2026</time></div>
-          <h3>התקדמות ההעתקה בנגן</h3>
-          <ul>
-            <li>כשמחברים את הנגן מופיעה בו התראה עם התקדמות ההעתקה, ובסוף "הנגן מעודכן".</li>
-            <li>בתוך האפליקציה: פס התקדמות, ובסוף "נוספו X סרטונים חדשים".</li>
-          </ul>
-        </li>
-        <li>
-          <div class="pp-log-head"><span class="pp-ver">1.2</span><time>9.11.2026</time></div>
-          <h3>הגרסה הראשונה</h3>
-          <ul>
-            <li>האפליקציה לנגן (VODOS.apk) והתוכנה למחשב (VODOS-PC.zip).</li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+      <section class="pp-section" id="changelog">
+        <h2>עדכוני גרסאות</h2>
+        <p class="pp-muted">כדי לעדכן: מתקינים את VODOS.apk החדש מעל הקודם, ומריצים שוב את install.cmd מתוך VODOS-PC.zip.</p>
+        <ol class="pp-log">
+          <li class="latest">
+            <div class="pp-log-head"><span class="pp-ver">v2.0</span><span class="pp-new">אחרונה</span><time>13.11.2026</time></div>
+            <h3>המחשב לא שומר יותר סרטונים</h3>
+            <ul>
+              <li>כשלוחצים "התחל עדכון", המחשב בוחר את הסרטונים הכי חדשים (עד הנפח שבחרתם לנגן), מוריד אותם ומעתיק כל סרטון לנגן מיד כשהוא מוכן. במחשב לא נשאר כלום.</li>
+              <li>אין יותר הורדות ברקע: בלי לחיצה לא קורה כלום.</li>
+              <li>בכל עדכון הנגן מתחלף לסרטונים הכי חדשים, וסרטונים שסימנתם "אהבתי" נשארים. לכן הכפתור "עדכון יומי" הוסר.</li>
+              <li>צריך אינטרנט בזמן העדכון.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.9</span><time>12.11.2026</time></div>
+            <h3>העדכון מתחיל רק כשאתם מחליטים</h3>
+            <ul>
+              <li>כשמחברים את הנגן, נפתח במחשב חלון המצב עם הכפתור "התחל עדכון". עד שלוחצים לא נכתב לנגן כלום, ובנגן לא מופיעה התראה.</li>
+              <li>אחרי עדכון אפשר ללחוץ "עדכן שוב" בלי לנתק את הנגן.</li>
+              <li>כפתור "עדכון יומי": מוחק מהנגן את כל הסרטונים (חוץ מ"אהבתי") וממלא אותו מחדש בסרטונים הכי חדשים.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.8</span><time>11.11.2026</time></div>
+            <h3>חלון מצב במחשב ונפח מירבי בנגן</h3>
+            <ul>
+              <li>כשהנגן מחובר בכבל, האפליקציה נשארת פעילה עד סוף ההעתקה, ומצב העדכון מוצג בהתראה לאורך כל הדרך.</li>
+              <li>נפח מירבי בנגן: כשעוברים אותו, נמחקים קודם סרטונים שנצפו ואחר כך הישנים ביותר. סרטונים שסימנתם "אהבתי" לא נמחקים.</li>
+              <li>כפתורי שיתוף והורדה, חיפוש, סרגל ניווט תחתון, עצירת העדכון מהנגן ופס התקדמות שאפשר לגרור.</li>
+              <li>במחשב: חלון מצב בדפדפן שנפתח לבד בכל חיבור של הנגן, וקיצור "VODOS" על שולחן העבודה.</li>
+              <li>תיקון: התקנת Node.js נכשלה אצל מי שגולש עם נטפרי.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.7</span><time>9.11.2026</time></div>
+            <h3>זיהוי מהיר של הנגן</h3>
+            <ul>
+              <li>ההתראה בנגן קופצת מיד כשמחברים את הכבל, בלי לפתוח את האפליקציה.</li>
+              <li>התוכנה במחשב מזהה את הנגן תוך שנייה.</li>
+              <li>תיקון: ההעתקה נתקעה כשהמחשב בחר בזיכרון הפנימי במקום בכרטיס הזיכרון. עכשיו הוא זוכר איפה זה עבד ומוודא שהקבצים הגיעו.</li>
+              <li>כל שלב שנתקע נעצר אחרי זמן קצוב, והתוכנה ממשיכה.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.6</span><time>9.11.2026</time></div>
+            <h3>הגדרות מורחבות וחלונית ערוץ</h3>
+            <ul>
+              <li>גופן אסיסטנט בכל האפליקציה, והנפשות קטנות בכפתורים ובתפריטים.</li>
+              <li>הגדרות: כמה סרטונים ומקום יש בנגן, עדכון אחרון, מעבר אוטומטי לסרטון הבא, הסתרת סרטונים שנצפו ואיפוס היסטוריית צפייה.</li>
+              <li>לחיצה על שם ערוץ מציגה מידע עליו ואת כל הסרטונים שלו.</li>
+              <li>במחשב: קובץ שלא נמחק כבר לא עוצר את הסנכרון.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.5</span><time>9.11.2026</time></div>
+            <h3>רואים מה קורה בזמן ההעתקה</h3>
+            <ul>
+              <li>מהרגע שמחברים את הנגן מופיעה בו התראה עם המצב: מחובר, מוריד סרטונים, מעתיק X מתוך Y, מעודכן.</li>
+              <li>אותו מצב מוצג גם בתוך האפליקציה.</li>
+              <li>הודעה ברורה אם משהו נכשל, למשל אין אינטרנט במחשב או שההעתקה נקטעה.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.4</span><time>9.11.2026</time></div>
+            <h3>אהבתי וגלילה מהירה יותר</h3>
+            <ul>
+              <li>טעינה וגלילה מהירות יותר, והסרטון הקודם נעצר מיד כשגוללים.</li>
+              <li>כפתור ולשונית "אהבתי": סרטון שסימנתם נשאר בנגן גם אחרי שנצפה.</li>
+              <li>הגדרות: כמה GB לשמור במחשב וכמה להעביר לנגן בכל חיבור.</li>
+              <li>בכל חיבור, סרטונים שנצפו מתחלפים בחדשים.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.3</span><time>9.11.2026</time></div>
+            <h3>התקדמות ההעתקה בנגן</h3>
+            <ul>
+              <li>כשמחברים את הנגן מופיעה בו התראה עם התקדמות ההעתקה, ובסוף "הנגן מעודכן".</li>
+              <li>בתוך האפליקציה: פס התקדמות, ובסוף "נוספו X סרטונים חדשים".</li>
+            </ul>
+          </li>
+          <li>
+            <div class="pp-log-head"><span class="pp-ver">v1.2</span><time>9.11.2026</time></div>
+            <h3>הגרסה הראשונה</h3>
+            <ul>
+              <li>האפליקציה לנגן (VODOS.apk) והתוכנה למחשב (VODOS-PC.zip).</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
     </div>
 
     <aside class="pp-side">
 
     <div class="pp-card pp-downloads" id="download">
-      <h2>הורדה</h2>
+      <div class="pp-card-title">הורדה</div>
       <p class="pp-muted">גרסה 2.0 · צריך את שני הקבצים: אחד לנגן ואחד למחשב.</p>
       <a class="pp-dl" href="https://github.com/Xnet2/vodos-offline/releases/latest/download/VODOS.apk">
         <span class="pp-dl-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -197,14 +206,12 @@
       <p class="pp-fine">הקישורים מורידים תמיד את הגרסה האחרונה. גרסאות קודמות ב<a href="https://github.com/Xnet2/vodos-offline/releases" target="_blank" rel="noopener">עמוד הגרסאות ב-GitHub</a>.</p>
     </div>
       <div class="pp-card">
-        <h2>פרטים</h2>
-        <dl class="pp-details">
-        <div><dt>גרסה אחרונה</dt><dd>2.0</dd></div>
-        <div><dt>עודכן</dt><dd>13.11.2026</dd></div>
-        <div><dt>נגן</dt><dd>אנדרואיד 4.4 ומעלה</dd></div>
-        <div><dt>מחשב</dt><dd>Windows 10/11</dd></div>
-        <div><dt>קוד מקור</dt><dd><a href="https://github.com/Xnet2/vodos-offline" target="_blank" rel="noopener">GitHub</a></dd></div>
-        </dl>
+        <div class="pp-card-title">פרטים</div>
+        <div class="kv"><span>גרסה אחרונה</span><b>2.0</b></div>
+        <div class="kv"><span>עודכן</span><b>13.11.2026</b></div>
+        <div class="kv"><span>נגן</span><b>אנדרואיד 4.4 ומעלה</b></div>
+        <div class="kv"><span>מחשב</span><b>Windows 10/11</b></div>
+        <div class="kv"><span>קוד מקור</span><b><a href="https://github.com/Xnet2/vodos-offline" target="_blank" rel="noopener">GitHub</a></b></div>
       </div>
     </aside>
   </div>
@@ -212,7 +219,7 @@
 
 <footer id="footer-info">
   <div class="brand">
-    <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="Xnet">
+    <span class="brand-sq"><img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt=""></span>
     <span style="font-weight:800;">Xnet</span>
   </div>
   <p class="tagline">מישהו היה צריך לבנות את זה</p>
@@ -248,6 +255,7 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 </script>
+<script src="../site.js"></script>
 
 </body>
 </html>

@@ -125,7 +125,7 @@
   .app-layout{display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:clamp(24px,4vw,48px); align-items:start;}
   .app-hero{display:flex; gap:clamp(18px,3vw,32px); align-items:flex-start; margin-bottom:40px;}
   .app-hero .app-icon{width:clamp(110px,13vw,160px); height:clamp(110px,13vw,160px); border-radius:36px; padding:14px; box-shadow:var(--shadow);}
-  .app-hero h1{font-size:clamp(2.2rem,5vw,3.4rem); font-weight:800; letter-spacing:-.03em; line-height:1.05;}
+  .app-hero h1{font-size:clamp(1.7rem,3.4vw,2.3rem); font-weight:700; letter-spacing:-.02em; line-height:1.15;}
   .tags{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 26px;}
   .tag{font-size:.8rem; font-weight:700; border-radius:100px; padding:4px 12px; border:1px solid var(--line); background:var(--chip); color:var(--muted);}
   .tag.ver{background:var(--pink-soft); color:var(--pink); border-color:transparent; font-family:var(--mono);}
@@ -192,6 +192,30 @@
   .lb-next{left:18px; top:50%; transform:translateY(-50%);}
   .lb-count{position:absolute; bottom:18px; color:#fff; font-family:var(--mono); font-size:.85rem; opacity:.8;}
   @media (max-width:640px){ .lb-prev, .lb-next{top:auto; bottom:10px; transform:none;} .lb-count{bottom:22px;} }
+  /* ---------- פרטי האפליקציה ---------- */
+  .about a{color:var(--purple); font-weight:700;}
+  .pill-link{display:inline-flex; align-items:center; gap:7px; margin-inline-start:10px; vertical-align:middle; font-size:.9rem; font-weight:700; border:1px solid var(--line); background:var(--surface); border-radius:100px; padding:12px 18px;}
+  .pill-link:hover{border-color:var(--muted-2);}
+  .feat-list{list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px 22px;}
+  .feat-list li{display:flex; gap:10px; align-items:flex-start; font-size:.95rem; font-weight:600; line-height:1.5;}
+  .ck{flex:0 0 auto; width:20px; height:20px; border-radius:6px; background:var(--ink); color:var(--bg); display:flex; align-items:center; justify-content:center; margin-top:1px;}
+  .step-list{list-style:none; counter-reset:st; display:grid; gap:14px;}
+  .step-list li{counter-increment:st; display:grid; grid-template-columns:34px 1fr; gap:12px; font-size:.95rem; line-height:1.65;}
+  .step-list li::before{content:counter(st); width:34px; height:34px; border-radius:11px; background:var(--chip); display:flex; align-items:center; justify-content:center; font-weight:800; font-family:var(--mono);}
+  .hint{margin-top:14px; font-size:.86rem; color:var(--muted); line-height:1.6;}
+  .vitem{border-radius:14px; background:var(--surface); border:1px solid var(--line);}
+  .vitem .vrow{border:0; background:transparent; list-style:none; cursor:pointer;}
+  .vitem .vrow::-webkit-details-marker{display:none;}
+  .vrow-tools{display:flex; align-items:center; gap:4px;}
+  .vchev{width:8px; height:8px; border-left:2px solid var(--muted-2); border-bottom:2px solid var(--muted-2); transform:rotate(-45deg); margin:0 8px 3px;}
+  .vitem[open] .vchev{transform:rotate(135deg); margin-bottom:-3px;}
+  .vnotes{list-style:none; display:grid; gap:6px; padding:0 14px 14px;}
+  .vnotes li{display:flex; gap:9px; font-size:.86rem; line-height:1.55; color:var(--muted);}
+  .vnotes li::before{content:''; flex:0 0 auto; width:5px; height:5px; border-radius:50%; background:var(--pink); margin-top:.6em;}
+  @media (max-width:640px){
+    .feat-list{grid-template-columns:1fr;}
+    .pill-link{margin:10px 0 0; width:100%; justify-content:center;}
+  }
   .disclaimer{text-align:center; font-size:.8rem; color:var(--muted-2); margin-top:56px;}
 
   @media (max-width:980px){ .grid{grid-template-columns:1fr 1fr;} .app-layout{grid-template-columns:1fr;} }
@@ -260,25 +284,45 @@
       author: 'xnet2',
       short: 'פיד סרטונים קצרים לנגן אנדרואיד, בלי אינטרנט. המחשב מעדכן את הנגן בכבל.',
       about: [
-        'VODOS מביא את פיד הסרטונים הקצרים של Xnet לנגן MP4/MP5 או לכל מכשיר אנדרואיד שאין בו אינטרנט.',
-        'מתקינים את האפליקציה בנגן ואת התוכנה במחשב. כשמחברים את הנגן בכבל, המחשב מוריד את הסרטונים החדשים ומעתיק אותם אליו בלחיצה אחת.'
+        'VODOS אוסף סרטונים קצרים מכמה מקורות ומציג אותם בגלילה אנכית, סרטון אחרי סרטון. באתר אפשר לבחור בין "הכל", "עדכני" ו"לא נצפו", ולהגיב אחרי התחברות עם גוגל.',
+        'את אותו פיד אפשר לקבל גם על נגן MP4/MP5 או כל מכשיר אנדרואיד שאין בו אינטרנט. המחשב מוריד את הסרטונים החדשים, וכשמחברים את הנגן בכבל הוא מעתיק אליו אותם. מהרגע הזה צופים בנגן בלי שום חיבור.',
+        'במכשיר שיש בו אינטרנט אפשר לוותר על המחשב: <a href="#app/vodos-online">VODOS אונליין</a> מנגנת את הסרטונים ישר מהאתר.'
       ],
-      page: 'projects/vodos.html',
+      features: [
+        'גלילה אנכית בין סרטונים, עם מעבר אוטומטי לסרטון הבא',
+        '"אהבתי": סרטונים שסימנתם נשארים בנגן גם אחרי שנצפו',
+        'חיפוש, סינון "לא נצפו" וחלונית לכל ערוץ עם כל הסרטונים שלו',
+        'עדכון בלחיצה אחת מהמחשב, עם חלון שמראה מה קורה בכל שלב',
+        'הגדרת נפח מירבי לנגן, ומחיקה אוטומטית של הישנים',
+        'עובד עם נטפרי, ועל אנדרואיד 4.4 ומעלה'
+      ],
+      steps: [
+        'בנגן: מעתיקים אליו את VODOS.apk, פותחים במנהל הקבצים ומתקינים. פותחים את האפליקציה פעם אחת כדי שהמחשב יזהה את הנגן.',
+        'במחשב: מחלצים את VODOS-PC.zip ("חלץ הכל") ולוחצים פעמיים על install.cmd. אם חסר Node.js, התוכנה מתקינה אותו בעצמה.',
+        'מחברים את הנגן בכבל USB (מצב העברת קבצים), ובחלון שנפתח במחשב לוחצים "התחל עדכון". כשכתוב "הנגן מעודכן" אפשר לנתק.'
+      ],
+      updateHint: 'כדי לעדכן: מתקינים את VODOS.apk החדש מעל הקודם, ומריצים שוב את install.cmd מתוך VODOS-PC.zip.',
+      details: [
+        ['מחשב', 'Windows 10/11']
+      ],
+      links: [
+        ['הפיד באתר', 'https://xnet2.github.io/VOD/']
+      ],
       repo: 'Xnet2/vodos-offline',
       asset: 'VODOS.apk',
       extra: { name: 'VODOS-PC.zip', label: 'התוכנה למחשב (Windows)' },
       minAndroid: 'אנדרואיד 4.4 ומעלה',
       // גיבוי אם GitHub לא זמין
       versions: [
-        { v: '2.0', date: '2026-11-12T23:20:39Z', size: 152357, downloads: 2, notes: ['המחשב לא שומר יותר סרטונים: מוריד ומעתיק לנגן רק כשלוחצים "התחל עדכון"', 'בכל עדכון הנגן מתחלף לסרטונים הכי חדשים, ו"אהבתי" נשארים'] },
-        { v: '1.9', date: '2026-11-11T23:02:32Z', size: 152357, downloads: 13 },
-        { v: '1.8', date: '2026-11-11T21:17:55Z', size: 152357, downloads: 5 },
-        { v: '1.7', date: '2026-11-09T20:41:34Z', size: 123621, downloads: 29 },
-        { v: '1.6', date: '2026-11-09T12:49:20Z', size: 123622, downloads: 5 },
-        { v: '1.5', date: '2026-11-09T12:16:49Z', size: 86609, downloads: 5 },
-        { v: '1.4', date: '2026-11-09T11:43:50Z', size: 86610, downloads: 9 },
-        { v: '1.3', date: '2026-11-08T22:22:14Z', size: 82513, downloads: 15 },
-        { v: '1.2', date: '2026-11-08T22:11:53Z', size: 74321, downloads: 3 }
+        { v: '2.0', date: '2026-11-12T23:20:39Z', size: 152357, downloads: 2, notes: ['כשלוחצים "התחל עדכון", המחשב בוחר את הסרטונים הכי חדשים, מוריד אותם ומעתיק כל סרטון לנגן מיד כשהוא מוכן. במחשב לא נשאר כלום', 'אין יותר הורדות ברקע: בלי לחיצה לא קורה כלום', 'בכל עדכון הנגן מתחלף לסרטונים הכי חדשים, וסרטונים שסימנתם "אהבתי" נשארים', 'צריך אינטרנט בזמן העדכון'] },
+        { v: '1.9', date: '2026-11-11T23:02:32Z', size: 152357, downloads: 13, notes: ['כשמחברים את הנגן, נפתח במחשב חלון המצב עם הכפתור "התחל עדכון". עד שלוחצים לא נכתב לנגן כלום', 'אחרי עדכון אפשר ללחוץ "עדכן שוב" בלי לנתק את הנגן', 'כפתור "עדכון יומי": ממלא את הנגן מחדש בסרטונים הכי חדשים'] },
+        { v: '1.8', date: '2026-11-11T21:17:55Z', size: 152357, downloads: 5, notes: ['האפליקציה נשארת פעילה עד סוף ההעתקה, ומצב העדכון מוצג בהתראה', 'נפח מירבי בנגן: כשעוברים אותו, נמחקים קודם סרטונים שנצפו ואחר כך הישנים', 'שיתוף והורדה, חיפוש, סרגל ניווט תחתון ופס התקדמות שאפשר לגרור', 'במחשב: חלון מצב בדפדפן שנפתח לבד בכל חיבור', 'תיקון: התקנת Node.js נכשלה אצל מי שגולש עם נטפרי'] },
+        { v: '1.7', date: '2026-11-09T20:41:34Z', size: 123621, downloads: 29, notes: ['ההתראה בנגן קופצת מיד כשמחברים את הכבל', 'התוכנה במחשב מזהה את הנגן תוך שנייה', 'תיקון: ההעתקה נתקעה כשהמחשב בחר בזיכרון הפנימי במקום בכרטיס הזיכרון', 'כל שלב שנתקע נעצר אחרי זמן קצוב'] },
+        { v: '1.6', date: '2026-11-09T12:49:20Z', size: 123622, downloads: 5, notes: ['גופן אסיסטנט והנפשות קטנות בכפתורים ובתפריטים', 'הגדרות מורחבות: מקום בנגן, מעבר אוטומטי, הסתרת סרטונים שנצפו ואיפוס היסטוריה', 'לחיצה על שם ערוץ מציגה מידע עליו ואת כל הסרטונים שלו'] },
+        { v: '1.5', date: '2026-11-09T12:16:49Z', size: 86609, downloads: 5, notes: ['מהרגע שמחברים את הנגן מופיעה בו התראה עם המצב: מחובר, מוריד, מעתיק X מתוך Y, מעודכן', 'הודעה ברורה אם משהו נכשל'] },
+        { v: '1.4', date: '2026-11-09T11:43:50Z', size: 86610, downloads: 9, notes: ['טעינה וגלילה מהירות יותר', 'כפתור ולשונית "אהבתי"', 'הגדרות: כמה GB לשמור במחשב וכמה להעביר לנגן', 'בכל חיבור, סרטונים שנצפו מתחלפים בחדשים'] },
+        { v: '1.3', date: '2026-11-08T22:22:14Z', size: 82513, downloads: 15, notes: ['התראה בנגן עם התקדמות ההעתקה, ובסוף "הנגן מעודכן"', 'פס התקדמות בתוך האפליקציה'] },
+        { v: '1.2', date: '2026-11-08T22:11:53Z', size: 74321, downloads: 3, notes: ['הגרסה הראשונה: האפליקציה לנגן והתוכנה למחשב'] }
       ]
     },
     {
@@ -290,10 +334,28 @@
       author: 'xnet2',
       short: 'כל הסרטונים של VODOS ישר מהאינטרנט. בלי מחשב, ובלי לשמור סרטונים במכשיר.',
       about: [
-        'אותה אפליקציה של VODOS, באותו מסך ועם אותם כפתורים, אבל הסרטונים מתנגנים ישר מהאינטרנט. הרשימה מגיעה מהאתר, באותו סינון ובאותו סדר.',
-        'מתאימה למכשיר אנדרואיד שיש בו אינטרנט. לא צריך תוכנה במחשב, ושום סרטון לא נשמר במכשיר, אלא אם מורידים אותו לגלריה.'
+        'VODOS אונליין היא אותה אפליקציה של VODOS, באותו מסך ועם אותם כפתורים. ההבדל: במקום לקבל סרטונים מהמחשב, היא מנגנת אותם ישר מהאינטרנט. הרשימה מגיעה מהאתר, באותו סינון ובאותו סדר.',
+        'היא מתאימה למכשיר אנדרואיד שיש בו אינטרנט. לא צריך תוכנה במחשב, ושום סרטון לא נשמר במכשיר, אלא אם בוחרים להוריד אותו לגלריה. לנגן בלי אינטרנט יש את <a href="#app/vodos">VODOS לנגן</a>.'
       ],
-      page: 'projects/vodos-online.html',
+      features: [
+        'כל הסרטונים מכל הערוצים, ישר מהאתר',
+        'גלילה אנכית, עם "עדכני" ו"לא נצפו"',
+        'אהבתי, חיפוש, חלונית ערוץ והיסטוריית צפייה',
+        'הורדת סרטון לגלריה (Movies/VODOS) ושיתוף',
+        'בלי מחשב ובלי תוכנה נוספת',
+        'אנדרואיד 4.4 ומעלה'
+      ],
+      steps: [
+        'מורידים את VODOS-online.apk, ישר במכשיר או במחשב ומעבירים אליו.',
+        'פותחים את הקובץ ומתקינים. אם המכשיר מבקש, מאשרים התקנה ממקור לא ידוע.',
+        'פותחים את VODOS אונליין. הסרטונים נטענים מהאינטרנט.'
+      ],
+      details: [
+        ['צריך', 'חיבור לאינטרנט']
+      ],
+      links: [
+        ['הפיד באתר', 'https://xnet2.github.io/VOD/']
+      ],
       repo: 'Xnet2/vodos-online',
       asset: 'VODOS-online.apk',
       minAndroid: 'אנדרואיד 4.4 ומעלה',
@@ -311,10 +373,30 @@
       author: 'xnet2',
       short: 'מנהל קבצים לאנדרואיד: מהיר, בהיר ונקי, בעברית מימין לשמאל. עובד בלי אינטרנט.',
       about: [
-        'מנהל קבצים שנבנה כדי להיות מהיר, בהיר ונוח בעברית. כל מה שבטלפון מסודר במסך בית אחד עם אריחים: אחסון, הורדות, תמונות, וידאו, מסמכים, אפליקציות וקבצים גדולים.',
-        'העתקה, העברה, סל מיחזור, ZIP, חיפוש בכל הטלפון, וגם מציג תמונות, נגן וידאו, נגן מוזיקה ועורך טקסט מובנים. בהפעלה הראשונה מאשרים "גישה לכל הקבצים".'
+        'מנהל הקבצים X הוא מנהל קבצים לאנדרואיד שבניתי כדי שיהיה מהיר, בהיר ונוח בעברית. כל מה שבטלפון מסודר במסך בית אחד עם אריחים: אחסון, הורדות, תמונות, וידאו, מסמכים, אפליקציות, ארכיונים וקבצים גדולים.',
+        'אפשר לעשות בו את כל הפעולות הרגילות על קבצים, לחפש בכל הטלפון, ולפתוח תמונות, סרטונים, מוזיקה וטקסט בתוך האפליקציה. הוא עובד בלי אינטרנט, ונכתב ב-Java בלי ספריות חיצוניות, ולכן הוא קטן וקליל.'
       ],
-      page: 'projects/file-manager-x.html',
+      features: [
+        'מסך בית עם אריחים: אחסון פנימי, כרטיס SD, הורדות, תמונות, שמע, וידאו, מסמכים ועוד',
+        'תפריט צד עם ספריות, מועדפים, היסטוריה וכלים',
+        'תצוגת רשימה או רשת, מיון וקבצים נסתרים',
+        'העתקה, העברה, שינוי שם, סל מיחזור, דחיסה וחילוץ ZIP',
+        'בחירה מרובה, כולל בחירת טווח',
+        'חיפוש מיידי בכל הקבצים או בתוך תיקיה',
+        'מציג תמונות, נגן וידאו, נגן מוזיקה ועורך טקסט מובנים',
+        'ניתוח אחסון: מה תופס הכי הרבה מקום'
+      ],
+      steps: [
+        'מורידים את קובץ ה-APK מהגרסה האחרונה, ישר בטלפון או במחשב ומעבירים אליו.',
+        'פותחים את הקובץ ומתקינים. אם הטלפון מבקש, מאשרים התקנה ממקור לא ידוע.',
+        'בהפעלה הראשונה מאשרים "גישה לכל הקבצים", כדי שהאפליקציה תוכל להציג ולנהל את הקבצים.'
+      ],
+      details: [
+        ['אינטרנט', 'לא צריך']
+      ],
+      links: [
+
+      ],
       repo: 'Xnet2/file-manager-x',
       // שם הקובץ כולל את מספר הגרסה (FileManagerX-2.1.apk), לכן מזהים אותו לפי תבנית
       assetMatch: /^FileManagerX-.*\.apk$/i,
@@ -338,6 +420,8 @@
   const apkUrl = (app, v) => verOf(app, v).url || (app.file ? app.file(v) : `https://github.com/${app.repo}/releases/download/v${v}/${app.asset}`);
   const latestUrl = (app, name) => app.versions[0].url || (app.file ? app.file(app.versions[0].v) : null) || `https://github.com/${app.repo}/releases/latest/download/${name}`;
   const ICON_DL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_CHECK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_EXT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_USER = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
   // ---------- צילומי מסך: התיקייה במאגר (shots), עם רשימת גיבוי (shotFiles) ----------
@@ -349,33 +433,41 @@
   const rawUrl = (app, dir, name) => `https://raw.githubusercontent.com/${app.repo}/HEAD/${encodeURIComponent(dir)}/${encodeURIComponent(name)}`;
   APPS.forEach(a => { const s = SHOTS[a.id]; if (s) a.shots = s[1].map(n => rawUrl(a, s[0], n)); });
 
+  // ---------- מטמון לתשובות של GitHub ----------
+  // ל-API של GitHub יש מגבלה של 60 בקשות בשעה לכל גולש, אז שומרים את התוצאה בדפדפן לחצי שעה
+  const CACHE_MS = 30 * 60 * 1000;
+  async function cachedJson(url, pick) {
+    const key = 'xstore:' + url;
+    let old = null;
+    try { old = JSON.parse(localStorage.getItem(key)); } catch (e) {}
+    if (old && Date.now() - old.t < CACHE_MS) return old.d;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return old ? old.d : null;          // נחסם או נכשל: התוצאה הישנה, אם יש
+      const d = pick(await res.json());
+      try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), d })); } catch (e) {}
+      return d;
+    } catch (e) { return old ? old.d : null; }
+  }
+
   // תמונות חדשות שנוספו לתיקייה במאגר מופיעות לבד
   async function syncShots(app) {
     const s = SHOTS[app.id];
     if (!s || !app.repo) return;
-    try {
-      const res = await fetch(`https://api.github.com/repos/${app.repo}/contents/${encodeURIComponent(s[0])}`);
-      if (!res.ok) return;
-      const files = (await res.json()).filter(f => f.type === 'file' && /\.(png|jpe?g|webp|gif)$/i.test(f.name))
-        .sort((x, y) => x.name.localeCompare(y.name));
-      if (files.length) { app.shots = files.map(f => rawUrl(app, s[0], f.name)); if (location.hash === '#app/' + app.id) render(); }
-    } catch (e) { /* נשארים עם רשימת הגיבוי */ }
+    const names = await cachedJson(`https://api.github.com/repos/${app.repo}/contents/${encodeURIComponent(s[0])}`,
+      json => json.filter(f => f.type === 'file' && /\.(png|jpe?g|webp|gif)$/i.test(f.name)).map(f => f.name).sort((x, y) => x.localeCompare(y)));
+    if (names && names.length) { app.shots = names.map(n => rawUrl(app, s[0], n)); if (location.hash === '#app/' + app.id) render(); }
   }
 
   // ---------- נתונים חיים מ-GitHub releases ----------
   async function syncFromGitHub(app) {
-    try {
-      const res = await fetch(`https://api.github.com/repos/${app.repo}/releases?per_page=50`);
-      if (!res.ok) return;
-      const rel = await res.json();
-      const list = rel.filter(r => !r.draft && !r.prerelease).map(r => {
-        const a = (r.assets || []).find(x => app.assetMatch ? app.assetMatch.test(x.name) : x.name === app.asset);
-        if (!a) return null;
-        const notes = (r.body || '').split('\n').map(l => l.trim()).filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, ''));
-        return { v: r.tag_name.replace(/^v/, ''), date: r.published_at, size: a.size, downloads: a.download_count, url: a.browser_download_url, notes };
-      }).filter(Boolean);
-      if (list.length) { app.versions = list; render(); }
-    } catch (e) { /* נשארים עם נתוני הגיבוי */ }
+    const list = await cachedJson(`https://api.github.com/repos/${app.repo}/releases?per_page=50`, rel => rel.filter(r => !r.draft && !r.prerelease).map(r => {
+      const a = (r.assets || []).find(x => app.assetMatch ? app.assetMatch.test(x.name) : x.name === app.asset);
+      if (!a) return null;
+      const notes = (r.body || '').split('\n').map(l => l.trim()).filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, ''));
+      return { v: r.tag_name.replace(/^v/, ''), date: r.published_at, size: a.size, downloads: a.download_count, url: a.browser_download_url, notes };
+    }).filter(Boolean));
+    if (list && list.length) { app.versions = list; render(); }
   }
 
   // ---------- תצוגות ----------
@@ -449,6 +541,7 @@
               <div class="pkg">${a.pkg}</div>
               <div class="tags"><span class="tag">${catName}</span><span class="tag ver">v${v.v}</span><span class="tag by">@${a.author}</span></div>
               <a class="big-dl" href="${latestUrl(a, a.asset)}">${ICON_DL} הורד APK <span class="size" dir="ltr">${fmtSize(v.size)}</span></a>
+              ${(a.links || []).map(([t, u]) => `<a class="pill-link" href="${u}" target="_blank" rel="noopener">${t} ${ICON_EXT}</a>`).join('')}
               ${a.extra ? `<span class="also">צריך גם את <a href="${latestUrl(a, a.extra.name)}">${a.extra.name}</a>, ${a.extra.label}.</span>` : ''}
             </div>
           </div>
@@ -468,13 +561,18 @@
           </section>` : ''}
           <section class="block">
             <h2><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>על האפליקציה</h2>
-            ${a.about.map(t => `<p class="about">${esc(t)}</p>`).join('')}
-            ${a.page ? `<span class="also"><a href="${a.page}">לעמוד המלא, עם הוראות התקנה</a></span>` : ''}
+            ${a.about.map(t => `<p class="about">${t}</p>`).join('')}
           </section>
-          ${v.notes && v.notes.length ? `
+          ${a.features && a.features.length ? `
           <section class="block">
-            <h2>מה חדש בגרסה ${v.v}</h2>
-            <ul class="notes">${v.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>
+            <h2>מה יש בה</h2>
+            <ul class="feat-list">${a.features.map(t => `<li><span class="ck">${ICON_CHECK}</span>${esc(t)}</li>`).join('')}</ul>
+          </section>` : ''}
+          ${a.steps && a.steps.length ? `
+          <section class="block">
+            <h2>איך מתקינים</h2>
+            <ol class="step-list">${a.steps.map(t => `<li>${esc(t)}</li>`).join('')}</ol>
+            ${a.updateHint ? `<p class="hint">${esc(a.updateHint)}</p>` : ''}
           </section>` : ''}
         </div>
         <aside>
@@ -483,16 +581,23 @@
             ${a.repo ? `<div class="kv"><span>הורדות</span><b class="mono">${total(a)}</b></div>` : ''}
             <div class="kv"><span>גודל</span><b class="mono" dir="ltr">${fmtSize(v.size)}</b></div>
             <div class="kv"><span>דרישות</span><b>${a.minAndroid}</b></div>
+            ${(a.details || []).map(([k, val]) => `<div class="kv"><span>${k}</span><b>${val}</b></div>`).join('')}
             ${a.repo ? `<div class="kv"><span>מקור</span><b><a href="https://github.com/${a.repo}" target="_blank" rel="noopener">GitHub</a></b></div>` : ''}
             <div class="kv"><span>עדכון אחרון</span><b>${fmtDate(v.date)}</b></div>
           </div>
           <div class="side-title">היסטוריית גרסאות</div>
           <div class="vlist">
-            ${a.versions.map(x => `
-            <div class="vrow">
-              <div><b>v${x.v}</b><small>${fmtDate(x.date)}</small></div>
-              <a href="${apkUrl(a, x.v)}" aria-label="הורדת גרסה ${x.v}" title="הורדת גרסה ${x.v}">${ICON_DL}</a>
-            </div>`).join('')}
+            ${a.versions.map((x, i) => `
+            <details class="vitem"${i === 0 ? ' open' : ''}>
+              <summary class="vrow">
+                <div><b>v${x.v}</b><small>${fmtDate(x.date)}</small></div>
+                <span class="vrow-tools">
+                  ${x.notes && x.notes.length ? '<span class="vchev"></span>' : ''}
+                  <a href="${apkUrl(a, x.v)}" aria-label="הורדת גרסה ${x.v}" title="הורדת גרסה ${x.v}">${ICON_DL}</a>
+                </span>
+              </summary>
+              ${x.notes && x.notes.length ? `<ul class="vnotes">${x.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+            </details>`).join('')}
           </div>
         </aside>
       </div>`;

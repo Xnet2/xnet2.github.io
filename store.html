@@ -451,7 +451,10 @@
   const total = app => app.versions.reduce((s, v) => s + (v.downloads || 0), 0);
   const verOf = (app, v) => app.versions.find(x => x.v === v) || {};
   const apkUrl = (app, v) => verOf(app, v).url || (app.file ? app.file(v) : `https://github.com/${app.repo}/releases/download/v${v}/${app.asset}`);
-  const latestUrl = (app, name) => app.versions[0].url || (app.file ? app.file(app.versions[0].v) : null) || `https://github.com/${app.repo}/releases/latest/download/${name}`;
+  // קובץ נוסף (למשל VODOS-PC.zip) תמיד לפי השם שלו; רק ה-APK הראשי לוקח את הקישור מהגרסה
+  const latestUrl = (app, name) => (name && name !== app.asset)
+    ? `https://github.com/${app.repo}/releases/latest/download/${name}`
+    : app.versions[0].url || (app.file ? app.file(app.versions[0].v) : null) || `https://github.com/${app.repo}/releases/latest/download/${name}`;
   const ICON_DL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_CHECK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_EXT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';

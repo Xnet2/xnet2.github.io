@@ -64,8 +64,27 @@
   .label svg{color:var(--pink);}
   .featured{
     display:flex; align-items:center; gap:clamp(16px,3vw,32px); flex-wrap:wrap;
-    background:linear-gradient(120deg, var(--purple-soft) 0%, var(--surface) 55%); border:1px solid var(--line); border-radius:24px; padding:clamp(16px,2.4vw,24px) clamp(18px,2.8vw,28px);
+    background:var(--surface); border:1px solid var(--line); border-radius:24px; padding:clamp(16px,2.4vw,24px) clamp(18px,2.8vw,28px);
     box-shadow:var(--shadow); margin-bottom:48px; cursor:pointer;
+    position:relative; overflow:hidden; isolation:isolate;
+    --c1:var(--purple); --c2:var(--pink);   /* מוחלפים בצבעי הלוגו של האפליקציה */
+  }
+  /* כתמי צבע בצבעי הלוגו, שזזים לאט על הכרטיס */
+  .featured::before{
+    content:''; position:absolute; inset:-40%; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(closest-side at 30% 45%, color-mix(in srgb, var(--c1) 30%, transparent), transparent),
+      radial-gradient(closest-side at 62% 60%, color-mix(in srgb, var(--c2) 18%, transparent), transparent);
+    filter:blur(28px);
+    transition:background .6s ease;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes tint-drift{
+      0%{transform:translate(-14%, -4%) rotate(0deg);}
+      50%{transform:translate(12%, 6%) rotate(8deg);}
+      100%{transform:translate(-6%, 8%) rotate(-6deg);}
+    }
+    .featured::before{animation:tint-drift 16s ease-in-out infinite alternate;}
   }
   .st-brand-x{color:var(--purple);}
   .beta{font-size:.7rem; font-weight:700; color:var(--purple); background:var(--purple-soft); border-radius:100px; padding:3px 9px; letter-spacing:0;}
@@ -616,11 +635,59 @@
       </div>`;
   }
 
+  // ---------- צבעי הלוגו ----------
+  // שני הגוונים הבולטים באייקון (למשל טורקיז וורוד ב-VODOS), בשביל הכרטיס המומלץ
+  function logoColors(app) {
+    if (app.tint) return Promise.resolve(app.tint);
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const N = 48, c = document.createElement('canvas');
+          c.width = c.height = N;
+          const ctx = c.getContext('2d');
+          ctx.drawImage(img, 0, 0, N, N);
+          const px = ctx.getImageData(0, 0, N, N).data;
+          const bins = {};
+          for (let i = 0; i < px.length; i += 4) {
+            const [r, g, b, a] = [px[i], px[i + 1], px[i + 2], px[i + 3]];
+            if (a < 200) continue;
+            const max = Math.max(r, g, b) / 255, min = Math.min(r, g, b) / 255, l = (max + min) / 2;
+            const s = max === min ? 0 : (max - min) / (1 - Math.abs(2 * l - 1));
+            if (s < .35 || l < .15 || l > .9) continue;          // בלי שחור, לבן ואפור
+            let h = 0, d = max - min, R = r / 255, G = g / 255, B = b / 255;
+            if (max === R) h = ((G - B) / d) % 6; else if (max === G) h = (B - R) / d + 2; else h = (R - G) / d + 4;
+            const bin = Math.floor(((h * 60 + 360) % 360) / 30);
+            const o = bins[bin] || (bins[bin] = { n: 0, r: 0, g: 0, b: 0 });
+            o.n++; o.r += r; o.g += g; o.b += b;
+          }
+          const top = Object.values(bins).sort((x, y) => y.n - x.n);
+          const rgb = o => `rgb(${Math.round(o.r / o.n)}, ${Math.round(o.g / o.n)}, ${Math.round(o.b / o.n)})`;
+          app.tint = top.length ? [rgb(top[0]), rgb(top[1] && top[1].n > top[0].n * .08 ? top[1] : top[0])] : null;
+        } catch (e) { app.tint = null; }
+        resolve(app.tint);
+      };
+      img.onerror = () => resolve(null);
+      img.src = app.icon;
+    });
+  }
+  function paintFeatured() {
+    const el = $view.querySelector('.featured');
+    const app = el && APPS.find(a => a.id === el.dataset.open);
+    if (!app) return;
+    logoColors(app).then(t => {
+      if (!t || !el.isConnected) return;
+      el.style.setProperty('--c1', t[0]);
+      el.style.setProperty('--c2', t[1]);
+    });
+  }
+
   function render() {
     const m = location.hash.match(/^#app\/(.+)$/);
     const app = m && APPS.find(a => a.id === decodeURIComponent(m[1]));
     $view.innerHTML = app ? appPage(app) : home();
     document.title = app ? `${app.name} · X Store` : 'X Store · אפליקציות לאנדרואיד';
+    if (!app) paintFeatured();
   }
 
   // ---------- אירועים ----------

@@ -1727,3 +1727,103 @@ footer .brand-sq{width:30px; height:30px; border-radius:9px;}
 
 /* שם הפרויקט בעמוד שלו: פחות כבד, כמו בחנות */
 .pp-head h1{font-size:clamp(1.7rem,3.4vw,2.3rem); font-weight:700; letter-spacing:-.02em; line-height:1.15;}
+
+/* הסרגל תמיד נשאר למעלה: overflow-x:hidden על body הפך אותו לאזור גלילה משלו ושבר את sticky */
+body{overflow-x:clip;}
+header.site-head{position:sticky; top:0; z-index:60;}
+
+/* "בואו נדבר": גלולה סגולה רכה במקום שחור עם נקודה ירוקה */
+nav a.nav-cta{background:var(--indigo-soft); color:var(--indigo); border:1px solid transparent; font-weight:700; box-shadow:none;}
+nav a.nav-cta:hover{background:#e3defa; color:var(--indigo);}
+nav a.nav-cta .dot{display:none;}
+
+/* ---------- דף הבית בסגנון החנות ---------- */
+.home-head{margin-bottom:22px;}
+.home-head h1{font-size:clamp(1.6rem,3.2vw,2.2rem);}
+.s-featured h2{font-size:clamp(1.3rem,2.4vw,1.7rem); font-weight:700; letter-spacing:-.02em; display:flex; align-items:center; gap:12px; flex-wrap:wrap; line-height:1.2;}
+.s-featured p{margin:6px 0 0;}
+.rec{display:inline-flex; align-items:center; gap:6px; font-size:.76rem; font-weight:800; color:var(--indigo); background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:4px 11px; margin-bottom:8px;}
+.rec i{width:6px; height:6px; border-radius:50%; background:var(--indigo);}
+.service-ic{width:84px !important; height:84px !important; color:var(--indigo); background:var(--indigo-soft) !important; border-color:transparent !important;}
+/* זוהר רך שזז לאט על הכרטיס, כמו בחנות */
+.s-glow{position:relative; overflow:hidden; isolation:isolate; box-shadow:var(--s-shadow); padding:clamp(18px,2.6vw,28px) clamp(18px,3vw,32px); margin-bottom:36px;}
+.s-glow::before{
+  content:''; position:absolute; inset:-40%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(closest-side at 30% 45%, color-mix(in srgb, #6d5bd0 26%, transparent), transparent),
+    radial-gradient(closest-side at 62% 60%, color-mix(in srgb, #e5486e 18%, transparent), transparent);
+  filter:blur(28px);
+}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes home-drift{
+    0%{transform:translate(-14%, -4%) rotate(0deg);}
+    50%{transform:translate(12%, 6%) rotate(8deg);}
+    100%{transform:translate(-6%, 8%) rotate(-6deg);}
+  }
+  .s-glow::before{animation:home-drift 16s ease-in-out infinite alternate;}
+}
+@media (max-width:640px){
+  .s-glow{gap:14px; align-items:flex-start;}
+  .service-ic{width:58px !important; height:58px !important;}
+  .service-ic svg{width:30px; height:30px;}
+  .s-glow .s-featured-body{flex:1 1 0; min-width:0;}
+}
+
+/* ---------- דף הבית: פתיחה גדולה עם טלפון ---------- */
+.home{padding-bottom:clamp(56px,8vw,96px);}
+.hero2{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(24px,5vw,64px); align-items:center; padding-block:clamp(36px,6vw,72px) clamp(28px,4vw,48px);}
+.hero2 h1{font-size:clamp(2.1rem,4.6vw,3.4rem); font-weight:800; letter-spacing:-.03em; line-height:1.08; margin:10px 0 16px; text-wrap:balance;}
+.hero2 .lede{color:var(--muted); font-size:clamp(1rem,1.5vw,1.12rem); line-height:1.65; max-width:44ch; margin-bottom:26px;}
+.hero2 .hero-cta{justify-content:flex-start;}
+.hero2-phone{position:relative; display:flex; flex-direction:column; align-items:center; gap:14px; isolation:isolate;}
+/* זוהר רך מאחורי הטלפון */
+.hero2-phone::before{
+  content:''; position:absolute; inset:-10% -20%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #6d5bd0 22%, transparent), transparent),
+    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #e5486e 16%, transparent), transparent);
+  filter:blur(30px);
+}
+@media (prefers-reduced-motion: no-preference){
+  .hero2-phone::before{animation:home-drift 16s ease-in-out infinite alternate;}
+}
+.phone{
+  width:clamp(220px,24vw,270px); padding:10px; border-radius:40px; background:#131417; cursor:pointer;
+  box-shadow:0 40px 80px -40px rgba(19,20,23,.55), inset 0 0 0 2px #2a2c33;
+}
+.phone-screen{position:relative; aspect-ratio:640/1136; border-radius:31px; overflow:hidden; background:#f1f1f6;}
+.phone-screen img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .7s ease;}
+.phone-screen img.on{opacity:1;}
+.phone-caption{display:inline-flex; align-items:center; gap:8px; font-size:.9rem; font-weight:700; background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:6px 14px 6px 8px;}
+.phone-caption img{width:24px; height:24px; border-radius:7px; object-fit:contain;}
+.phone-caption:hover{border-color:var(--muted-2);}
+.phone-dots{display:flex; gap:6px;}
+.phone-dots button{width:7px; height:7px; border-radius:50%; border:0; padding:0; background:#d4d5de; cursor:pointer; transition:width .2s ease, background .2s ease;}
+.phone-dots button.on{width:20px; border-radius:6px; background:var(--ink);}
+
+.home-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.hc{
+  display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-radius:24px;
+  padding:24px; transition:box-shadow .2s ease;
+}
+.hc:hover{box-shadow:var(--s-shadow);}
+.hc-icons{display:flex; margin-bottom:18px;}
+.hc-ic{width:48px; height:48px; border-radius:14px; background:#fff; border:2px solid var(--surface); box-shadow:0 0 0 1px var(--line); padding:6px; display:flex;}
+.hc-ic + .hc-ic{margin-inline-start:-10px;}
+.hc-ic img{width:100%; height:100%; object-fit:contain;}
+.hc h2{font-size:1.15rem; font-weight:800; margin-bottom:6px;}
+.hc p{color:var(--muted); font-size:.92rem; line-height:1.6; flex:1;}
+.hc-go{display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:.88rem; font-weight:800;}
+.hc-price{font-size:.95rem; font-weight:700; color:var(--indigo); margin-bottom:12px; line-height:48px; height:48px;}
+.hc-price b{font-size:2.4rem; font-weight:800; letter-spacing:-.03em;}
+.hc-service{background:linear-gradient(140deg, var(--indigo-soft), var(--surface) 70%);}
+
+@media (max-width:860px){
+  .hero2{grid-template-columns:1fr; text-align:center;}
+  .hero2 .lede{margin-inline:auto;}
+  .hero2 .hero-cta{justify-content:center;}
+  .home-cards{grid-template-columns:1fr;}
+}
+@media (max-width:480px){
+  .hero2 .btn-lg{width:100%; justify-content:center;}
+}

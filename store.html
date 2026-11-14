@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>חנות Xnet · אפליקציות לאנדרואיד</title>
-<meta name="description" content="חנות האפליקציות של Xnet: אפליקציות לאנדרואיד להורדה ישירה, כולל VODOS לנגנים בלי אינטרנט.">
+<title>X Store · אפליקציות לאנדרואיד</title>
+<meta name="description" content="X Store, חנות האפליקציות של Xnet: אפליקציות לאנדרואיד להורדה ישירה, כולל VODOS לנגנים בלי אינטרנט.">
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -64,9 +64,13 @@
   .label svg{color:var(--pink);}
   .featured{
     display:flex; align-items:center; gap:clamp(16px,3vw,32px); flex-wrap:wrap;
-    background:var(--surface); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,3.5vw,40px);
-    box-shadow:0 30px 70px -45px rgba(229,72,110,.45), 0 30px 70px -45px rgba(109,91,208,.45); margin-bottom:48px; cursor:pointer;
+    background:linear-gradient(120deg, var(--purple-soft) 0%, var(--surface) 55%); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,3.5vw,40px);
+    box-shadow:var(--shadow); margin-bottom:48px; cursor:pointer;
   }
+  .st-brand-x{color:var(--purple);}
+  .rec{display:inline-flex; align-items:center; gap:6px; font-size:.76rem; font-weight:800; color:var(--purple); background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:4px 11px; margin-bottom:12px;}
+  .rec i{width:6px; height:6px; border-radius:50%; background:var(--purple);}
+  .dl-n{font-size:.8rem; font-weight:600; color:var(--muted);}
   .app-icon{flex:0 0 auto; border-radius:22px; background:var(--surface); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden;}
   .app-icon img{width:100%; height:100%; object-fit:contain;}
   .featured .app-icon{width:104px; height:104px; padding:10px;}
@@ -94,7 +98,10 @@
     transition:box-shadow .2s ease, border-color .2s ease; cursor:pointer;
   }
   .card:hover{box-shadow:var(--shadow);}
-  .card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;}
+  .card-top{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
+  .card-title{flex:1; min-width:0;}
+  .card-title .pkg{margin:2px 0 0;}
+  .card-top .dl-count{align-self:flex-start;}
   .card .app-icon{width:52px; height:52px; border-radius:14px; padding:4px;}
   .dl-count.new{color:var(--pink); background:var(--pink-soft); font-family:inherit; font-weight:700;}
   .dl-count{font-family:var(--mono); font-size:.76rem; color:var(--muted); background:var(--chip); border-radius:6px; padding:3px 8px; display:flex; align-items:center; gap:5px;}
@@ -168,11 +175,11 @@
 <header class="st-head">
   <a class="st-brand" href="#" data-home>
     <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="">
-    חנות
+    <span dir="ltr"><span class="st-brand-x">X</span> Store</span>
   </a>
   <label class="st-search">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <input type="search" id="q" placeholder="חיפוש..." aria-label="חיפוש אפליקציה">
+    <input type="search" id="q" placeholder="חיפוש אפליקציה..." aria-label="חיפוש אפליקציה">
   </label>
   <div class="st-tools">
     <button class="icon-btn" id="theme" aria-label="מצב כהה" title="מצב כהה">
@@ -294,18 +301,17 @@
     return `
       <div class="soon"><b>החנות בהקמה.</b> בקרוב יתווספו כאן עוד אפליקציות. בינתיים VODOS ו-VODOS אונליין כבר זמינות להורדה.<a href="contact.html">יש לכם בקשה?</a></div>
       ${term ? '' : `
-      <div class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>הכי הרבה הורדות</div>
       <article class="featured" data-open="${top.id}">
         <div class="app-icon"><img src="${top.icon}" alt=""></div>
         <div class="featured-body">
+          <span class="rec"><i></i>מומלץ</span>
           <h2>${esc(top.name)} <span class="ver-chip">v${tv.v}</span></h2>
           <div class="pkg">${top.pkg}</div>
           <p>${esc(top.short)}</p>
-          <div class="author"><span class="avatar">${ICON_USER}</span>@${top.author}</div>
         </div>
         <div class="featured-cta">
           <a class="dl-btn" href="${latestUrl(top, top.asset)}" data-stop>${ICON_DL} הורדה</a>
-          <span class="installs">INSTALLS ${fmtNum(total(top))} ${ICON_DL}</span>
+          <span class="dl-n">${fmtNum(total(top))} הורדות</span>
         </div>
       </article>`}
       <div class="bar">
@@ -325,14 +331,15 @@
       <article class="card" data-open="${a.id}">
         <div class="card-top">
           <div class="app-icon"><img src="${a.icon}" alt=""></div>
-          ${a.isNew && !total(a) ? '<span class="dl-count new">חדש</span>' : `<span class="dl-count">${fmtNum(total(a))} ${ICON_DL}</span>`}
+          <div class="card-title">
+            <h3>${esc(a.name)}</h3>
+            <div class="pkg">${a.pkg}</div>
+          </div>
+          ${a.isNew && !total(a) ? '<span class="dl-count new">חדש</span>' : ''}
         </div>
-        <h3>${esc(a.name)}</h3>
-        <div class="pkg">${a.pkg}</div>
         <p>${esc(a.short)}</p>
-        <div class="author"><span class="avatar">${ICON_USER}</span>@${a.author}</div>
         <div class="card-foot">
-          <div class="mono">V${v.v}<small>${fmtDate(v.date)}</small></div>
+          <div class="mono">V${v.v}<small>${fmtDate(v.date)}${total(a) ? ' · ' + fmtNum(total(a)) + ' הורדות' : ''}</small></div>
           <a class="soft-btn" href="${latestUrl(a, a.asset)}" data-stop>הורדה</a>
         </div>
       </article>`;
@@ -391,7 +398,7 @@
     const m = location.hash.match(/^#app\/(.+)$/);
     const app = m && APPS.find(a => a.id === decodeURIComponent(m[1]));
     $view.innerHTML = app ? appPage(app) : home();
-    document.title = app ? `${app.name} · חנות Xnet` : 'חנות Xnet · אפליקציות לאנדרואיד';
+    document.title = app ? `${app.name} · X Store` : 'X Store · אפליקציות לאנדרואיד';
   }
 
   // ---------- אירועים ----------

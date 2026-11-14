@@ -1713,3 +1713,14 @@ footer .brand-sq{width:30px; height:30px; border-radius:9px;}
   nav a.nav-pill, nav a.nav-cta{padding:6px 9px; font-size:.78rem;}
   nav a.nav-cta .dot{display:none;}
 }
+
+/* כותרת דף הפרויקטים (במקום הכרטיס המובלט) */
+.s-head{margin-bottom:26px;}
+.s-head h1{font-size:clamp(1.8rem,3.6vw,2.4rem); font-weight:800; letter-spacing:-.02em; line-height:1.15;}
+.s-head p{color:var(--muted); font-size:1rem; margin-top:6px;}
+
+/* "X Store" רחב מ"חנות": עוד קצת מקום לשורת התפריט בטלפון */
+@media (max-width:640px){
+  header.site-head{padding-inline:12px;}
+  header.site-head nav ul{gap:3px;}
+}

@@ -65,30 +65,34 @@
 <main class="home">
   <section class="wrap hero2">
     <div class="hero2-copy">
-      <span class="kicker">Xnet</span>
-      <h1>אני בונה דברים <span class="accent">שאנשים משתמשים בהם.</span></h1>
-      <p class="lede">אפליקציות לאנדרואיד, אתרים וכלים, וגם דפי נחיתה לעסקים. הכל בעברית, והכל עובד.</p>
+      <span class="kicker">Xnet · בניית דפי נחיתה ואתרים</span>
+      <h1>אני מעצב ובונה <span class="accent">דפי נחיתה ואתרים.</span></h1>
+      <p class="lede">דף אחד ברור ומהיר שמציג את העסק שלכם כמו שצריך, או אתר שלם. מהעיצוב ועד העלאה לאוויר ולגוגל, ואתם מדברים ישירות איתי.</p>
       <div class="hero-cta">
-        <a href="store.html" class="btn btn-lg btn-primary">ל-X Store <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="projects.html" class="btn btn-lg btn-ghost">כל הפרויקטים</a>
+        <a href="contact.html" class="btn btn-lg btn-primary">בואו נדבר <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="services.html" class="btn btn-lg btn-ghost">דף נחיתה ב-250 ₪</a>
       </div>
+      <a class="work-note" href="contact.html">
+        <span class="work-note-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/></svg></span>
+        <span><b>רוצים לראות עבודות שעשיתי ללקוחות?</b><small>כתבו לי, ואשלח לכם דוגמאות של דפים שבניתי.</small></span>
+      </a>
     </div>
 
-    <div class="hero2-phone">
-      <div class="phone" id="phone">
-        <div class="phone-screen">
-          <img src="https://raw.githubusercontent.com/Xnet2/vodos-offline/HEAD/screenshots/Screenshot_20261113-133749.png" alt="" class="on">
-          <img src="https://raw.githubusercontent.com/Xnet2/file-manager-x/HEAD/%D7%A6%D7%99%D7%9C%D7%95%D7%9E%D7%99%20%D7%9E%D7%A1%D7%9A/Screenshot_20261114-223015.png" alt="" loading="lazy" class="">
-          <img src="https://raw.githubusercontent.com/Xnet2/vodos-offline/HEAD/screenshots/Screenshot_20261113-133800.png" alt="" loading="lazy" class="">
-          <img src="https://raw.githubusercontent.com/Xnet2/file-manager-x/HEAD/%D7%A6%D7%99%D7%9C%D7%95%D7%9E%D7%99%20%D7%9E%D7%A1%D7%9A/Screenshot_20261114-223025.png" alt="" loading="lazy" class="">
-          <img src="https://raw.githubusercontent.com/Xnet2/vodos-offline/HEAD/screenshots/Screenshot_20261113-133805.png" alt="" loading="lazy" class="">
-          <img src="https://raw.githubusercontent.com/Xnet2/file-manager-x/HEAD/%D7%A6%D7%99%D7%9C%D7%95%D7%9E%D7%99%20%D7%9E%D7%A1%D7%9A/Screenshot_20261114-223032.png" alt="" loading="lazy" class="">
+    <div class="hero2-show">
+      <div class="browser" id="showcase">
+        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="show-url">xnet2.github.io/services</span></div>
+        <div class="browser-screen">
+          <img src="assets/sites/services.png" alt="דף שירותי בניית אתרים" class="on">
+          <img src="assets/sites/netlink.png" alt="נטלינק" loading="lazy" class="">
+          <img src="assets/sites/store.png" alt="X Store" loading="lazy" class="">
+          <img src="assets/sites/clipx.png" alt="ClipX" loading="lazy" class="">
         </div>
       </div>
-      <a class="phone-caption" id="phone-caption" href="store.html#app/vodos">
-        <img src="assets/vodos.png" alt=""><span>VODOS</span>
-      </a>
-      <div class="phone-dots" id="phone-dots"><button aria-label="צילום 1" class="on"></button><button aria-label="צילום 2"></button><button aria-label="צילום 3"></button><button aria-label="צילום 4"></button><button aria-label="צילום 5"></button><button aria-label="צילום 6"></button></div>
+      <div class="show-foot">
+        <a class="show-caption" id="show-caption" href="services.html"><span>דף שירותי בניית אתרים</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="phone-dots" id="show-dots"><button aria-label="דף 1" class="on"></button><button aria-label="דף 2"></button><button aria-label="דף 3"></button><button aria-label="דף 4"></button></div>
+      </div>
+      <p class="show-note">דפים אמיתיים שבניתי ושנמצאים באוויר</p>
     </div>
   </section>
 
@@ -152,27 +156,31 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 
-  // ---------- הטלפון: צילומי מסך מתחלפים ----------
-  const SLIDES = [{"name":"VODOS","href":"store.html#app/vodos","icon":"assets/vodos.png"},{"name":"מנהל הקבצים X","href":"store.html#app/file-manager-x","icon":"assets/file-manager-x.svg"},{"name":"VODOS","href":"store.html#app/vodos","icon":"assets/vodos.png"},{"name":"מנהל הקבצים X","href":"store.html#app/file-manager-x","icon":"assets/file-manager-x.svg"},{"name":"VODOS","href":"store.html#app/vodos","icon":"assets/vodos.png"},{"name":"מנהל הקבצים X","href":"store.html#app/file-manager-x","icon":"assets/file-manager-x.svg"}];
-  const shots = document.querySelectorAll('#phone .phone-screen img');
-  const dots = document.querySelectorAll('#phone-dots button');
-  const caption = document.getElementById('phone-caption');
+  // ---------- דפים שבניתי: מתחלפים בחלון הדפדפן ----------
+  const SITES = [{"name":"דף שירותי בניית אתרים","url":"xnet2.github.io/services","href":"services.html"},{"name":"נטלינק","url":"xnet2.github.io/netlink","href":"https://xnet2.github.io/netlink/"},{"name":"X Store","url":"xnet2.github.io/store","href":"store.html"},{"name":"ClipX","url":"xnet2.github.io/clipx","href":"https://xnet2.github.io/clipx/"}];
+  const shots = document.querySelectorAll('#showcase .browser-screen img');
+  const dots = document.querySelectorAll('#show-dots button');
+  const caption = document.getElementById('show-caption');
+  const urlBar = document.getElementById('show-url');
   let at = 0, timer = null;
   function show(i){
     at = (i + shots.length) % shots.length;
     shots.forEach((im, k) => im.classList.toggle('on', k === at));
     dots.forEach((d, k) => d.classList.toggle('on', k === at));
-    caption.href = SLIDES[at].href;
-    caption.querySelector('img').src = SLIDES[at].icon;
-    caption.querySelector('span').textContent = SLIDES[at].name;
+    const site = SITES[at], outside = /^https?:/.test(site.href);
+    caption.href = site.href;
+    caption.target = outside ? '_blank' : '';
+    caption.rel = outside ? 'noopener' : '';
+    caption.querySelector('span').textContent = site.name;
+    urlBar.textContent = site.url;
   }
   function play(){
     clearInterval(timer);
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    timer = setInterval(() => show(at + 1), 3200);
+    timer = setInterval(() => show(at + 1), 3800);
   }
   dots.forEach((d, k) => d.addEventListener('click', () => { show(k); play(); }));
-  document.getElementById('phone').addEventListener('click', () => { show(at + 1); play(); });
+  document.getElementById('showcase').addEventListener('click', () => { show(at + 1); play(); });
   play();
 
   // ---------- scroll reveal ----------

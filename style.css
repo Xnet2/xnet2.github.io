@@ -1827,3 +1827,40 @@ nav a.nav-cta .dot{display:none;}
 @media (max-width:480px){
   .hero2 .btn-lg{width:100%; justify-content:center;}
 }
+
+/* ---------- דף הבית: דפים שבניתי (במקום הטלפון) ---------- */
+.hero2{grid-template-columns:1fr 1.05fr;}
+.work-note{
+  display:flex; align-items:center; gap:12px; margin-top:22px; max-width:46ch;
+  background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 14px;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.work-note:hover{border-color:#d4d5de; box-shadow:var(--s-shadow);}
+.work-note-ic{flex:0 0 auto; width:38px; height:38px; border-radius:11px; background:var(--indigo-soft); color:var(--indigo); display:flex; align-items:center; justify-content:center;}
+.work-note b{display:block; font-size:.93rem; font-weight:800;}
+.work-note small{display:block; font-size:.84rem; color:var(--muted); line-height:1.5;}
+.hero2-show{position:relative; isolation:isolate; display:flex; flex-direction:column; gap:12px;}
+.hero2-show::before{
+  content:''; position:absolute; inset:-12% -10%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #6d5bd0 20%, transparent), transparent),
+    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #e5486e 14%, transparent), transparent);
+  filter:blur(30px);
+}
+@media (prefers-reduced-motion: no-preference){ .hero2-show::before{animation:home-drift 16s ease-in-out infinite alternate;} }
+.browser{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 34px 70px -40px rgba(19,20,23,.45); cursor:pointer;}
+.browser-bar{display:flex; align-items:center; gap:6px; padding:9px 12px; border-bottom:1px solid var(--line); background:#fafafc;}
+.browser-bar i{width:9px; height:9px; border-radius:50%; background:#dcdde4;}
+.browser-url{margin-inline-start:8px; flex:1; height:22px; border-radius:7px; background:#eff0f5; font-family:var(--mono); font-size:.7rem; color:var(--muted); display:flex; align-items:center; padding:0 10px; direction:ltr;}
+.browser-screen{position:relative; aspect-ratio:896/560; background:#fff;}
+.browser-screen img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:0; transition:opacity .7s ease;}
+.browser-screen img.on{opacity:1;}
+.show-foot{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.show-caption{display:inline-flex; align-items:center; gap:7px; font-size:.9rem; font-weight:700; background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:6px 14px;}
+.show-caption:hover{border-color:var(--muted-2);}
+.show-note{font-size:.8rem; color:var(--muted-2); font-weight:600;}
+@media (max-width:860px){
+  .hero2{grid-template-columns:1fr;}
+  .work-note{margin-inline:auto; text-align:right;}
+  .show-note{text-align:center;}
+}

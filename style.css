@@ -1536,7 +1536,7 @@ nav a.nav-cta{padding:8px 15px; font-size:.84rem; white-space:nowrap;}
 .tag.by{background:var(--indigo-soft); color:var(--indigo); border-color:transparent;}
 .big-dl{display:inline-flex; align-items:center; gap:14px; background:var(--ink); color:#fff; border-radius:100px; padding:16px 28px; font-weight:800; font-size:1.02rem;}
 .big-dl:hover{opacity:.92;}
-.big-dl .size{font-family:var(--mono); font-weight:500; font-size:.86rem; opacity:.6; padding-inline-start:14px; border-inline-start:1px solid currentColor;}
+.big-dl .size{font-family:var(--mono); font-weight:500; font-size:.86rem; opacity:.6;}
 
 /* ---------- כרטיסים בכל האתר ---------- */
 .payment-card, .proof, .compare-col, .who, .feat, .faq details, .prj-channel, .pp-card{border-radius:24px;}

@@ -64,21 +64,24 @@
   .label svg{color:var(--pink);}
   .featured{
     display:flex; align-items:center; gap:clamp(16px,3vw,32px); flex-wrap:wrap;
-    background:linear-gradient(120deg, var(--purple-soft) 0%, var(--surface) 55%); border:1px solid var(--line); border-radius:28px; padding:clamp(20px,3.5vw,40px);
+    background:linear-gradient(120deg, var(--purple-soft) 0%, var(--surface) 55%); border:1px solid var(--line); border-radius:24px; padding:clamp(16px,2.4vw,24px) clamp(18px,2.8vw,28px);
     box-shadow:var(--shadow); margin-bottom:48px; cursor:pointer;
   }
   .st-brand-x{color:var(--purple);}
+  .beta{font-size:.7rem; font-weight:700; color:var(--purple); background:var(--purple-soft); border-radius:100px; padding:3px 9px; letter-spacing:0;}
   .rec{display:inline-flex; align-items:center; gap:6px; font-size:.76rem; font-weight:800; color:var(--purple); background:var(--surface); border:1px solid var(--line); border-radius:100px; padding:4px 11px; margin-bottom:12px;}
   .rec i{width:6px; height:6px; border-radius:50%; background:var(--purple);}
   .dl-n{font-size:.8rem; font-weight:600; color:var(--muted);}
   .app-icon{flex:0 0 auto; border-radius:22px; background:var(--surface); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; overflow:hidden;}
   .app-icon img{width:100%; height:100%; object-fit:contain;}
-  .featured .app-icon{width:104px; height:104px; padding:10px;}
+  .featured .app-icon{width:76px; height:76px; padding:8px; border-radius:18px;}
   .featured-body{flex:1 1 280px; min-width:0;}
-  .featured h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.02em; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .featured h2{font-size:clamp(1.3rem,2.2vw,1.6rem); font-weight:700; letter-spacing:-.02em; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
   .ver-chip{font-family:var(--mono); font-size:.8rem; font-weight:500; color:var(--muted); background:var(--chip); border:1px solid var(--line); border-radius:8px; padding:3px 8px;}
   .pkg{font-family:var(--mono); font-size:.82rem; color:var(--muted); margin:4px 0 10px; direction:ltr; text-align:right;}
-  .featured p{color:var(--ink); font-size:1rem; margin-bottom:10px;}
+  .featured p{color:var(--ink); font-size:.95rem; margin:4px 0 0;}
+  .featured .rec{margin-bottom:8px;}
+  .featured .pkg{margin:2px 0 0;}
   .author{display:flex; align-items:center; gap:7px; font-size:.86rem; color:var(--muted);}
   .avatar{width:22px; height:22px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--muted-2);}
   .featured-cta{display:flex; flex-direction:column; align-items:center; gap:8px;}
@@ -131,7 +134,7 @@
   .tag.ver{background:var(--pink-soft); color:var(--pink); border-color:transparent; font-family:var(--mono);}
   .tag.by{background:var(--purple-soft); color:var(--purple); border-color:transparent;}
   .big-dl{display:inline-flex; align-items:center; gap:16px; background:var(--ink); color:var(--bg); border-radius:100px; padding:18px 30px; font-weight:800; font-size:1.08rem;}
-  .big-dl .size{font-family:var(--mono); font-weight:500; font-size:.88rem; opacity:.6; padding-inline-start:16px; border-inline-start:1px solid currentColor;}
+  .big-dl .size{font-family:var(--mono); font-weight:500; font-size:.88rem; opacity:.6;}
   .big-dl:hover{opacity:.92;}
   .also{display:block; margin-top:12px; font-size:.86rem; color:var(--muted);}
   .also a{font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
@@ -158,6 +161,16 @@
   /* ---------- צילומי מסך ---------- */
   .shots-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px;}
   .shots-hint{font-size:.8rem; color:var(--muted-2); font-weight:600;}
+  /* בלי זה שורת הצילומים מותחת את העמוד לרוחב בטלפון */
+  .app-layout > *{min-width:0;}
+  @media (max-width:640px){
+    .gh-btn{display:none;}
+    .st-head{gap:10px;}
+    /* המומלץ בטלפון: אייקון ליד השם, לא מעליו */
+    .featured{gap:14px; align-items:flex-start;}
+    .featured .app-icon{width:58px; height:58px; padding:6px; border-radius:15px;}
+    .featured-body{flex:1 1 0; min-width:0;}
+  }
   .shots-wrap{position:relative;}
   .shots{display:flex; gap:14px; overflow-x:auto; padding:4px 2px 14px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none;}
   .shots::-webkit-scrollbar{display:none;}
@@ -237,6 +250,7 @@
   <a class="st-brand" href="#" data-home>
     <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="">
     <span dir="ltr"><span class="st-brand-x">X</span> Store</span>
+    <span class="beta">בהרצה</span>
   </a>
   <label class="st-search">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -246,7 +260,7 @@
     <button class="icon-btn" id="theme" aria-label="מצב כהה" title="מצב כהה">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
     </button>
-    <a class="icon-btn" href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+    <a class="icon-btn gh-btn" href="https://github.com/Xnet2" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
     </a>
     <a class="pill-btn" href="index.html" title="לאתר Xnet">
@@ -481,7 +495,6 @@
     const top = APPS.slice().sort((a, b) => total(b) - total(a))[0];
     const tv = top.versions[0];
     return `
-      <div class="soon"><b>החנות בהקמה.</b> בקרוב יתווספו כאן עוד אפליקציות. בינתיים כבר אפשר להוריד את VODOS, VODOS אונליין ומנהל הקבצים X.<a href="contact.html">יש לכם בקשה?</a></div>
       ${term ? '' : `
       <article class="featured" data-open="${top.id}">
         <div class="app-icon"><img src="${top.icon}" alt=""></div>

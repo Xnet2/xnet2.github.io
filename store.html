@@ -438,6 +438,42 @@
       versions: [
         { v: '2.1', date: '2026-11-14T20:36:19Z', size: 152025, downloads: 0, url: 'https://github.com/Xnet2/file-manager-x/releases/download/v2.1/FileManagerX-2.1.apk', notes: ['מסך בית עם אריחים, תפריט צד, ניתוח אחסון והגדרות מלאות', 'מציג תמונות, נגן וידאו, נגן מוזיקה ועורך טקסט מובנים'] }
       ]
+    },
+    {
+      id: 'lockscreen',
+      name: 'מסך נעילה',
+      pkg: 'com.custom.lockscreen',
+      icon: 'assets/lockscreen.png',
+      category: 'tools',
+      author: 'xnet2',
+      short: 'מסך נעילה חלופי לאנדרואיד, נקי ומודרני, עם שעון מעוצב והתראות ישר על המסך.',
+      about: [
+        'מסך נעילה חלופי לאנדרואיד, נקי ומודרני, שמופיע מעל הכול כשמדליקים את המסך. הרקע הוא הרקע של דף הבית, השעון מעוצב, וגלילה ארוכה למעלה פותחת קו ביטול נעילה, קוד או סיסמה.',
+        'ההתראות מוצגות ישר על המסך: מחליקים הצידה כדי למחוק, ומקישים כדי לפתוח אחרי ביטול הנעילה.'
+      ],
+      features: [
+        '8 סגנונות שעון, 8 צבעים, 3 גדלים ו-2 מיקומים, עם תצוגה מקדימה חיה',
+        'קו ביטול נעילה, קוד PIN או סיסמה, שנשמרים מוצפנים',
+        'התראות במסך הנעילה: החלקה הצידה למחיקה, הקשה לפתיחה',
+        'אנימציות קפיץ חלקות בגלילה למעלה ולמטה',
+        'הסתרה אוטומטית בזמן שיחת טלפון, ונעילה אחרי הפעלה מחדש'
+      ],
+      steps: [
+        'מורידים את LockScreen.apk, ישר בטלפון או במחשב ומעבירים אליו.',
+        'פותחים את הקובץ ומתקינים. אם הטלפון מבקש, מאשרים התקנה ממקור לא ידוע.',
+        'פותחים את האפליקציה, בוחרים סגנון שעון ושיטת ביטול נעילה, ומאשרים את ההרשאות שהיא מבקשת.'
+      ],
+      details: [
+        ['נבדק על', 'אנדרואיד 13']
+      ],
+      links: [],
+      repo: 'Xnet2/LockScreen',
+      asset: 'LockScreen.apk',
+      minAndroid: 'אנדרואיד 12 ומעלה',
+      isNew: true,
+      versions: [
+        { v: '1.5', date: '2026-11-14T22:24:37Z', size: 66468, downloads: 0, notes: ['התראות במסך הנעילה', '8 סגנונות שעון', 'קו, קוד או סיסמה', 'אנימציות קפיץ חלקות'] }
+      ]
     }
   ];
   const CATS = [['all', 'הכל'], ['video', 'וידאו ומדיה'], ['tools', 'כלים'], ['comm', 'תקשורת']];
@@ -465,6 +501,7 @@
     'vodos': ['screenshots', ['Screenshot_20261113-133749.png', 'Screenshot_20261113-133753.png', 'Screenshot_20261113-133800.png', 'Screenshot_20261113-133805.png', 'Screenshot_20261113-133818.png', 'Screenshot_20261113-133828.png']],
     'vodos-online': ['screenshots', ['Screenshot_20261113-133749.png', 'Screenshot_20261113-133753.png', 'Screenshot_20261113-133800.png', 'Screenshot_20261113-133805.png', 'Screenshot_20261113-133818.png', 'Screenshot_20261113-133828.png']],
     'file-manager-x': ['צילומי מסך', ['Screenshot_20261114-223015.png', 'Screenshot_20261114-223025.png', 'Screenshot_20261114-223032.png', 'Screenshot_20261114-223037.png']],
+    'lockscreen': ['Screenshot', ['Screenshot_20261115-000756.png', 'Screenshot_20261115-000808.png', 'Screenshot_20261115-000813.png', 'Screenshot_20261115-000817.png', 'Screenshot_20261115-000821.png']],
   };
   const rawUrl = (app, dir, name) => `https://raw.githubusercontent.com/${app.repo}/HEAD/${encodeURIComponent(dir)}/${encodeURIComponent(name)}`;
   APPS.forEach(a => { const s = SHOTS[a.id]; if (s) a.shots = s[1].map(n => rawUrl(a, s[0], n)); });

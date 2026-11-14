@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <!-- האייקון של מנהל הקבצים X, מתוך ic_launcher_bg / ic_launcher_fg של האפליקציה -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F8DF7"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="108" height="108" rx="26" fill="url(#bg)"/>
+  <path fill="#FFFFFF" fill-opacity=".7" d="M33,35h14l5,5h23c2.2,0 4,1.8 4,4v26c0,2.2 -1.8,4 -4,4H33c-2.2,0 -4,-1.8 -4,-4V39c0,-2.2 1.8,-4 4,-4z"/>
+  <path fill="#FFFFFF" d="M33,46h42c2.2,0 4,1.8 4,4v20c0,2.2 -1.8,4 -4,4H33c-2.2,0 -4,-1.8 -4,-4V50c0,-2.2 1.8,-4 4,-4z"/>
+  <path fill="#2563EB" d="M40,57h28c1.1,0 2,0.9 2,2s-0.9,2 -2,2H40c-1.1,0 -2,-0.9 -2,-2s0.9,-2 2,-2z"/>
+</svg>

@@ -242,8 +242,8 @@
         'מתאימה למכשיר אנדרואיד שיש בו אינטרנט. לא צריך תוכנה במחשב, ושום סרטון לא נשמר במכשיר, אלא אם מורידים אותו לגלריה.'
       ],
       page: 'projects/vodos-online.html',
-      // מתארח באתר עצמו (downloads/), לא ב-GitHub releases
-      file: v => `downloads/VODOS-online-${v}.apk`,
+      // הקובץ יושב ב-releases של vodos-offline (בלי סנכרון: מספר הגרסה של האפליקציה שונה מהתגית)
+      file: () => 'https://github.com/Xnet2/vodos-offline/releases/latest/download/VODOS-online.apk',
       minAndroid: 'אנדרואיד 4.4 ומעלה',
       isNew: true,
       versions: [

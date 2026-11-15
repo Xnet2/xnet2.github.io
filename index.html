@@ -64,36 +64,20 @@
 </header>
 
 <main class="home">
-  <section class="wrap hero2">
-    <div class="hero2-copy">
-      <span class="kicker">Xnet · בניית דפי נחיתה ואתרים</span>
-      <h1>אני מעצב ובונה <span class="accent">דפי נחיתה ואתרים.</span></h1>
-      <p class="lede">דף אחד ברור ומהיר שמציג את העסק שלכם כמו שצריך, או אתר שלם. מהעיצוב ועד העלאה לאוויר ולגוגל, ואתם מדברים ישירות איתי.</p>
-      <div class="hero-cta">
-        <a href="contact.html" class="btn btn-lg btn-primary">בואו נדבר <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="services.html" class="btn btn-lg btn-ghost">דף נחיתה ב-250 ₪</a>
+  <section class="live" id="live">
+    <canvas class="live-dots" id="dots" aria-hidden="true"></canvas>
+    <div class="wrap live-inner" id="live-inner">
+      <span class="live-kicker">Xnet · בניית דפי נחיתה ואתרים</span>
+      <h1>
+        <span class="live-line"><span>אני</span> <span>בונה</span> <span>דפי</span> <span>נחיתה</span> <span>ואתרים</span></span>
+        <span class="live-type"><span id="type">לעסק שלכם.</span><i class="caret" aria-hidden="true"></i></span>
+      </h1>
+      <p class="live-lede">דף אחד ברור ומהיר שמציג את העסק שלכם כמו שצריך, או אתר שלם. מהעיצוב ועד העלאה לאוויר ולגוגל, ואתם מדברים ישירות איתי.</p>
+      <div class="live-cta">
+        <a href="contact.html" class="l-btn l-btn-main">בואו נדבר <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="services.html" class="l-btn l-btn-line">דף נחיתה ב-250 ₪</a>
       </div>
-      <a class="work-note" href="contact.html">
-        <span class="work-note-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/></svg></span>
-        <span><b>רוצים לראות עבודות שעשיתי ללקוחות?</b><small>כתבו לי, ואשלח לכם דוגמאות של דפים שבניתי.</small></span>
-      </a>
-    </div>
-
-    <div class="hero2-show">
-      <div class="browser" id="showcase">
-        <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url" id="show-url">xnet2.github.io/services</span></div>
-        <div class="browser-screen">
-          <img src="assets/sites/services.png" alt="דף שירותי בניית אתרים" class="on">
-          <img src="assets/sites/netlink.png" alt="נטלינק" loading="lazy" class="">
-          <img src="assets/sites/store.png" alt="X Store" loading="lazy" class="">
-          <img src="assets/sites/clipx.png" alt="ClipX" loading="lazy" class="">
-        </div>
-      </div>
-      <div class="show-foot">
-        <a class="show-caption" id="show-caption" href="services.html"><span>דף שירותי בניית אתרים</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="phone-dots" id="show-dots"><button aria-label="דף 1" class="on"></button><button aria-label="דף 2"></button><button aria-label="דף 3"></button><button aria-label="דף 4"></button></div>
-      </div>
-      <p class="show-note">דפים אמיתיים שבניתי ושנמצאים באוויר</p>
+      <a class="live-note" href="contact.html"><b>רוצים לראות עבודות שעשיתי ללקוחות?</b> כתבו לי, ואשלח לכם דוגמאות.</a>
     </div>
   </section>
 
@@ -157,32 +141,99 @@
     if(e.key === 'Escape') projectsDropdown.classList.remove('open');
   });
 
-  // ---------- דפים שבניתי: מתחלפים בחלון הדפדפן ----------
-  const SITES = [{"name":"דף שירותי בניית אתרים","url":"xnet2.github.io/services","href":"services.html"},{"name":"נטלינק","url":"xnet2.github.io/netlink","href":"https://xnet2.github.io/netlink/"},{"name":"X Store","url":"xnet2.github.io/store","href":"store.html"},{"name":"ClipX","url":"xnet2.github.io/clipx","href":"https://xnet2.github.io/clipx/"}];
-  const shots = document.querySelectorAll('#showcase .browser-screen img');
-  const dots = document.querySelectorAll('#show-dots button');
-  const caption = document.getElementById('show-caption');
-  const urlBar = document.getElementById('show-url');
-  let at = 0, timer = null;
-  function show(i){
-    at = (i + shots.length) % shots.length;
-    shots.forEach((im, k) => im.classList.toggle('on', k === at));
-    dots.forEach((d, k) => d.classList.toggle('on', k === at));
-    const site = SITES[at], outside = /^https?:/.test(site.href);
-    caption.href = site.href;
-    caption.target = outside ? '_blank' : '';
-    caption.rel = outside ? 'noopener' : '';
-    caption.querySelector('span').textContent = site.name;
-    urlBar.textContent = site.url;
-  }
-  function play(){
-    clearInterval(timer);
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    timer = setInterval(() => show(at + 1), 3800);
-  }
-  dots.forEach((d, k) => d.addEventListener('click', () => { show(k); play(); }));
-  document.getElementById('showcase').addEventListener('click', () => { show(at + 1); play(); });
-  play();
+  // ---------- פתיחה חיה: נקודות שבורחות מהעכבר, גלים בלחיצה ----------
+  (function(){
+    const hero = document.getElementById('live');
+    const c = document.getElementById('dots');
+    const ctx = c.getContext('2d');
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W = 0, H = 0, pts = [], waves = [], mx = 0, my = 0, active = false, t = 0, raf = 0, running = false;
+    function build(){
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = W * dpr; c.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const gap = W < 640 ? 24 : 30;
+      pts = [];
+      for(let y = gap / 2; y < H; y += gap)
+        for(let x = gap / 2; x < W; x += gap) pts.push({ ox:x, oy:y, x, y, vx:0, vy:0, g:0 });
+    }
+    function frame(){
+      t++;
+      // בלי עכבר (טלפון, או כשהעכבר מחוץ לפתיחה) "יד נסתרת" משוטטת לאט
+      let px = mx, py = my;
+      if(!active){
+        px = W * (.5 + .38 * Math.sin(t * .0028));
+        py = H * (.5 + .34 * Math.sin(t * .0047 + 1));
+      }
+      const R = W < 640 ? 80 : 110;
+      ctx.clearRect(0, 0, W, H);
+      for(const p of pts){
+        let tx = p.ox, ty = p.oy, glow = 0;
+        const dx = p.ox - px, dy = p.oy - py, d = Math.hypot(dx, dy) || 1;
+        if(d < R){ const f = 1 - d / R, push = f * f * 5; tx += dx / d * push; ty += dy / d * push; glow = f; }
+        for(const w of waves){
+          const wx = p.ox - w.x, wy = p.oy - w.y, wd = Math.hypot(wx, wy) || 1, diff = Math.abs(wd - w.r);
+          if(diff < 44){ const k = (1 - diff / 44) * w.a; if(k > glow) glow = k; tx += wx / wd * k * 3; ty += wy / wd * k * 3; }
+        }
+        p.vx = (p.vx + (tx - p.x) * .12) * .78; p.vy = (p.vy + (ty - p.y) * .12) * .78;
+        p.x += p.vx; p.y += p.vy;
+        p.g += (glow - p.g) * .15;
+        const g = p.g;
+        ctx.fillStyle = 'rgba(' + (100 - 87 * g | 0) + ',' + (116 + 32 * g | 0) + ',' + (139 - 3 * g | 0) + ',' + (.22 + g * .28).toFixed(2) + ')';
+        ctx.beginPath(); ctx.arc(p.x, p.y, 1 + g * .6, 0, 6.2832); ctx.fill();
+      }
+      waves = waves.filter(w => { w.r += 7; w.a *= .972; return w.a > .03; });
+      raf = requestAnimationFrame(frame);
+    }
+    function start(){ if(!running && !calm){ running = true; raf = requestAnimationFrame(frame); } }
+    function stop(){ running = false; cancelAnimationFrame(raf); }
+    build();
+    if(calm){ t = 1; mx = W / 2; my = H / 2; active = true; frame(); cancelAnimationFrame(raf); } else start();
+    addEventListener('resize', () => { build(); if(calm){ frame(); cancelAnimationFrame(raf); } });
+    function pos(e){ const r = c.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; }
+    hero.addEventListener('pointermove', e => {
+      pos(e); active = true;
+      hero.style.setProperty('--mx', mx + 'px'); hero.style.setProperty('--my', my + 'px');
+      hero.classList.add('touched');
+    });
+    hero.addEventListener('pointerleave', () => { active = false; });
+    hero.addEventListener('pointerdown', e => {
+      if(e.target.closest('a')) return;
+      pos(e); waves.push({ x:mx, y:my, r:0, a:.7 }); hero.classList.add('touched');
+      if(e.pointerType !== 'mouse') active = false;
+    });
+    // חוסכים מעבד כשהלשונית מוסתרת או כשגוללים הלאה
+    let visible = true;
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : visible && start());
+    if('IntersectionObserver' in window) new IntersectionObserver(e => { visible = e[0].isIntersecting; visible ? start() : stop(); }).observe(hero);
+
+    // הכותרת מקלידה ומוחקת סוגי עסקים
+    const el = document.getElementById('type');
+    const words = ['לעסק שלכם.', 'לחנות.', 'לעסק מהבית.', 'למוסד או לארגון.', 'לקמפיין.', 'לאירוע.', 'לעסק שלכם.'];
+    if(!calm){
+      let i = 0, j = words[0].length, del = true;
+      const tick = function(){
+        const w = words[i];
+        if(del){
+          el.textContent = w.slice(0, --j);
+          if(j > 0) return setTimeout(tick, 32);
+          del = false; i = (i + 1) % words.length; return setTimeout(tick, 260);
+        }
+        el.textContent = words[i].slice(0, ++j);
+        if(j < words[i].length) return setTimeout(tick, 75);
+        del = true; setTimeout(tick, i === words.length - 1 ? 5200 : 1900);
+      };
+      setTimeout(tick, 2600);
+    }
+
+    // בגלילה הטקסט עולה ונעלם בעדינות
+    const inner = document.getElementById('live-inner');
+    if(!calm) addEventListener('scroll', () => requestAnimationFrame(() => {
+      const y = Math.min(scrollY, H);
+      inner.style.transform = 'translateY(' + (y * .12) + 'px)';
+    }), { passive:true });
+  })();
 
   // ---------- scroll reveal ----------
   const revealEls = document.querySelectorAll('.reveal');

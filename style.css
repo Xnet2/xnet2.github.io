@@ -1871,3 +1871,53 @@ nav a.nav-cta .dot{display:none;}
   --rose:#10b981; --rose-soft:#e6f7f0;
 }
 ::selection{background:#ccf0ea;}
+
+/* ---------- דף הבית: פתיחה חיה, בהירה ועדינה ---------- */
+.live{
+  --mx:50%; --my:40%;
+  position:relative; overflow:hidden; isolation:isolate; color:var(--ink, #0f172a);
+  display:flex; align-items:center; min-height:min(72svh, 640px);
+  padding:80px 0 90px;
+  background:linear-gradient(180deg, #f3f8f9 0%, var(--bg) 100%);
+  border-bottom:1px solid var(--line, #eceef2);
+}
+/* הילה טורקיז חלשה סביב העכבר */
+.live::before{
+  content:''; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0; transition:opacity .6s ease;
+  background:radial-gradient(320px circle at var(--mx) var(--my), rgba(13,148,136,.04), transparent 70%);
+}
+.live.touched::before{opacity:1;}
+.live-dots{position:absolute; inset:0; width:100%; height:100%; z-index:0;}
+.live-inner{position:relative; z-index:2; text-align:center; display:flex; flex-direction:column; align-items:center; pointer-events:none;}
+.live-inner a{pointer-events:auto;}
+.live-kicker{font-size:.84rem; font-weight:700; color:#475569; border:1px solid var(--line, #e5e7eb); background:#fff; border-radius:100px; padding:6px 14px; margin-bottom:22px;}
+.live h1{font-size:clamp(2.2rem,5.4vw,4rem); font-weight:800; letter-spacing:-.03em; line-height:1.12; color:#0f172a;}
+.live-line, .live-type{display:block;}
+.live-type{min-height:1.15em; color:#0d9488;}
+.caret{display:inline-block; width:.06em; height:.85em; margin-inline-start:.06em; vertical-align:-.06em; background:#0d9488; border-radius:2px;}
+.live-lede{color:#5b6475; font-size:clamp(1rem,1.6vw,1.12rem); line-height:1.7; max-width:46ch; margin:20px auto 30px;}
+.live-cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+.l-btn{display:inline-flex; align-items:center; gap:8px; border-radius:100px; padding:14px 26px; font-weight:800; font-size:1rem; transition:background .2s ease, border-color .2s ease;}
+.l-btn-main{background:#0f172a; color:#fff;}
+.l-btn-main:hover{background:#1e293b;}
+.l-btn-line{color:#0f172a; border:1px solid #d6dbe3; background:#fff;}
+.l-btn-line:hover{border-color:#0d9488;}
+.live-note{margin-top:24px; font-size:.92rem; color:#5b6475; border-bottom:1px dashed #b8c2cf; padding-bottom:2px;}
+.live-note b{color:#0f172a;}
+.live-note:hover{border-color:#0d9488;}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes fade-up{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+  @keyframes blink{50%{opacity:0;}}
+  .live-inner > *{animation:fade-up .6s ease both;}
+  .live-inner > :nth-child(2){animation-delay:.08s;}
+  .live-inner > :nth-child(3){animation-delay:.16s;}
+  .live-inner > :nth-child(4){animation-delay:.24s;}
+  .live-inner > :nth-child(5){animation-delay:.32s;}
+  .caret{animation:blink 1s steps(1) infinite;}
+}
+.live + .home-cards{margin-top:40px;}
+@media (max-width:640px){ .live{min-height:0; padding:56px 0 64px;} }
+@media (max-width:480px){
+  .l-btn{width:100%; justify-content:center;}
+  .live-cta{width:100%;}
+}

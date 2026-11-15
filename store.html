@@ -122,7 +122,8 @@
   /* מעבר עכבר: מסגרת דקה בצבע הלוגו של האפליקציה, בלי צל ובלי הבלטה */
   .card:hover{border-color:var(--logo, var(--muted-2)); box-shadow:0 0 0 .5px var(--logo, var(--muted-2));}
   .featured{transition:border-color .2s ease, box-shadow .2s ease;}
-  .featured:hover{border-color:var(--logo, var(--muted-2)); box-shadow:var(--shadow), 0 0 0 .5px var(--logo, var(--muted-2));}
+  .featured{border-color:transparent;}
+  .featured:hover{border-color:transparent; box-shadow:0 34px 70px -38px rgba(15,60,58,.42);}
   .card-top{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
   .card-title{flex:1; min-width:0;}
   .card-title .pkg{margin:2px 0 0;}

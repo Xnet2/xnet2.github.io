@@ -119,7 +119,10 @@
     display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:22px;
     transition:box-shadow .2s ease, border-color .2s ease; cursor:pointer;
   }
-  .card:hover{box-shadow:var(--shadow);}
+  /* מעבר עכבר: מסגרת דקה בצבע הלוגו של האפליקציה, בלי צל ובלי הבלטה */
+  .card:hover{border-color:var(--logo, var(--muted-2)); box-shadow:0 0 0 .5px var(--logo, var(--muted-2));}
+  .featured{transition:border-color .2s ease, box-shadow .2s ease;}
+  .featured:hover{border-color:var(--logo, var(--muted-2)); box-shadow:var(--shadow), 0 0 0 .5px var(--logo, var(--muted-2));}
   .card-top{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
   .card-title{flex:1; min-width:0;}
   .card-title .pkg{margin:2px 0 0;}
@@ -753,6 +756,14 @@
       img.src = app.icon;
     });
   }
+  // צבע הלוגו לכל כרטיס, בשביל המסגרת במעבר עכבר
+  function paintCards() {
+    $view.querySelectorAll('.card[data-open], .featured[data-open]').forEach(el => {
+      const app = APPS.find(a => a.id === el.dataset.open);
+      if (!app) return;
+      logoColors(app).then(t => { if (t && el.isConnected) el.style.setProperty('--logo', t[0]); });
+    });
+  }
   function paintFeatured() {
     const el = $view.querySelector('.featured');
     const app = el && APPS.find(a => a.id === el.dataset.open);
@@ -769,7 +780,7 @@
     const app = m && APPS.find(a => a.id === decodeURIComponent(m[1]));
     $view.innerHTML = app ? appPage(app) : home();
     document.title = app ? `${app.name} · X Store` : 'X Store · אפליקציות לאנדרואיד';
-    if (!app) paintFeatured();
+    if (!app) { paintFeatured(); paintCards(); }
   }
 
   // ---------- אירועים ----------

@@ -1444,17 +1444,17 @@ nav a.nav-cta .dot{width:6px; height:6px; border-radius:50%; background:#4ade80;
    ===================================================================== */
 :root{
   --bg:#f9f9fb; --line:#ececf1; --muted:#6b6f7c; --muted-2:#a3a6b2;
-  --indigo:#6d5bd0; --indigo-soft:#efecfc;
-  --chip:#f3f3f6; --rose:#e5486e; --rose-soft:#fdecf0;
+  --indigo:#0d9488; --indigo-soft:#efecfc;
+  --chip:#f3f3f6; --rose:#10b981; --rose-soft:#fdecf0;
   --mono:ui-monospace,'SFMono-Regular',Consolas,'Liberation Mono',monospace;
   --s-shadow:0 30px 70px -40px rgba(30,27,75,.35);
-  --s-glow:0 30px 70px -45px rgba(229,72,110,.45), 0 30px 70px -45px rgba(109,91,208,.45);
+  --s-glow:0 30px 70px -45px rgba(16,185,129,.35), 0 30px 70px -45px rgba(13,148,136,.45);
   --radius-lg:24px;
 }
 ::selection{background:var(--indigo-soft);}
 
 /* ---------- header ---------- */
-.topline{height:3px; background:linear-gradient(90deg,#f7a1b9,#c3b6f7,#9fd8f0);}
+.topline{height:3px; background:linear-gradient(90deg,#5eead4,#34d399,#99f6e4);}
 header.site-head{
   display:flex; align-items:center; gap:16px; justify-content:flex-start;
   padding:12px clamp(16px,3vw,32px);
@@ -1734,7 +1734,7 @@ header.site-head{position:sticky; top:0; z-index:60;}
 
 /* "בואו נדבר": גלולה סגולה רכה במקום שחור עם נקודה ירוקה */
 nav a.nav-cta{background:var(--indigo-soft); color:var(--indigo); border:1px solid transparent; font-weight:700; box-shadow:none;}
-nav a.nav-cta:hover{background:#e3defa; color:var(--indigo);}
+nav a.nav-cta:hover{background:#cdeee8; color:var(--indigo);}
 nav a.nav-cta .dot{display:none;}
 
 /* ---------- דף הבית בסגנון החנות ---------- */
@@ -1750,8 +1750,8 @@ nav a.nav-cta .dot{display:none;}
 .s-glow::before{
   content:''; position:absolute; inset:-40%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(closest-side at 30% 45%, color-mix(in srgb, #6d5bd0 26%, transparent), transparent),
-    radial-gradient(closest-side at 62% 60%, color-mix(in srgb, #e5486e 18%, transparent), transparent);
+    radial-gradient(closest-side at 30% 45%, color-mix(in srgb, #0d9488 26%, transparent), transparent),
+    radial-gradient(closest-side at 62% 60%, color-mix(in srgb, #10b981 18%, transparent), transparent);
   filter:blur(28px);
 }
 @media (prefers-reduced-motion: no-preference){
@@ -1780,8 +1780,8 @@ nav a.nav-cta .dot{display:none;}
 .hero2-phone::before{
   content:''; position:absolute; inset:-10% -20%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #6d5bd0 22%, transparent), transparent),
-    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #e5486e 16%, transparent), transparent);
+    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #0d9488 22%, transparent), transparent),
+    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #10b981 16%, transparent), transparent);
   filter:blur(30px);
 }
 @media (prefers-reduced-motion: no-preference){
@@ -1843,8 +1843,8 @@ nav a.nav-cta .dot{display:none;}
 .hero2-show::before{
   content:''; position:absolute; inset:-12% -10%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #6d5bd0 20%, transparent), transparent),
-    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #e5486e 14%, transparent), transparent);
+    radial-gradient(closest-side at 40% 40%, color-mix(in srgb, #0d9488 20%, transparent), transparent),
+    radial-gradient(closest-side at 62% 62%, color-mix(in srgb, #10b981 14%, transparent), transparent);
   filter:blur(30px);
 }
 @media (prefers-reduced-motion: no-preference){ .hero2-show::before{animation:home-drift 16s ease-in-out infinite alternate;} }
@@ -1864,3 +1864,10 @@ nav a.nav-cta .dot{display:none;}
   .work-note{margin-inline:auto; text-align:right;}
   .show-note{text-align:center;}
 }
+
+/* ---------- צבע ההדגשה של האתר: טורקיז (במקום הסגול שהגיע מעיצוב החנות) ---------- */
+:root{
+  --indigo:#0d9488; --indigo-soft:#e2f5f2;
+  --rose:#10b981; --rose-soft:#e6f7f0;
+}
+::selection{background:#ccf0ea;}

@@ -11,13 +11,13 @@
 <style>
   :root{
     --bg:#f9f9fb; --surface:#fff; --ink:#131417; --muted:#6b6f7c; --muted-2:#a3a6b2; --line:#ececf1;
-    --chip:#f3f3f6; --pink:#e5486e; --pink-soft:#fdecf0; --purple:#6d5bd0; --purple-soft:#efecfc;
-    --shadow:0 30px 70px -40px rgba(30,27,75,.35);
+    --chip:#f3f3f6; --pink:#059669; --pink-soft:#e6f7f0; --purple:#0d9488; --purple-soft:#e2f5f2;
+    --shadow:0 30px 70px -40px rgba(15,60,58,.3);
     --mono:ui-monospace,'SFMono-Regular',Consolas,'Liberation Mono',monospace;
   }
   :root[data-theme="dark"]{
     --bg:#0f1013; --surface:#17181d; --ink:#f2f2f5; --muted:#9a9db0; --muted-2:#6e7180; --line:#25262e;
-    --chip:#202128; --pink-soft:#3a1d27; --purple-soft:#26223f; --shadow:0 30px 70px -40px rgba(0,0,0,.7);
+    --chip:#202128; --pink:#34d399; --pink-soft:#11291f; --purple:#2dd4bf; --purple-soft:#10302c; --shadow:0 30px 70px -40px rgba(0,0,0,.7);
   }
   *{margin:0; padding:0; box-sizing:border-box;}
   html{overflow-x:clip;}
@@ -28,7 +28,7 @@
   .mono{font-family:var(--mono);}
 
   /* ---------- header ---------- */
-  .topline{height:3px; background:linear-gradient(90deg,#f7a1b9,#c3b6f7,#9fd8f0);}
+  .topline{height:3px; background:linear-gradient(90deg,#5eead4,#34d399,#99f6e4);}
   .st-head{
     position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:16px;
     padding:12px clamp(16px,3vw,32px); background:color-mix(in srgb, var(--bg) 85%, transparent);

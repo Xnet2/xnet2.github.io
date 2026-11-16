@@ -159,6 +159,16 @@
   .big-dl{display:inline-flex; align-items:center; gap:16px; background:var(--ink); color:var(--bg); border-radius:100px; padding:18px 30px; font-weight:800; font-size:1.08rem;}
   .big-dl .size{font-family:var(--mono); font-weight:500; font-size:.88rem; opacity:.6;}
   .big-dl:hover{opacity:.92;}
+  .dl-row{display:flex; gap:10px; max-width:520px;}
+  .dl-row .big-dl{flex:1 1 0; min-width:0; justify-content:center; white-space:nowrap; padding:16px 20px; gap:10px;}
+  .pc-dl{background:var(--surface); color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--line);}
+  .pc-dl:hover{box-shadow:inset 0 0 0 1.5px var(--muted-2); opacity:1;}
+  @media (max-width:420px){ .dl-row .big-dl{font-size:.92rem; padding:14px 12px; gap:7px;} .dl-row .size{display:none;} }
+  .need{margin-top:12px; font-size:.9rem; font-weight:600; color:var(--ink);}
+  .need bdi{white-space:nowrap;}
+  .site-links{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:14px;}
+  .site-links a{display:inline-flex; align-items:center; gap:5px; font-size:.86rem; font-weight:700; color:var(--muted);}
+  .site-links a:hover{color:var(--ink);}
   .also{display:block; margin-top:12px; font-size:.86rem; color:var(--muted);}
   .also a{font-weight:700; color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
   .block{padding-top:28px; margin-top:28px; border-top:1px solid var(--line);}
@@ -569,7 +579,8 @@
     : app.versions[0].url || (app.file ? app.file(app.versions[0].v) : null) || `https://github.com/${app.repo}/releases/latest/download/${name}`;
   const ICON_DL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_CHECK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const ICON_EXT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_PC = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  const ICON_EXT ='<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const ICON_USER = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
   // ---------- צילומי מסך: התיקייה במאגר (shots), עם רשימת גיבוי (shotFiles) ----------
@@ -697,9 +708,12 @@
               <h1>${esc(a.name)}</h1>
               <div class="pkg">${a.pkg}</div>
               <div class="tags"><span class="tag">${catName}</span><span class="tag ver">v${v.v}</span><span class="tag by">@${a.author}</span></div>
-              <a class="big-dl" href="${latestUrl(a, a.asset)}">${ICON_DL} הורד APK <span class="size" dir="ltr">${fmtSize(v.size)}</span></a>
-              ${(a.links || []).map(([t, u]) => `<a class="pill-link" href="${u}" target="_blank" rel="noopener">${t} ${ICON_EXT}</a>`).join('')}
-              ${a.extra ? `<span class="also">צריך גם את <a href="${latestUrl(a, a.extra.name)}">${a.extra.name}</a>, ${a.extra.label}.</span>` : ''}
+              <div class="dl-row">
+                <a class="big-dl" href="${latestUrl(a, a.asset)}">${ICON_DL} הורד APK <span class="size" dir="ltr">${fmtSize(v.size)}</span></a>
+                ${a.extra ? `<a class="big-dl pc-dl" href="${latestUrl(a, a.extra.name)}">${ICON_PC} התוכנה למחשב <span class="size" dir="ltr">zip</span></a>` : ''}
+              </div>
+              ${a.extra ? `<p class="need">צריך את שני הקבצים: את ה-APK מתקינים בנגן, ואת <bdi dir="ltr">${a.extra.name}</bdi> במחשב (Windows).</p>` : ''}
+              ${a.links && a.links.length ? `<div class="site-links">${a.links.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ${ICON_EXT}</a>`).join('')}</div>` : ''}
             </div>
           </div>
           ${a.variant && v.vurl ? `

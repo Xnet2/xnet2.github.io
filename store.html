@@ -641,8 +641,13 @@
     'file-manager-x': ['צילומי מסך', ['Screenshot_20261114-223015.png', 'Screenshot_20261114-223025.png', 'Screenshot_20261114-223032.png', 'Screenshot_20261114-223037.png']],
     'pulse': ['store/screenshots', ['1-feed.png', '2-song.png', '3-settings.png']],
     'lockscreen': ['Screenshot', ['Screenshot_20261115-000756.png', 'Screenshot_20261115-000808.png', 'Screenshot_20261115-000813.png', 'Screenshot_20261115-000817.png', 'Screenshot_20261115-000821.png']],
+    // התמונות של ביטיפוש שמורות כאן באתר (בריפו של האפליקציה הן לא נשמרות)
+    'btpush': ['./assets/shots/btpush', ['Screenshot_20261117-135422.png', 'Screenshot_20261117-135438.png', 'Screenshot_20261117-135447.png', 'Screenshot_20261117-135454.png']],
   };
-  const rawUrl = (app, dir, name) => `https://raw.githubusercontent.com/${app.repo}/HEAD/${dir.split('/').map(encodeURIComponent).join('/')}/${encodeURIComponent(name)}`;
+  // תיקייה שמתחילה ב-"./" נמצאת באתר עצמו; כל השאר בריפו של האפליקציה ב-GitHub
+  const isLocal = dir => dir.startsWith('./');
+  const rawUrl = (app, dir, name) => isLocal(dir) ? `${dir.slice(2)}/${encodeURIComponent(name)}`
+    : `https://raw.githubusercontent.com/${app.repo}/HEAD/${dir.split('/').map(encodeURIComponent).join('/')}/${encodeURIComponent(name)}`;
   APPS.forEach(a => { const s = SHOTS[a.id]; if (s) a.shots = s[1].map(n => rawUrl(a, s[0], n)); });
 
   // ---------- מטמון לתשובות של GitHub ----------
@@ -665,7 +670,7 @@
   // תמונות חדשות שנוספו לתיקייה במאגר מופיעות לבד
   async function syncShots(app) {
     const s = SHOTS[app.id];
-    if (!s || !app.repo) return;
+    if (!s || !app.repo || isLocal(s[0])) return;
     const names = await cachedJson(`https://api.github.com/repos/${app.repo}/contents/${s[0].split('/').map(encodeURIComponent).join('/')}`,
       json => json.filter(f => f.type === 'file' && /\.(png|jpe?g|webp|gif)$/i.test(f.name)).map(f => f.name).sort((x, y) => x.localeCompare(y)));
     if (names && names.length) { app.shots = names.map(n => rawUrl(app, s[0], n)); if (location.hash === '#app/' + app.id) render(); }

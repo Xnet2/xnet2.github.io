@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72" width="108" height="108">
+  <!-- האייקון של הארנק (גרסה 2.1), מתוך ic_bg / ic_fg של האפליקציה. מוצג החלק שהטלפון מציג (72 מתוך 108) -->
+  <defs>
+    <linearGradient id="bg" x1="18" y1="18" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2DD9AE"/>
+      <stop offset="1" stop-color="#0E9C7F"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="72" height="72" rx="17" fill="url(#bg)"/>
+  <path fill="#FFFFFF" fill-opacity=".8" d="M38,39 L64,30 A4,4 0 0 1 69,32.5 L71,39 Z"/>
+  <path fill="#FFFFFF" d="M38,38h32a6,6 0 0 1 6,6v24a6,6 0 0 1 -6,6h-32a6,6 0 0 1 -6,-6v-24a6,6 0 0 1 6,-6z"/>
+  <path fill="#14B18E" d="M62,49h16v14h-16a7,7 0 0 1 0,-14z"/>
+  <path fill="#FFFFFF" d="M63,56m-2.6,0a2.6,2.6 0 1 1 5.2,0a2.6,2.6 0 1 1 -5.2,0"/>
+</svg>

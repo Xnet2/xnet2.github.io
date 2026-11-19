@@ -510,9 +510,17 @@
       links: [],
       repo: 'Xnet2/LockScreen',
       asset: 'LockScreen.apk',
+      // גרסת רוט באותו release, שמוצגת באותו עמוד
+      variant: {
+        title: 'גרסת רוט',
+        pkg: 'com.custom.lockscreen',
+        text: 'לטלפונים עם רוט (Magisk / KernelSU / APatch): הגנה מלאה בלי שירות נגישות, כולל חסימת אתחול למצב בטוח. שתי הגרסאות חתומות באותו מפתח, אז אפשר לעבור ביניהן בהתקנה רגילה וההגדרות נשמרות.',
+        match: /^LockScreen-Root\.apk$/i
+      },
       minAndroid: 'אנדרואיד 12 ומעלה',
       isNew: true,
       versions: [
+        { v: '1.7', date: '2026-11-19T20:40:37Z', size: 74726, downloads: 0, url: 'https://github.com/Xnet2/LockScreen/releases/download/v1.7/LockScreen.apk', vurl: 'https://github.com/Xnet2/LockScreen/releases/download/v1.7/LockScreen-Root.apk', vsize: 74726, notes: ['גרסת רוט: הגנה מלאה בלי שירות נגישות (Magisk / KernelSU / APatch)', 'ברוט, מגש ההתראות וההגדרות המהירות מבוטלים ברמת המערכת כשהטלפון נעול', 'כל אפליקציה שנפתחת מעל מסך הנעילה נסגרת מיד, ובזמן שיחה רק מסך השיחה זמין', 'אפשרות לחסום אתחול למצב בטוח (בגרסת הרוט, לבחירה)', 'אישור כל ההרשאות בלחיצה אחת עם רוט', 'LockScreen.apk הרגילה ממשיכה לעבוד עם הגנה מלאה דרך נגישות'] },
         { v: '1.6', date: '2026-11-15T12:39:12Z', size: 70629, downloads: 0, notes: ['הגנה מלאה (שירות נגישות): מגש ההתראות, ההגדרות המהירות ואפליקציות חסומים כל עוד הטלפון נעול', 'ההגדרות מוגנות בקוד שלך', 'מוסתר מצילומי מסך ומהקלטת מסך', 'הצפנה חזקה יותר, והשהיה אחרי ניסיונות שגויים', 'בלי טשטוש רקע, ואנימציות רגועות בלי קפיצות'] },
         { v: '1.5', date: '2026-11-14T22:24:37Z', size: 66468, downloads: 0, notes: ['התראות במסך הנעילה', '8 סגנונות שעון', 'קו, קוד או סיסמה', 'אנימציות קפיץ חלקות'] }
       ]
@@ -648,17 +656,24 @@
       ],
       updateHint: 'אם מותקנת הגרסה הישנה בשם "מרכז בקרה", מסירים אותה לפני שמתקינים את ShadeX.',
       details: [
-        ['רוט', 'לא צריך'],
+        ['רוט', 'לא צריך (יש גם גרסת רוט)'],
         ['סגנונות', 'iOS, אנדרואיד, Xiaomi']
       ],
       links: [],
       repo: 'Xnet2/shadex',
       asset: 'ShadeX.apk',
+      // גרסת רוט באותו release, שמוצגת באותו עמוד
+      variant: {
+        title: 'גרסת רוט',
+        pkg: 'com.shadex.app · 7.0-root',
+        text: 'למכשירים עם רוט: זהה לגרסה הרגילה, ובנוסף מכבה לגמרי את החלונית של המערכת, כך שמראש המסך נפתח רק ShadeX. בפעם הראשונה צריך לאשר את ShadeX באפליקציית הרוט. אפשר לעבור בין הגרסאות בהתקנה מעל.',
+        match: /^ShadeX-root\.apk$/i
+      },
       minAndroid: 'אנדרואיד 10 ומעלה',
       isNew: true,
       // גיבוי אם GitHub לא זמין
       versions: [
-        { v: '7.0', date: '2026-11-17T12:57:41Z', size: 134951, downloads: 0, url: 'https://github.com/Xnet2/shadex/releases/download/v7.0/ShadeX.apk', notes: ['הגרסה הראשונה בשם ShadeX (קודם: "מרכז בקרה")', 'וילון התראות ומרכז בקרה בשלושה סגנונות: iOS, אנדרואיד (Material You) ו-Xiaomi (HyperOS)', 'מסך בית תואם, עם דפים או מגירה, מעגן, חיפוש והסתרת אפליקציות', 'עריכת כפתורים לכל סגנון בנפרד', 'בלי רוט'] }
+        { v: '7.0', date: '2026-11-17T12:57:41Z', size: 134951, downloads: 0, url: 'https://github.com/Xnet2/shadex/releases/download/v7.0/ShadeX.apk', vurl: 'https://github.com/Xnet2/shadex/releases/download/v7.0/ShadeX-root.apk', vsize: 134951, notes: ['הגרסה הראשונה בשם ShadeX (קודם: "מרכז בקרה")', 'וילון התראות ומרכז בקרה בשלושה סגנונות: iOS, אנדרואיד (Material You) ו-Xiaomi (HyperOS)', 'מסך בית תואם, עם דפים או מגירה, מעגן, חיפוש והסתרת אפליקציות', 'עריכת כפתורים לכל סגנון בנפרד', 'בלי רוט'] }
       ]
     },
     {
@@ -789,7 +804,7 @@
   // ל-API של GitHub יש מגבלה של 60 בקשות בשעה לכל גולש, אז שומרים את התוצאה בדפדפן לחצי שעה
   const CACHE_MS = 30 * 60 * 1000;
   async function cachedJson(url, pick) {
-    const key = 'xstore2:' + url;
+    const key = 'xstore3:' + url;
     let old = null;
     try { old = JSON.parse(localStorage.getItem(key)); } catch (e) {}
     if (old && Date.now() - old.t < CACHE_MS) return old.d;

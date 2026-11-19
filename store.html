@@ -852,7 +852,9 @@
   function home() {
     const term = q.value.trim().toLowerCase();
     const list = APPS.filter(a => (cat === 'all' || a.category === cat) &&
-      (!term || (a.name + ' ' + a.short + ' ' + a.pkg).toLowerCase().includes(term)));
+      (!term || (a.name + ' ' + a.short + ' ' + a.pkg).toLowerCase().includes(term)))
+      // הכי הרבה הורדות ראשונה (המספרים מתעדכנים מ-GitHub, והרשימה מתמיינת מחדש)
+      .sort((a, b) => total(b) - total(a));
     const top = APPS.slice().sort((a, b) => total(b) - total(a))[0];
     const tv = top.versions[0];
     return `

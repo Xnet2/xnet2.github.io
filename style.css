@@ -1944,3 +1944,44 @@ header.site-head{
   @keyframes vt-in{from{opacity:0; transform:translateY(8px);}}
 }
 header.site-head{view-transition-name:site-head;}
+
+/* ---------- בואו נדבר: טופס פנייה שקוף, כמו זכוכית ---------- */
+.contact-glass{position:relative; isolation:isolate;}
+.contact-glass .cg-blob{position:absolute; z-index:-1; border-radius:50%; filter:blur(60px); pointer-events:none;}
+.contact-glass .cg-blob.b1{width:340px; height:340px; top:180px; right:-40px; background:rgba(45,212,191,.35);}
+.contact-glass .cg-blob.b2{width:300px; height:300px; bottom:40px; left:-30px; background:rgba(96,165,250,.28);}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes cg-float{0%{transform:translate(0,0);} 100%{transform:translate(-30px,24px);}}
+  .contact-glass .cg-blob.b1{animation:cg-float 14s ease-in-out infinite alternate;}
+  .contact-glass .cg-blob.b2{animation:cg-float 18s ease-in-out infinite alternate-reverse;}
+}
+.contact-glass .payment-card{
+  background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.85);
+  backdrop-filter:blur(22px) saturate(1.3); -webkit-backdrop-filter:blur(22px) saturate(1.3);
+  box-shadow:0 30px 60px -36px rgba(15,40,60,.35), inset 0 1px 0 rgba(255,255,255,.9);
+  border-radius:28px; padding:clamp(22px,4vw,36px);
+}
+.contact-glass .field label{font-size:.8rem; font-weight:700; color:#475569; margin-bottom:7px;}
+.contact-glass .field input, .contact-glass .field textarea{
+  background:rgba(255,255,255,.5); border:1px solid rgba(148,163,184,.35); border-radius:14px;
+  padding:13px 15px; font-size:1rem; color:var(--ink); box-shadow:none;
+  transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.contact-glass .field input::placeholder, .contact-glass .field textarea::placeholder{color:#94a3b8;}
+.contact-glass .field input[dir="ltr"]{text-align:right;}
+.contact-glass .field input:focus, .contact-glass .field textarea:focus{
+  outline:none; background:rgba(255,255,255,.85); border-color:rgba(13,148,136,.55);
+  box-shadow:0 0 0 4px rgba(13,148,136,.12);
+}
+.contact-glass .field textarea{min-height:130px;}
+.contact-glass .contact-submit{
+  width:100%; justify-content:center; border-radius:100px; padding:15px 24px; margin-top:6px;
+  background:#0f172a; border:0; color:#fff; font-size:1rem;
+}
+.contact-glass .contact-submit:hover{opacity:1; background:#1e293b;}
+.contact-glass .contact-status{text-align:center;}
+@media (max-width:640px){
+  .contact-glass .payment-card{background:rgba(255,255,255,.65); border-radius:22px;}
+  .contact-glass .cg-blob.b1{width:220px; height:220px; right:-60px;}
+  .contact-glass .cg-blob.b2{width:200px; height:200px; left:-60px;}
+}

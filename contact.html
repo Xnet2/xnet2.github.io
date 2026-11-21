@@ -56,7 +56,9 @@
   </nav>
 </header>
 
-<section class="payment contact-glow">
+<section class="payment contact-glow contact-glass">
+  <span class="cg-blob b1" aria-hidden="true"></span>
+  <span class="cg-blob b2" aria-hidden="true"></span>
   <div class="page-intro">
     <span class="eyebrow eyebrow-pink">מענה אישי</span>
     <h2 class="page-heading">בואו נבנה לכם <span class="mark-pink">משהו טוב</span></h2>
@@ -64,21 +66,23 @@
   </div>
   <div class="payment-card">
     <form id="contact-form">
-      <div class="field">
-        <label for="cf-name">שם</label>
-        <input type="text" id="cf-name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="cf-phone">טלפון</label>
-        <input type="tel" id="cf-phone" name="phone" required>
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-name">שם</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="איך קוראים לכם" required>
+        </div>
+        <div class="field">
+          <label for="cf-phone">טלפון</label>
+          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="050-0000000" dir="ltr" required>
+        </div>
       </div>
       <div class="field">
         <label for="cf-email">מייל</label>
-        <input type="email" id="cf-email" name="email" required>
+        <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="name@example.com" dir="ltr" required>
       </div>
       <div class="field">
         <label for="cf-message">הודעה</label>
-        <textarea id="cf-message" name="message" placeholder="לדוגמה: אני מאמן כושר ורוצה דף נחיתה שיביא פניות מאינסטגרם" required></textarea>
+        <textarea id="cf-message" name="message" placeholder="ספרו בקצרה מה העסק, מה תרצו שיהיה בדף, ואם יש אתר שאהבתם כדוגמה" required></textarea>
       </div>
       <button type="submit" class="btn contact-submit" id="contact-submit">
         שליחת פנייה

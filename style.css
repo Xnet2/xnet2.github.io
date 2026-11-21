@@ -1932,3 +1932,15 @@ header.site-head{
 @media (max-width:640px){
   header.site-head{top:8px; margin:8px 8px 0; border-radius:18px;}
 }
+
+/* ---------- מעבר חלק בין דפים ----------
+   בדפדפנים שתומכים (Chrome, Edge, Safari) הדף לא "מהבהב" במעבר: התוכן מתחלף בהדרגה והסרגל נשאר במקום.
+   בדפדפן שלא תומך המעבר פשוט רגיל. */
+@media (prefers-reduced-motion: no-preference){
+  @view-transition{navigation:auto;}
+  ::view-transition-old(root){animation:vt-out .18s ease both;}
+  ::view-transition-new(root){animation:vt-in .26s ease both;}
+  @keyframes vt-out{to{opacity:0;}}
+  @keyframes vt-in{from{opacity:0; transform:translateY(8px);}}
+}
+header.site-head{view-transition-name:site-head;}

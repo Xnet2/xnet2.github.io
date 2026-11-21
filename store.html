@@ -35,6 +35,17 @@
     backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
   }
   /* הסרגל צף: רחוק מהקצוות, עם פינות מעוגלות (כמו בשאר האתר) */
+  /* ---------- מעבר חלק בין דפים ----------
+     בדפדפנים שתומכים (Chrome, Edge, Safari) הדף לא "מהבהב" במעבר: התוכן מתחלף בהדרגה והסרגל נשאר במקום.
+     בדפדפן שלא תומך המעבר פשוט רגיל. */
+  @media (prefers-reduced-motion: no-preference){
+    @view-transition{navigation:auto;}
+    ::view-transition-old(root){animation:vt-out .18s ease both;}
+    ::view-transition-new(root){animation:vt-in .26s ease both;}
+    @keyframes vt-out{to{opacity:0;}}
+    @keyframes vt-in{from{opacity:0; transform:translateY(8px);}}
+  }
+  .st-head{view-transition-name:site-head;}
   .st-head{top:10px; margin:10px clamp(10px,2vw,20px) 0; border:1px solid var(--line); border-radius:20px; background:color-mix(in srgb, var(--surface) 86%, transparent); box-shadow:0 12px 30px -24px rgba(19,20,23,.4);}
   @media (max-width:640px){ .st-head{top:8px; margin:8px 8px 0; border-radius:18px;} }
   .st-brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.2rem;}
@@ -294,7 +305,6 @@
 </style>
 </head>
 <body>
-<div class="topline"></div>
 <header class="st-head">
   <a class="st-brand" href="#" data-home>
     <img src="https://raw.githubusercontent.com/Xnet2/GOOGLE-MY/refs/heads/main/image-removebg-preview%20(2).png" alt="">
@@ -1147,6 +1157,13 @@
 
   render();
   APPS.forEach(a => { if (a.repo) { syncFromGitHub(a); syncShots(a); } });
+  // הבאה מראש של דפים באתר כשמצביעים על קישור (Chrome / Edge), כדי שהמעבר יהיה מיידי
+  if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+    const sr = document.createElement('script');
+    sr.type = 'speculationrules';
+    sr.textContent = JSON.stringify({ prefetch: [{ where: { href_matches: '/*' }, eagerness: 'moderate' }] });
+    document.head.appendChild(sr);
+  }
 </script>
 </body>
 </html>

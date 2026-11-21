@@ -1985,3 +1985,51 @@ header.site-head{view-transition-name:site-head;}
   .contact-glass .cg-blob.b1{width:220px; height:220px; right:-60px;}
   .contact-glass .cg-blob.b2{width:200px; height:200px; left:-60px;}
 }
+
+/* ---------- דף הבית: באנר פנייה לרוחב, שקוף כמו זכוכית ---------- */
+.home-contact{position:relative; isolation:isolate; margin:44px auto 20px; width:min(1240px, calc(100% - 32px));}
+.hcb-blob{position:absolute; z-index:-1; border-radius:50%; filter:blur(55px); pointer-events:none;}
+.hcb-blob.b1{width:300px; height:220px; top:-30px; right:8%; background:rgba(45,212,191,.38);}
+.hcb-blob.b2{width:280px; height:200px; bottom:-40px; left:6%; background:rgba(96,165,250,.3);}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes hcb-float{0%{transform:translate(0,0);} 100%{transform:translate(-40px,18px);}}
+  .hcb-blob.b1{animation:hcb-float 13s ease-in-out infinite alternate;}
+  .hcb-blob.b2{animation:hcb-float 17s ease-in-out infinite alternate-reverse;}
+}
+.hcb-card{
+  display:grid; grid-template-columns:1fr; align-items:center; gap:12px;
+  background:rgba(255,255,255,.5); border:1px solid rgba(255,255,255,.85);
+  backdrop-filter:blur(22px) saturate(1.3); -webkit-backdrop-filter:blur(22px) saturate(1.3);
+  box-shadow:0 30px 60px -38px rgba(15,40,60,.35), inset 0 1px 0 rgba(255,255,255,.9);
+  border-radius:28px; padding:clamp(20px,3vw,30px) clamp(20px,3.4vw,36px);
+}
+.hcb-text h2{font-size:clamp(1.25rem,2.2vw,1.55rem); font-weight:800; letter-spacing:-.02em; line-height:1.2;}
+.hcb-text p{color:#5b6475; font-size:.95rem; margin-top:4px;}
+.hcb-form{display:flex; gap:10px; min-width:0;}
+.hcb-form input{
+  flex:1 1 0; min-width:0; font-family:inherit; font-size:16px; color:var(--ink);
+  background:rgba(255,255,255,.55); border:1px solid rgba(148,163,184,.35); border-radius:14px; padding:12px 14px;
+  transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.hcb-form input[name="message"]{flex-grow:1.6;}
+.hcb-form input[dir="ltr"]{text-align:right;}
+.hcb-form input::placeholder{color:#94a3b8;}
+.hcb-form input:focus{outline:none; background:rgba(255,255,255,.9); border-color:rgba(13,148,136,.55); box-shadow:0 0 0 4px rgba(13,148,136,.12);}
+.hcb-form button{
+  flex:0 0 auto; display:inline-flex; align-items:center; gap:8px; font-family:inherit; font-weight:800; font-size:.98rem;
+  background:#0f172a; color:#fff; border:0; border-radius:100px; padding:12px 22px; cursor:pointer;
+}
+.hcb-form button:hover{background:#1e293b;}
+.hcb-form button[disabled]{opacity:.6; cursor:default;}
+.hcb-status{grid-column:1 / -1; font-size:.88rem; font-weight:600; color:var(--muted); min-height:0; text-align:center;}
+.hcb-status:empty{display:none;}
+.hcb-status.ok{color:#0d9488;}
+.hcb-status.err{color:#dc2626;}
+@media (max-width:980px){ .hcb-card{grid-template-columns:1fr;} }
+@media (max-width:640px){
+  .hcb-card{background:rgba(255,255,255,.65); border-radius:22px;}
+  .hcb-form{flex-wrap:wrap;}
+  .hcb-form input{flex:1 1 calc(50% - 5px);}
+  .hcb-form input[name="message"]{flex-basis:100%;}
+  .hcb-form button{flex-basis:100%; justify-content:center;}
+}

@@ -1987,7 +1987,7 @@ header.site-head{view-transition-name:site-head;}
 }
 
 /* ---------- דף הבית: באנר פנייה לרוחב, שקוף כמו זכוכית ---------- */
-.home-contact{position:relative; isolation:isolate; margin:44px auto 20px; width:min(1240px, calc(100% - 32px));}
+.home-contact{position:relative; isolation:isolate; margin-top:44px; margin-bottom:20px;}
 .hcb-blob{position:absolute; z-index:-1; border-radius:50%; filter:blur(55px); pointer-events:none;}
 .hcb-blob.b1{width:300px; height:220px; top:-30px; right:8%; background:rgba(45,212,191,.38);}
 .hcb-blob.b2{width:280px; height:200px; bottom:-40px; left:6%; background:rgba(96,165,250,.3);}
@@ -2033,3 +2033,17 @@ header.site-head{view-transition-name:site-head;}
   .hcb-form input[name="message"]{flex-basis:100%;}
   .hcb-form button{flex-basis:100%; justify-content:center;}
 }
+
+/* הבאנר בגובה: שם וטלפון בשורה, מתחת פרטים נוספים, ומתחת הכפתור */
+.hcb-card{padding:clamp(24px,3.6vw,40px);}
+.hcb-form{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.hcb-form input, .hcb-form textarea{padding:15px 16px;}
+.hcb-form textarea{
+  grid-column:1 / -1; min-height:120px; resize:vertical; line-height:1.5; font-family:inherit; font-size:16px; color:var(--ink);
+  background:rgba(255,255,255,.55); border:1px solid rgba(148,163,184,.35); border-radius:14px;
+  transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.hcb-form textarea::placeholder{color:#94a3b8;}
+.hcb-form textarea:focus{outline:none; background:rgba(255,255,255,.9); border-color:rgba(13,148,136,.55); box-shadow:0 0 0 4px rgba(13,148,136,.12);}
+.hcb-form button{grid-column:1 / -1; justify-self:start; padding:14px 30px;}
+@media (max-width:640px){ .hcb-form button{justify-self:stretch; justify-content:center;} }

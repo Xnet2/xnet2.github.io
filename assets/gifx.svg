@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- האייקון של GifX, כמו ה-favicon של הכלי -->
+  <!-- האייקון של GifX: האותיות מצוירות כקווים ולא כטקסט, כי נטפרי חוסם SVG עם טקסט -->
   <rect width="64" height="64" rx="14" fill="#6d28d9"/>
-  <text x="32" y="42" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="24" text-anchor="middle" fill="#fff">GIF</text>
+  <g fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28.5 26 A8.5 8.5 0 1 0 30.5 32 H24.5"/>
+    <path d="M36.5 23.5 V40.5"/>
+    <path d="M51 23.5 H43 V40.5 M43 32 H49"/>
+  </g>
 </svg>

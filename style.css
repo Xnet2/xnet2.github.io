@@ -1921,3 +1921,14 @@ nav a.nav-cta .dot{display:none;}
   .l-btn{width:100%; justify-content:center;}
   .live-cta{width:100%;}
 }
+
+/* ---------- הסרגל צף: רחוק מהקצוות, עם פינות מעוגלות ---------- */
+header.site-head{
+  top:10px; margin:10px clamp(10px,2vw,20px) 0;
+  border:1px solid var(--line); border-radius:20px;
+  background:color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow:0 12px 30px -24px rgba(19,20,23,.4);
+}
+@media (max-width:640px){
+  header.site-head{top:8px; margin:8px 8px 0; border-radius:18px;}
+}

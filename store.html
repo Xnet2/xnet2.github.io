@@ -34,6 +34,9 @@
     padding:12px clamp(16px,3vw,32px); background:color-mix(in srgb, var(--bg) 85%, transparent);
     backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
   }
+  /* הסרגל צף: רחוק מהקצוות, עם פינות מעוגלות (כמו בשאר האתר) */
+  .st-head{top:10px; margin:10px clamp(10px,2vw,20px) 0; border:1px solid var(--line); border-radius:20px; background:color-mix(in srgb, var(--surface) 86%, transparent); box-shadow:0 12px 30px -24px rgba(19,20,23,.4);}
+  @media (max-width:640px){ .st-head{top:8px; margin:8px 8px 0; border-radius:18px;} }
   .st-brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.2rem;}
   .st-brand img{width:34px; height:34px; border-radius:10px; background:#fff; border:1px solid var(--line); padding:4px;}
   .st-search{flex:1; max-width:420px; margin-inline:auto; position:relative;}

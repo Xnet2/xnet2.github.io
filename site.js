@@ -43,3 +43,48 @@
   });
   document.addEventListener('click', e => { if(!e.target.closest('.site-search')) box.hidden = true; });
 })();
+
+// ---------- חלונית "הערוץ שלי": נכנסת מלמטה משמאל כמה שניות אחרי הכניסה לאתר ----------
+// מופיעה פעם אחת בביקור. מי שסגר אותה או לחץ על הקישור לא יראה אותה שוב שבוע.
+(function(){
+  const CHANNEL = 'https://xnet2.github.io/status';
+  const KEY = 'xnet-channel-promo';
+  const WEEK = 7 * 24 * 60 * 60 * 1000;
+  try {
+    if (sessionStorage.getItem(KEY)) return;
+    const until = +localStorage.getItem(KEY) || 0;
+    if (Date.now() < until) return;
+    sessionStorage.setItem(KEY, '1');
+  } catch (e) {}
+
+  const el = document.createElement('aside');
+  el.className = 'ch-promo';
+  el.setAttribute('role', 'dialog');
+  el.setAttribute('aria-label', 'הערוץ האישי שלי');
+  el.innerHTML =
+    '<button class="ch-close" type="button" aria-label="סגירה">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>' +
+    '</button>' +
+    '<div class="ch-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/></svg></div>' +
+    '<div class="ch-text">' +
+      '<b>הערוץ האישי שלי</b>' +
+      '<span>עדכונים, הכרזות ומאחורי הקלעים על כל מה שאני בונה. כדאי לעקוב.</span>' +
+      '<a class="ch-btn" href="' + CHANNEL + '" target="_blank" rel="noopener">למעקב אחרי הערוץ ' +
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '</a>' +
+    '</div>';
+
+  function close(remember){
+    el.classList.remove('show');
+    if (remember) { try { localStorage.setItem(KEY, String(Date.now() + WEEK)); } catch (e) {} }
+    setTimeout(() => el.remove(), 500);
+  }
+  el.querySelector('.ch-close').addEventListener('click', () => close(true));
+  el.querySelector('.ch-btn').addEventListener('click', () => close(true));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && el.isConnected) close(true); });
+
+  setTimeout(() => {
+    document.body.appendChild(el);
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+  }, 2500);
+})();
